@@ -98,6 +98,8 @@ func _ready():
 	orb = config.get_value("things", "orbs", 0)
 
 func _physics_process(_delta: float):
+	if maxhealth < health:
+		health = maxhealth
 	if health <= 0:
 		canHealth = true
 		health = 100

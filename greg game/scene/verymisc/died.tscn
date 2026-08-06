@@ -52,6 +52,7 @@ oversampling_override = 1.0
 title = "you is die"
 initial_position = 2
 size = Vector2i(250, 250)
+visible = false
 unresizable = true
 always_on_top = true
 transparent = true

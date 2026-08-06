@@ -27,14 +27,15 @@ func _wobble():
 	_changetool(g.current)
 
 func _gothit(_meh):
-	JUMP_VELOCITY = -200
-	velocity.y = JUMP_VELOCITY
-	spr.play("gethit")
-	g.canHealth = false
-	$AnimationPlayer.play("gothit")
-	await get_tree().create_timer(0.5).timeout
-	$AnimationPlayer.stop()
-	g.canHealth = true
+	if get_tree():
+		JUMP_VELOCITY = -200
+		velocity.y = JUMP_VELOCITY
+		spr.play("gethit")
+		g.canHealth = false
+		$AnimationPlayer.play("gothit")
+		await get_tree().create_timer(0.5).timeout
+		$AnimationPlayer.stop()
+		g.canHealth = true
 
 
 func _ready():

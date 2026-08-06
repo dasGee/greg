@@ -3,7 +3,6 @@ var config = ConfigFile.new()
 var err = config.load("user://Greg.cfg")
 
 func _ready():
-	ProjectSettings.set_setting("display/window/subwindows/embed_subwindows", true)
 	if err != OK:
 		return
 	else:
@@ -12,6 +11,11 @@ func _ready():
 			$timerbutton.button_pressed = true
 		if config.get_value("setting", "mantex", false) == true:
 			$togglemantex.button_pressed = true
+		if config.get_value("setting", "quickrestart", false) == true:
+			$qrestart.button_pressed = true
+		if config.get_value("setting", "1hp", false) == true:
+			$oneHp.button_pressed = true
+			g.maxhealth = 1
 		$HSlider.set_value_no_signal(config.get_value("setting", "musicVol", 1))
 		$HSlider2.set_value_no_signal(config.get_value("setting", "sfxVol", 1))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), linear_to_db(config.get_value("setting", "musicVol", 1)))
@@ -51,7 +55,7 @@ func _on_control_pressed() -> void :
 	g.score = 0
 	get_tree().paused = false
 	g.canHealth = true
-	g.health = 100
+	g.health = g.maxhealth
 	g.lock = false
 	g.tools = g.DefaultTools
 	g.scrap = 0
@@ -63,7 +67,7 @@ func _on_control_pressed() -> void :
 func _on_control_2_pressed() -> void :
 	hide()
 	g.canHealth = true
-	g.health = 100
+	g.health = g.maxhealth
 	g.lock = false
 	g.tools = g.DefaultTools
 	g.scrap = 0
@@ -80,4 +84,25 @@ func _togglemantex(t: bool) -> void :
 	else:
 		g.mantex = true
 		config.set_value("setting", "mantex", true)
+		config.save("user://Greg.cfg")
+
+
+func _on_qrestart_toggled(t: bool):
+	if t == false:
+		config.set_value("setting", "quickrestart", false)
+		config.save("user://Greg.cfg")
+	else:
+		config.set_value("setting", "quickrestart", true)
+		config.save("user://Greg.cfg")
+
+
+func _on_hp_toggled(t: bool):
+	if t == false:
+		g.maxhealth = 100
+		config.set_value("setting", "1hp", false)
+		config.save("user://Greg.cfg")
+	else:
+		g.maxhealth = 1
+		g.health = 1
+		config.set_value("setting", "1hp", true)
 		config.save("user://Greg.cfg")
