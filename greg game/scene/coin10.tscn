@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b5ssq3fyxih75"]
+
+[ext_resource type="Script" uid="uid://ii6ny8sur8c7" path="res://scene/coin.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bedpbkn1ni5fn" path="res://asest/sprite/allelse/10coin.png" id="2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u46ec"]
+size = Vector2(10, 10)
+
+[node name="coin" type="Area2D" unique_id=708330860]
+collision_layer = 0
+collision_mask = 8192
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856790161]
+shape = SubResource("RectangleShape2D_u46ec")
+
+[node name="10Coin" type="Sprite2D" parent="." unique_id=605067684]
+position = Vector2(0.25, -0.25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[connection signal="area_entered" from="." to="." method="_area"]

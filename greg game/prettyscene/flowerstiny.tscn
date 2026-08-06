@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cdejsibw2b3cx"]
+
+[ext_resource type="PackedScene" uid="uid://b3ar4xgurcm6y" path="res://prettyscene/flower.tscn" id="1"]
+
+[node name="flowerstiny" type="Node2D" unique_id=522259673]
+
+[node name="flower" parent="." unique_id=177640243 instance=ExtResource("1")]
+position = Vector2(-15, 16)
+scale = Vector2(0.25, 0.25)
+
+[node name="flower2" parent="." unique_id=888175923 instance=ExtResource("1")]
+position = Vector2(-9, 16)
+scale = Vector2(0.25, 0.25)
+
+[node name="flower3" parent="." unique_id=1381139722 instance=ExtResource("1")]
+position = Vector2(-3, 16)
+scale = Vector2(0.25, 0.25)
+
+[node name="flower4" parent="." unique_id=47723689 instance=ExtResource("1")]
+position = Vector2(3, 16)
+scale = Vector2(0.25, 0.25)
+
+[node name="flower5" parent="." unique_id=125759165 instance=ExtResource("1")]
+position = Vector2(9, 16)
+scale = Vector2(0.25, 0.25)
+
+[node name="flower6" parent="." unique_id=996521805 instance=ExtResource("1")]
+position = Vector2(15, 16)
+scale = Vector2(0.25, 0.25)

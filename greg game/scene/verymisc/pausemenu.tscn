@@ -1,0 +1,372 @@
+[gd_scene format=3 uid="uid://cxdx0jay1d4af"]
+
+[ext_resource type="Script" uid="uid://cjhp43avrsc5o" path="res://scrpt/hehe/pause.gd" id="1"]
+[ext_resource type="FontFile" uid="uid://c6rhp83iqg7pt" path="res://asest/BadScript-Regular.ttf" id="2"]
+[ext_resource type="Script" uid="uid://081f31vvvw3w" path="res://scrpt/pausemenu/opensetting.gd" id="3"]
+[ext_resource type="Script" uid="uid://cnfa3kd1daejy" path="res://scene/verymisc/setting.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://dk0pfn8f517lv" path="res://asest/sprite/allelse/bobbe.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cv643igxi0dvo" path="res://asest/sprite/off.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://b3xb4b6frp4kl" path="res://asest/sprite/on.png" id="7"]
+[ext_resource type="FontFile" uid="uid://rr1fym2wttn7" path="res://asest/sprite/dasG greg.ttf" id="8"]
+[ext_resource type="Script" uid="uid://ba3ynanblo45g" path="res://scrpt/hehe/timer.gd" id="9"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qm2h5"]
+bg_color = Color(1, 1, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fp5k8"]
+bg_color = Color(1, 1, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+anti_aliasing_size = 0.01
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jtp3a"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jtp3a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gq4wf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qm2h5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fp5k8"]
+
+[sub_resource type="Theme" id="Theme_ygddx"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/fonts/font = ExtResource("2")
+Button/styles/hover = SubResource("StyleBoxFlat_qm2h5")
+Button/styles/normal = SubResource("StyleBoxFlat_fp5k8")
+Button/styles/pressed = SubResource("StyleBoxFlat_jtp3a")
+CheckButton/colors/font_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_focus_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_hover_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+CheckButton/fonts/font = ExtResource("2")
+CheckButton/styles/hover = SubResource("StyleBoxEmpty_jtp3a")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_gq4wf")
+CheckButton/styles/normal = SubResource("StyleBoxEmpty_qm2h5")
+CheckButton/styles/pressed = SubResource("StyleBoxEmpty_fp5k8")
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_ygddx"]
+color = Color(1, 1, 1, 1)
+grow_begin = -1.0
+grow_end = -1.0
+thickness = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_15ndn"]
+color = Color(1, 1, 1, 1)
+grow_begin = -1.0
+grow_end = -1.0
+thickness = 5
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_t08mf"]
+grow_begin = -1.0
+grow_end = -1.0
+thickness = 5
+
+[sub_resource type="Theme" id="Theme_lpbpy"]
+HSlider/icons/grabber = ExtResource("5")
+HSlider/icons/grabber_disabled = ExtResource("5")
+HSlider/icons/grabber_highlight = ExtResource("5")
+HSlider/styles/grabber_area = SubResource("StyleBoxLine_ygddx")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_15ndn")
+HSlider/styles/slider = SubResource("StyleBoxLine_t08mf")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfgmk"]
+bg_color = Color(0.80859375, 0.80859375, 0.80859375, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfeva"]
+bg_color = Color(0.63671875, 0.63671875, 0.63671875, 1)
+corner_detail = 1
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vok0w"]
+bg_color = Color(0.41015625, 0.41015625, 0.41015625, 1)
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_detail = 1
+expand_margin_left = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0.4, 0.4, 0.4, 0.6)
+shadow_size = 5
+
+[sub_resource type="Theme" id="Theme_dqqny"]
+default_font = ExtResource("8")
+Button/constants/align_to_largest_stylebox = 1
+Button/constants/h_separation = 0
+Button/styles/disabled = null
+Button/styles/focus = SubResource("StyleBoxFlat_sfgmk")
+Button/styles/hover = SubResource("StyleBoxFlat_dfeva")
+Button/styles/normal = SubResource("StyleBoxFlat_dfeva")
+Button/styles/pressed = SubResource("StyleBoxFlat_vok0w")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0m2m7"]
+texture = ExtResource("6")
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(10, 16, 47, 28)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpbpy"]
+bg_color = Color(0.80859375, 0.80859375, 0.80859375, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0m2m7"]
+bg_color = Color(0.63671875, 0.63671875, 0.63671875, 1)
+corner_detail = 1
+shadow_size = 5
+shadow_offset = Vector2(-2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqqny"]
+bg_color = Color(0.41015625, 0.41015625, 0.41015625, 1)
+border_width_top = 2
+border_width_right = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_detail = 1
+expand_margin_left = 2.0
+expand_margin_bottom = 2.0
+shadow_color = Color(0.4, 0.4, 0.4, 0.6)
+shadow_size = 5
+
+[sub_resource type="Theme" id="Theme_ekcqf"]
+default_font = ExtResource("8")
+Button/constants/align_to_largest_stylebox = 1
+Button/constants/h_separation = 0
+Button/styles/disabled = SubResource("StyleBoxTexture_0m2m7")
+Button/styles/focus = SubResource("StyleBoxFlat_lpbpy")
+Button/styles/hover = SubResource("StyleBoxFlat_0m2m7")
+Button/styles/normal = SubResource("StyleBoxFlat_0m2m7")
+Button/styles/pressed = SubResource("StyleBoxFlat_dqqny")
+
+[node name="Node" type="Node" unique_id=1376835603]
+process_mode = 3
+script = ExtResource("1")
+
+[node name="Window" type="Window" parent="." unique_id=745797895]
+transparent_bg = true
+oversampling_override = 1.0
+title = "greg is pause"
+initial_position = 2
+size = Vector2i(250, 125)
+visible = false
+unresizable = true
+transparent = true
+sharp_corners = true
+minimize_disabled = true
+maximize_disabled = true
+
+[node name="ColorRect" type="ColorRect" parent="Window" unique_id=1045750196]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.43359375, 0.43359375, 0.43359375, 1)
+
+[node name="Button" type="Button" parent="Window" unique_id=1254715730]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 146.0
+offset_top = 88.0
+offset_right = -8.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_ygddx")
+action_mode = 0
+text = "settings"
+script = ExtResource("3")
+
+[node name="setting" type="Window" parent="." unique_id=1822110160]
+transparent_bg = true
+oversampling_override = 1.0
+title = "pause menu :)"
+initial_position = 2
+size = Vector2i(400, 500)
+visible = false
+unresizable = true
+transparent = true
+sharp_corners = true
+minimize_disabled = true
+maximize_disabled = true
+script = ExtResource("4")
+
+[node name="ColorRect2" type="ColorRect" parent="setting" unique_id=1540894512]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(1, 0.7666667, 0, 0.49019608)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="setting" unique_id=912525156]
+offset_left = 148.0
+offset_top = 22.0
+offset_right = 253.0
+offset_bottom = 61.0
+bbcode_enabled = true
+text = "[wave amp=50 freq=2][font=res://asest/greg.ttf][outline_size=5][font_size=20
+]music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="setting" unique_id=1474641535]
+offset_left = 141.0
+offset_top = 79.0
+offset_right = 296.0
+offset_bottom = 114.0
+bbcode_enabled = true
+text = "[wave amp=50 freq=2][font=res://asest/greg.ttf][font_size=20][outline_size=5]sound effect"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="setting" unique_id=196262516]
+offset_left = 83.0
+offset_top = 149.0
+offset_right = 276.0
+offset_bottom = 218.0
+bbcode_enabled = true
+text = "[wave amp=50 freq=2][font=res://asest/greg.ttf][font_size=20][outline_size=5]unlockman required level text"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="setting" unique_id=1948561888]
+offset_left = 5.0
+offset_top = 36.0
+offset_right = 140.0
+offset_bottom = 52.0
+theme = SubResource("Theme_lpbpy")
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="HSlider2" type="HSlider" parent="setting" unique_id=690280264]
+offset_left = 5.0
+offset_top = 95.0
+offset_right = 140.0
+offset_bottom = 111.0
+theme = SubResource("Theme_lpbpy")
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="togglemantex" type="TextureButton" parent="setting" unique_id=119316176]
+offset_left = 19.0
+offset_top = 152.0
+offset_right = 83.0
+offset_bottom = 216.0
+toggle_mode = true
+texture_normal = ExtResource("6")
+texture_pressed = ExtResource("7")
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="setting" unique_id=1524838770]
+offset_left = 83.0
+offset_top = 231.0
+offset_right = 202.0
+offset_bottom = 290.0
+bbcode_enabled = true
+text = "[wave amp=50 freq=2][font=res://asest/greg.ttf][font_size=20][outline_size=5]timer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="timerbutton" type="TextureButton" parent="setting" unique_id=1521768645]
+offset_left = 18.0
+offset_top = 232.0
+offset_right = 82.0
+offset_bottom = 296.0
+toggle_mode = true
+texture_normal = ExtResource("6")
+texture_pressed = ExtResource("7")
+
+[node name="TextureButton2" type="Button" parent="setting" unique_id=153103938]
+offset_left = 191.0
+offset_top = 436.0
+offset_right = 391.0
+offset_bottom = 487.0
+theme = SubResource("Theme_dqqny")
+text = "open data folder"
+
+[node name="Control" type="Button" parent="setting" unique_id=698044435]
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.060000002
+anchor_right = 0.8
+anchor_bottom = 0.24000001
+offset_left = -70.0
+offset_top = 420.0
+offset_right = -160.0
+offset_bottom = 370.0
+theme = SubResource("Theme_ekcqf")
+text = "restart at hub "
+icon = ExtResource("5")
+
+[node name="Control2" type="Button" parent="setting" unique_id=601784345]
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.33600003
+anchor_right = 0.8
+anchor_bottom = 0.51600003
+offset_left = -70.0
+offset_top = 231.99998
+offset_right = -160.0
+offset_bottom = 181.99997
+theme = SubResource("Theme_ekcqf")
+disabled = true
+text = "restart level
+"
+icon = ExtResource("5")
+
+[node name="time" type="CanvasLayer" parent="." unique_id=1895030408]
+process_mode = 3
+layer = 2
+visible = false
+
+[node name="time" type="RichTextLabel" parent="time" unique_id=1629966368]
+offset_left = 965.0
+offset_top = 631.0
+offset_right = 1275.0
+offset_bottom = 716.0
+bbcode_enabled = true
+text = "[outline_size=10][outline_color=\"white\"][font=res://asest/greg.ttf][font_size=40][color=\"black\"]i am timer"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9")
+
+[connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
+[connection signal="pressed" from="Window/Button" to="Window/Button" method="_on_pressed"]
+[connection signal="close_requested" from="setting" to="setting" method="_on_close_requested"]
+[connection signal="value_changed" from="setting/HSlider" to="setting" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="setting/HSlider2" to="setting" method="_on_h_slider_2_value_changed"]
+[connection signal="toggled" from="setting/togglemantex" to="setting" method="_togglemantex"]
+[connection signal="toggled" from="setting/timerbutton" to="setting" method="_ontimerbutton"]
+[connection signal="pressed" from="setting/TextureButton2" to="setting" method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="setting/Control" to="setting" method="_on_control_pressed"]
+[connection signal="pressed" from="setting/Control2" to="setting" method="_on_control_2_pressed"]

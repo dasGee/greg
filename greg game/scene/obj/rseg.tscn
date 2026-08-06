@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c2m58q35yx7l3"]
+
+[ext_resource type="Texture2D" uid="uid://ckc3i77jt86nm" path="res://asest/sprite/allelse/square.png" id="1"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sg1yt"]
+friction = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_md5yd"]
+size = Vector2(2, 12)
+
+[node name="rseg" type="RigidBody2D" unique_id=1949187904]
+mass = 0.2
+physics_material_override = SubResource("PhysicsMaterial_sg1yt")
+gravity_scale = 0.35
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=947144739]
+visibility_layer = 512
+shape = SubResource("RectangleShape2D_md5yd")
+
+[node name="Square" type="Sprite2D" parent="." unique_id=1194418811]
+visibility_layer = 4
+scale = Vector2(3, 14)
+texture = ExtResource("1")

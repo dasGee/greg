@@ -1,0 +1,153 @@
+[gd_scene format=3 uid="uid://d2tgmijqdocju"]
+
+[ext_resource type="Script" uid="uid://bcqlt3j2ib6lo" path="res://scrpt/hehe/breakPlatform.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://smuycbnbc08x" path="res://prettyscene/particle/crumble.tscn" id="2"]
+[ext_resource type="Texture2D" uid="uid://jjmyeggyox3m" path="res://asest/sprite/allelse/cryplatform.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6077a"]
+size = Vector2(24, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vle84"]
+size = Vector2(30, 8)
+
+[sub_resource type="Animation" id="Animation_ii1lb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cryplatform:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("crumble:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hv8a7"]
+resource_name = "break"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cryplatform:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6166667, 5.9, 6.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.4666667, 6.766667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.4, 6.2000003, 6.6666665),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("crumble:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sn723"]
+_data = {
+&"RESET": SubResource("Animation_ii1lb"),
+&"break": SubResource("Animation_hv8a7")
+}
+
+[node name="cryplatform" type="Node2D" unique_id=705136203]
+script = ExtResource("1")
+
+[node name="crumble" parent="." unique_id=1044559339 instance=ExtResource("2")]
+position = Vector2(0, -12)
+
+[node name="Cryplatform" type="Sprite2D" parent="." unique_id=2128375636]
+position = Vector2(0, -12)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1214173030]
+position = Vector2(0, -12)
+collision_layer = 0
+collision_mask = 32768
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1951876813]
+visible = false
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_6077a")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=464725239]
+position = Vector2(0, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=147619512]
+shape = SubResource("RectangleShape2D_vle84")
+one_way_collision = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1769202160]
+libraries/ = SubResource("AnimationLibrary_sn723")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

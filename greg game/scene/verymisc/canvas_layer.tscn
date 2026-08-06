@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://ck3xlnxmbbv6j"]
+
+[ext_resource type="AudioStream" uid="uid://dotlsa3ov2guk" path="res://asest/sound/spring.ogg" id="1"]
+[ext_resource type="Script" uid="uid://dphni28i7bnrx" path="res://scene/uitoolselect.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://c4h4k0b6c4wih" path="res://asest/sprite/toolwheelsprites/box.png" id="3"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="4"]
+[ext_resource type="Texture2D" uid="uid://c3f1muswabjgu" path="res://asest/sprite/allelse/bubbleBlack.png" id="5"]
+[ext_resource type="Script" uid="uid://6ckphmmqh6fc" path="res://scene/verymisc/healthText.gd" id="6"]
+[ext_resource type="Texture2D" uid="uid://c72sncwad8gq4" path="res://asest/sprite/allelse/waterfill.png" id="7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f60wf"]
+font_size = 10
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.62352943)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5xe0w"]
+shader = ExtResource("4")
+shader_parameter/color = Color(0, 0, 0, 0.41960785)
+shader_parameter/width = 3.0000001425
+shader_parameter/pattern = 2
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = false
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=192710975]
+
+[node name="Spring" type="AudioStreamPlayer" parent="." unique_id=1413482303]
+stream = ExtResource("1")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="Node" type="Node2D" parent="." unique_id=691970376]
+position = Vector2(43.5, -35.1)
+script = ExtResource("2")
+
+[node name="b1" type="Node2D" parent="Node" unique_id=682798444]
+position = Vector2(19.5, -57.900024)
+
+[node name="Label2" type="Label" parent="Node/b1" unique_id=1949013905]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.66665
+offset_top = 146.0
+offset_right = 60.66665
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "1"
+label_settings = SubResource("LabelSettings_f60wf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Circul2" type="Sprite2D" parent="Node/b1" unique_id=2005855431]
+modulate = Color(1, 0.8901961, 0.73333335, 1)
+position = Vector2(40.66665, 140)
+texture = ExtResource("3")
+
+[node name="b2" type="Node2D" parent="Node" unique_id=437218075]
+position = Vector2(85.5, -64.900024)
+
+[node name="Label2" type="Label" parent="Node/b2" unique_id=1793748159]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.66665
+offset_top = 146.0
+offset_right = 60.66665
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "2"
+label_settings = SubResource("LabelSettings_f60wf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Circul2" type="Sprite2D" parent="Node/b2" unique_id=1674809811]
+modulate = Color(1, 0.8901961, 0.73333335, 1)
+position = Vector2(40.66665, 140)
+texture = ExtResource("3")
+
+[node name="b3" type="Node2D" parent="Node" unique_id=1082682035]
+position = Vector2(157.5, -62.900024)
+
+[node name="Label2" type="Label" parent="Node/b3" unique_id=536040480]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.66665
+offset_top = 146.0
+offset_right = 60.66665
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "3"
+label_settings = SubResource("LabelSettings_f60wf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Circul2" type="Sprite2D" parent="Node/b3" unique_id=282036587]
+modulate = Color(1, 0.8901961, 0.73333335, 1)
+position = Vector2(40.66665, 140)
+texture = ExtResource("3")
+
+[node name="b4" type="Node2D" parent="Node" unique_id=2057471729]
+position = Vector2(222.5, -57.900024)
+
+[node name="Label2" type="Label" parent="Node/b4" unique_id=337991496]
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 54.66665
+offset_top = 146.0
+offset_right = 60.66665
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+text = "4"
+label_settings = SubResource("LabelSettings_f60wf")
+metadata/_edit_use_anchors_ = true
+
+[node name="Circul2" type="Sprite2D" parent="Node/b4" unique_id=1975674896]
+modulate = Color(1, 0.8901961, 0.73333335, 1)
+position = Vector2(40.66665, 140)
+texture = ExtResource("3")
+
+[node name="Bubble" type="Sprite2D" parent="." unique_id=755031766]
+self_modulate = Color(1, 1, 1, 0.32156864)
+z_index = -1
+material = SubResource("ShaderMaterial_5xe0w")
+position = Vector2(207.5, 16.900002)
+scale = Vector2(2.45, 2.45)
+texture = ExtResource("5")
+
+[node name="Bubble2" type="Sprite2D" parent="." unique_id=616080339]
+self_modulate = Color(1, 1, 1, 0.18039216)
+z_index = -1
+material = SubResource("ShaderMaterial_5xe0w")
+position = Vector2(233, 721)
+scale = Vector2(3, 3)
+texture = ExtResource("5")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=374371784]
+script = ExtResource("6")
+wave = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Node2D" unique_id=1104810257]
+offset_left = 43.0
+offset_top = 114.0
+offset_right = 431.0
+offset_bottom = 171.0
+bbcode_enabled = true
+text = "[wave amp=50 freq=2][font=res://asest/greg.ttf][font_size=40]cur health"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Node2D" unique_id=767043542]
+offset_left = 45.0
+offset_top = 181.0
+offset_right = 433.0
+offset_bottom = 238.0
+bbcode_enabled = true
+text = "[wave amp=50 freq=2][font=res://asest/greg.ttf][font_size=40]cur health"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Node2D" unique_id=2123621140]
+offset_left = 76.0
+offset_top = 653.0
+offset_right = 397.0
+offset_bottom = 710.0
+bbcode_enabled = true
+text = "[outline_size=5][font=res://asest/greg.ttf][font_size=40]score: 0"
+fit_content = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Node2D" unique_id=974532938]
+offset_left = 1129.0
+offset_top = 317.0
+offset_right = 1259.0
+offset_bottom = 447.0
+max_value = 1000.0
+step = 5.0
+value = 340.0
+rounded = true
+fill_mode = 4
+nine_patch_stretch = true
+texture_progress = ExtResource("7")

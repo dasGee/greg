@@ -1,0 +1,180 @@
+[gd_scene format=3 uid="uid://bob8nvjvyofy2"]
+
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1"]
+[ext_resource type="Script" uid="uid://lgrvkuffottw" path="res://scene/enemy/roaring_sun.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://vvn1ectgyf31" path="res://asest/sprite/allelse/weirdman.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://b4d4lvjhu8g3t" path="res://asest/sprite/allelse/dagger.png" id="4"]
+[ext_resource type="AudioStream" uid="uid://c5hcc344cpfc2" path="res://asest/sound/rage.mp3" id="5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gi7ao"]
+shader = ExtResource("1")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwjrl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_p2i44"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gi7ao"]
+resource_name = "theonlyanimationthereis"
+length = 2.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.283185307179586]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hff02"]
+_data = {
+&"RESET": SubResource("Animation_p2i44"),
+&"theonlyanimationthereis": SubResource("Animation_gi7ao")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v8y0q"]
+radius = 25.6
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ftcr1"]
+radius = 25.09
+
+[node name="roaringSun" type="RigidBody2D" unique_id=995861027 node_paths=PackedStringArray("coll", "area", "sprit")]
+material = SubResource("ShaderMaterial_gi7ao")
+collision_layer = 0
+collision_mask = 0
+mass = 0.1
+gravity_scale = 0.0
+script = ExtResource("2")
+health = 999
+damage = 999
+coll = NodePath("CollisionShape2D")
+area = NodePath("enemy")
+sprit = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://dlfwjqgaclqnq"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2136514160]
+use_parent_material = true
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_rwjrl")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1443278573]
+use_parent_material = true
+position = Vector2(0, 1)
+scale = Vector2(0.4, 0.4)
+
+[node name="Dagger" type="Sprite2D" parent="Node2D" unique_id=93744181]
+use_parent_material = true
+position = Vector2(163, 9)
+texture = ExtResource("4")
+offset = Vector2(-85, -9)
+
+[node name="Dagger2" type="Sprite2D" parent="Node2D" unique_id=1434300782]
+use_parent_material = true
+position = Vector2(163, 9)
+texture = ExtResource("4")
+offset = Vector2(-241, -9)
+flip_h = true
+
+[node name="Dagger3" type="Sprite2D" parent="Node2D" unique_id=2086797070]
+use_parent_material = true
+position = Vector2(163, 9)
+rotation = 1.5707964
+texture = ExtResource("4")
+offset = Vector2(69.00001, 163)
+
+[node name="Dagger4" type="Sprite2D" parent="Node2D" unique_id=1695110226]
+use_parent_material = true
+position = Vector2(163, 9)
+rotation = 1.5707964
+texture = ExtResource("4")
+offset = Vector2(-86.99999, 163)
+flip_h = true
+
+[node name="Dagger5" type="Sprite2D" parent="Node2D" unique_id=776559268]
+use_parent_material = true
+position = Vector2(163.00002, 9)
+rotation = 0.7853982
+texture = ExtResource("4")
+offset = Vector2(-43.622375, 108.894455)
+
+[node name="Dagger6" type="Sprite2D" parent="Node2D" unique_id=1057112675]
+use_parent_material = true
+position = Vector2(163.00002, 9)
+rotation = 0.7853982
+texture = ExtResource("4")
+offset = Vector2(-199.62238, 108.894455)
+flip_h = true
+
+[node name="Dagger7" type="Sprite2D" parent="Node2D" unique_id=757132281]
+use_parent_material = true
+position = Vector2(163.00002, 9)
+rotation = -0.7853982
+texture = ExtResource("4")
+offset = Vector2(-30.894455, -121.622375)
+
+[node name="Dagger8" type="Sprite2D" parent="Node2D" unique_id=976629433]
+use_parent_material = true
+position = Vector2(163.00002, 9)
+rotation = -0.7853982
+texture = ExtResource("4")
+offset = Vector2(-186.89445, -121.622375)
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=681897340]
+libraries/ = SubResource("AnimationLibrary_hff02")
+autoplay = &"theonlyanimationthereis"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1016790086]
+shape = SubResource("CircleShape2D_v8y0q")
+
+[node name="enemy" type="Area2D" parent="." unique_id=2000432812]
+collision_layer = 2048
+collision_mask = 2048
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=1767289545]
+shape = SubResource("CircleShape2D_ftcr1")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=32556351]
+stream = ExtResource("5")
+volume_db = 2.0
+pitch_scale = 1.1
+max_polyphony = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=138468476]
+process_callback = 0
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

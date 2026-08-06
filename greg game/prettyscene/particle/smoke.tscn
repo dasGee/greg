@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://3dc2sf37tj02"]
+
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://c405q3f0uxoh0" path="res://asest/sprite/allelse/whiteexplos.png" id="2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_642gy"]
+shader = ExtResource("1")
+shader_parameter/color = Color(0, 0, 0, 0.03137255)
+shader_parameter/width = 1.0000000475
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_w1hte"]
+lifetime_randomness = 0.45
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(16, 16, 1)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+inherit_velocity_ratio = 0.25
+direction = Vector3(0, 0, 1)
+spread = 180.0
+initial_velocity_max = 25.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+scale_min = 0.049999997
+scale_max = 0.099999994
+color = Color(0.96, 0.96, 0.96, 0.5921569)
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+turbulence_noise_strength = 0.0
+turbulence_noise_scale = 0.0
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.0
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 1.490116e-06
+
+[node name="smoke" type="GPUParticles2D" unique_id=1366636213]
+material = SubResource("ShaderMaterial_642gy")
+amount = 512
+texture = ExtResource("2")
+lifetime = 0.6
+explosiveness = 0.09
+randomness = 1.0
+fixed_fps = 23
+visibility_rect = Rect2(-16, -16, 32, 32)
+local_coords = true
+trail_lifetime = 0.25
+trail_sections = 4
+process_material = SubResource("ParticleProcessMaterial_w1hte")

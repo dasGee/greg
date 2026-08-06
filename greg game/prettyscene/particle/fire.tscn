@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dievoo6rdkgic"]
+
+[ext_resource type="Texture2D" uid="uid://c405q3f0uxoh0" path="res://asest/sprite/allelse/whiteexplos.png" id="1"]
+
+[sub_resource type="Gradient" id="Gradient_3c3dq"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1)
+colors = PackedColorArray(1, 0.51900005, 0.26, 1, 1, 0.55895793, 0.2980625, 1, 1, 0.5989158, 0.33612502, 1, 1, 0.63887376, 0.37418753, 1, 1, 0.6788317, 0.41225004, 1, 1, 0.7187896, 0.45031253, 1, 1, 0.7587475, 0.48837504, 1, 1, 0.7987054, 0.5264375, 1, 1, 0.83866334, 0.56450003, 1, 1, 0.8786212, 0.6025625, 1, 1, 0.9185791, 0.640625, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_en648"]
+gradient = SubResource("Gradient_3c3dq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_en648"]
+lifetime_randomness = 0.45
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, 16, 0)
+emission_shape_scale = Vector3(16, 2, 2)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, -1, 1)
+spread = 42.855
+initial_velocity_max = 25.0
+angular_velocity_min = -1.6093254e-05
+angular_velocity_max = -1.6093254e-05
+radial_velocity_min = -2.5000224
+radial_velocity_max = -2.2351742e-05
+gravity = Vector3(0, -55, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = 24.999998
+radial_accel_min = -20.000002
+radial_accel_max = -2.2351742e-06
+tangential_accel_min = -2.2351742e-06
+tangential_accel_max = -2.2351742e-06
+damping_max = 21.407001
+scale_min = 0.03
+scale_max = 0.07
+color = Color(1.0789914, 1.0789914, 1.0789914, 1)
+color_ramp = SubResource("GradientTexture1D_en648")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+turbulence_enabled = true
+turbulence_noise_strength = 20.0
+turbulence_noise_scale = 0.0
+turbulence_noise_speed_random = 0.0
+turbulence_influence_min = 0.040000003
+turbulence_influence_max = 0.19800001
+turbulence_initial_displacement_min = 1.490116e-06
+turbulence_initial_displacement_max = 1.490116e-06
+
+[node name="GPUParticles2D" type="GPUParticles2D" unique_id=1366636213]
+amount = 512
+texture = ExtResource("1")
+lifetime = 1.37
+speed_scale = 2.0
+explosiveness = 0.09
+randomness = 1.0
+fixed_fps = 23
+visibility_rect = Rect2(-16, -16, 32, 32)
+local_coords = true
+trail_lifetime = 0.25
+trail_sections = 4
+process_material = SubResource("ParticleProcessMaterial_en648")

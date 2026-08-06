@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://ccrc2gqo5ec73"]
+
+[ext_resource type="Script" uid="uid://bk1484bei3wao" path="res://enemyspawn.gd" id="1"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="2"]
+[ext_resource type="Texture2D" uid="uid://wdmgp5lthyun" path="res://asest/sprite/allelse/enemy.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m4hhv"]
+size = Vector2(50, 50)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2sej7"]
+shader = ExtResource("2")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ssvor"]
+shader = ExtResource("2")
+shader_parameter/color = Color(0.45490196, 0, 0, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="enemyspawn" type="Area2D" unique_id=698991763]
+collision_layer = 160
+collision_mask = 160
+script = ExtResource("1")
+metadata/look = "enemy ambush!!!!"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2080673199]
+shape = SubResource("RectangleShape2D_m4hhv")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=209865515]
+light_mask = 0
+material = SubResource("ShaderMaterial_2sej7")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1964809956]
+light_mask = 0
+material = SubResource("ShaderMaterial_ssvor")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

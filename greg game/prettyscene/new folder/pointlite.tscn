@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://r3h7cw6drar4"]
+
+[sub_resource type="Gradient" id="Gradient_vvsbq"]
+interpolation_mode = 2
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0, 0.9144737)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i3kvo"]
+gradient = SubResource("Gradient_vvsbq")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="pointlite" type="PointLight2D" unique_id=88632664]
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_i3kvo")

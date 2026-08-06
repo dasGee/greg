@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c3p5w44y66v8s"]
+
+[ext_resource type="Script" uid="uid://0g17egfxex6q" path="res://folder99/levelClass.gd" id="1"]
+[ext_resource type="TileSet" uid="uid://b60w4q55f368n" path="res://asest/othr/tilesetyeah.tres" id="2"]
+[ext_resource type="TileSet" uid="uid://bny5ywy2bfsjq" path="res://asest/othr/sceneset.tres" id="3"]
+[ext_resource type="Script" uid="uid://bsj5glxqfqhsd" path="res://scrpt/hehe/cameraScroll.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://dnr2ar4whfijd" path="res://scene/interactalbe/portal.tscn" id="5"]
+
+[sub_resource type="GDScript" id="GDScript_5c7wy"]
+script/source = "extends TileMapLayer
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed(\"down\"):
+		collision_enabled = false
+	else:
+		collision_enabled = true
+"
+
+[node name="chumbucket" type="Node2D" unique_id=1488849415 node_paths=PackedStringArray("camear", "startPos")]
+script = ExtResource("1")
+camear = NodePath("Camera2D")
+startPos = NodePath("Marker2D")
+isHub = true
+metadata/_custom_type_script = "uid://0g17egfxex6q"
+
+[node name="tiles" type="Node2D" parent="." unique_id=1535257094]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="tiles" unique_id=425211026]
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("2")
+
+[node name="background" type="TileMapLayer" parent="tiles" unique_id=1588057933]
+z_index = -2
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("2")
+collision_enabled = false
+
+[node name="platform" type="TileMapLayer" parent="tiles" unique_id=1032293239]
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("2")
+script = SubResource("GDScript_5c7wy")
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="tiles" unique_id=1591002602]
+tile_set = ExtResource("3")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=563257864]
+position = Vector2(-531, -77)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=4735519]
+zoom = Vector2(3, 3)
+limit_enabled = false
+position_smoothing_speed = 10.0
+script = ExtResource("4")
+maximi = 6
+
+[node name="portal2" parent="." unique_id=736645892 instance=ExtResource("5")]
+modulate = Color(0.96484375, 0.96484375, 0.96484375, 1)
+position = Vector2(-252, -80)
+scene = "res://levle/scrapWorld/levelScrap1.tscn"
+textie = "scrapyard - trowel"
+islevel = true
+levelis = "scrap1"
+
+[node name="portal5" parent="." unique_id=1373947015 instance=ExtResource("5")]
+modulate = Color(0.96484375, 0.96484375, 0.96484375, 1)
+position = Vector2(-531, -48)
+scene = "res://levle/hubWorld.tscn"
+textie = "hub world"
+square = true
+pos = Vector2(-464, -304)

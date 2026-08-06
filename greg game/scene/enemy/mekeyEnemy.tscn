@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c08dcht1ysq3p"]
+
+[ext_resource type="Script" uid="uid://dlfwjqgaclqnq" path="res://folder99/enemyclass.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bh4y3fpd5roay" path="res://asest/sprite/allelse/mekey.png" id="2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ujbk2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7xcd"]
+atlas = ExtResource("2")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d0c0"]
+atlas = ExtResource("2")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlnun"]
+atlas = ExtResource("2")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gjj57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7xcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4d0c0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlnun")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_3hfqq"]
+resource_name = "new_animation"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.05),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_damaged"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vnldo"]
+_data = {
+&"new_animation": SubResource("Animation_3hfqq")
+}
+
+[node name="MekeyEnemy" type="RigidBody2D" unique_id=727526540 node_paths=PackedStringArray("coll", "sprit")]
+collision_layer = 0
+collision_mask = 0
+gravity_scale = 0.2
+script = ExtResource("1")
+coll = NodePath("CollisionShape2D")
+sprit = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://dlfwjqgaclqnq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=768549104]
+shape = SubResource("RectangleShape2D_ujbk2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=491586930]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_gjj57")
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2132861215]
+libraries/ = SubResource("AnimationLibrary_vnldo")
+autoplay = &"new_animation"

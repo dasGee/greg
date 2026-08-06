@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dbu8vo0abx4kp"]
+
+[ext_resource type="Script" uid="uid://dpnu1qi5dvp27" path="res://scene/obj/switchedman.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bqrcfmsqbsb5y" path="res://asest/sprite/allelse/MANDISTREST.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dp237td0n3lvh" path="res://asest/sprite/allelse/MANREST.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xoo6u"]
+size = Vector2(32, 32)
+
+[node name="Node2D" type="Node2D" unique_id=548703379]
+script = ExtResource("1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1166994148]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1865593227]
+shape = SubResource("RectangleShape2D_xoo6u")
+
+[node name="Mandistrest" type="Sprite2D" parent="." unique_id=1904115517]
+modulate = Color(1, 1, 1, 0.2509804)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[node name="Manrest" type="Sprite2D" parent="." unique_id=1112538520]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3")

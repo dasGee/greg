@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bv2d8fymmwv"]
+
+[ext_resource type="Script" uid="uid://ckoobprr5y1p3" path="res://scene/obj/mover.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ceo8f1qpbimqd" path="res://asest/sprite/allelse/arrrowchamp.png" id="2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_is0bx"]
+size = Vector2(32, 32)
+
+[node name="mover" type="AnimatableBody2D" unique_id=542982043]
+script = ExtResource("1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2004224311]
+shape = SubResource("RectangleShape2D_is0bx")
+
+[node name="Arrrow" type="Sprite2D" parent="." unique_id=1591574781]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1621773280]
+target_position = Vector2(20, 0)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1240635479]
+position = Vector2(1.8, 0)

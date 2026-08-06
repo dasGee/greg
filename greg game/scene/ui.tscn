@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bmfk515drpkiq"]
+
+[ext_resource type="FontFile" uid="uid://dbq5kix7ryhoc" path="res://asest/Comic Sans MS.ttf" id="1"]
+[ext_resource type="Script" uid="uid://qfawvg4sgkxv" path="res://label.gd" id="2"]
+[ext_resource type="PackedScene" uid="uid://dwd1bb4yhlj5y" path="res://scene/eye.tscn" id="3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ajaei"]
+font = ExtResource("1")
+font_color = Color(0, 1, 0, 1)
+
+[node name="Control" type="Control" unique_id=1670924596]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=931961948]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 585.0
+offset_right = -191.0
+offset_bottom = 507.0
+scale = Vector2(2, 2)
+text = "health"
+label_settings = SubResource("LabelSettings_ajaei")
+script = ExtResource("2")
+
+[node name="Eye2" parent="." unique_id=1313227868 instance=ExtResource("3")]
+position = Vector2(1070, 149)
+
+[node name="Eye" parent="." unique_id=61947477 instance=ExtResource("3")]
+position = Vector2(958, 69)

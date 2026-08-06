@@ -1,0 +1,248 @@
+[gd_scene format=3 uid="uid://ddof537htkk5h"]
+
+[ext_resource type="Script" uid="uid://brfd6a4in8wys" path="res://scene/verymisc/transition.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://ccsqtskspt42a" path="res://asest/sound/woah.mp3" id="2"]
+
+[sub_resource type="Animation" id="Animation_jl1jx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_chfv5"]
+resource_name = "in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 0.5357, 0.73333335, 1),
+"transitions": PackedFloat32Array(0.78458416, 1.6245053, 1.1486984, 0.37892935, 0.22531264),
+"update": 0,
+"values": [Vector2(0, 121), Vector2(130, 121), Vector2(363, 268), Vector2(982, 558), Vector2(1280, 720)]
+}
+
+[sub_resource type="Animation" id="Animation_2ijvm"]
+resource_name = "out"
+length = 1.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.73333335, 0.9666667, 1.2666667, 1.6, 1.7333333),
+"transitions": PackedFloat32Array(2.143547, 0.6597539, 0.8705497, 0.36602142, 1.9318726),
+"update": 0,
+"values": [Vector2(1280, 720), Vector2(942, 720), Vector2(942, 525), Vector2(248, 220), Vector2(0, 220)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4cd7p"]
+_data = {
+&"RESET": SubResource("Animation_jl1jx"),
+&"in": SubResource("Animation_chfv5"),
+&"out": SubResource("Animation_2ijvm")
+}
+
+[sub_resource type="Animation" id="Animation_4cd7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 800)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jgsnc"]
+resource_name = "fadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1.319508),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_omy00"]
+resource_name = "fadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.319508, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yqkf3"]
+resource_name = "itemget"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(320, 800), Vector2(320, 475), Vector2(320, 475), Vector2(320, 800)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16666663, 0.36666667, 0.5333333, 0.73333323, 0.9333333, 1.2333333),
+"transitions": PackedFloat32Array(0.9330329, 0.9330329, 0.9330329, 0.9330329, 0.9330329, 0.9330329),
+"update": 0,
+"values": [0.0, 0.34906584, 1.0471976, 2.0943952, 4.71238898038469, 6.283185307179586]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6333333, 1.17, 1.4, 3, 3.5),
+"transitions": PackedFloat32Array(1, 1, 2.0705297, 2.3784146, 2.3784146, 2.3784146),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Woah")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.35,
+"stream": ExtResource("2")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yqkf3"]
+_data = {
+&"RESET": SubResource("Animation_4cd7p"),
+&"fadeIn": SubResource("Animation_jgsnc"),
+&"fadeOut": SubResource("Animation_omy00"),
+&"itemget": SubResource("Animation_yqkf3")
+}
+
+[node name="transition" type="CanvasLayer" unique_id=1765851372]
+layer = 99
+script = ExtResource("1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1154120302]
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1280.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=149042739]
+libraries/ = SubResource("AnimationLibrary_4cd7p")
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=447693181]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=825966617]
+libraries/ = SubResource("AnimationLibrary_yqkf3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1154040516]
+clip_contents = false
+offset_left = 320.0
+offset_top = 800.0
+offset_right = 924.0
+offset_bottom = 849.9999
+pivot_offset_ratio = Vector2(0.5, 0.5)
+bbcode_enabled = true
+text = "[font=res://asest/greg.ttf][font_size=38][outline_size=8][outline_color=000]you have unlocked a new shop item!"
+horizontal_alignment = 1
+
+[node name="Woah" type="AudioStreamPlayer" parent="." unique_id=1770229911]
+bus = &"sfx"
+
+[connection signal="animation_finished" from="ColorRect/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]

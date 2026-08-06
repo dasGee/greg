@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://bpc07o2ljw20o"]
+
+[ext_resource type="Script" uid="uid://co0m8xumuy4b3" path="res://scene/enemy/ghost.gd" id="1"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="2"]
+[ext_resource type="Texture2D" uid="uid://bugokauaiqmjv" path="res://asest/sprite/allelse/notflowertumble.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://bqrcfmsqbsb5y" path="res://asest/sprite/allelse/MANDISTREST.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://b2otbemtr4433" path="res://asest/sprite/allelse/notflowertumbleface.png" id="5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4anhc"]
+shader = ExtResource("2")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0000000475
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = false
+shader_parameter/number_of_images = Vector2(4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3pct"]
+atlas = ExtResource("3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wg32f"]
+atlas = ExtResource("3")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4anhc"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5e0od"]
+atlas = ExtResource("3")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_okwry"]
+atlas = ExtResource("4")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wg32f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3pct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wg32f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4anhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5e0od")
+}],
+"loop": true,
+"name": &"N",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_okwry")
+}],
+"loop": true,
+"name": &"rare",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7cxjp"]
+atlas = ExtResource("5")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2baw"]
+atlas = ExtResource("5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geif1"]
+atlas = ExtResource("5")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_750pd"]
+atlas = ExtResource("5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_okwry"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_7cxjp")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_s2baw")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_geif1")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_s2baw")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_750pd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4anhc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uw1bw"]
+radius = 12.0
+
+[node name="enemyman" type="RigidBody2D" unique_id=545347198 node_paths=PackedStringArray("coll", "area", "sprit")]
+collision_layer = 0
+script = ExtResource("1")
+speed = 100.0
+health = 4
+damage = 2
+variation = "N"
+score = 2
+coll = NodePath("CollisionShape2D")
+area = NodePath("enemy")
+sprit = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://dlfwjqgaclqnq"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1837094480]
+material = SubResource("ShaderMaterial_4anhc")
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_wg32f")
+animation = &"N"
+autoplay = "N"
+flip_h = true
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1921078893]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_okwry")
+autoplay = "default"
+frame_progress = 0.07124565
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1082352131]
+visible = false
+shape = SubResource("CircleShape2D_4anhc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=306928297]
+visible = false
+collision_layer = 16384
+collision_mask = 16384
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=206886046]
+shape = SubResource("CircleShape2D_uw1bw")
+
+[node name="enemy" type="Area2D" parent="." unique_id=58769610]
+visible = false
+collision_layer = 194
+collision_mask = 194
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=356489855]
+shape = SubResource("CircleShape2D_uw1bw")
+
+[node name="Timer" type="Timer" parent="." unique_id=803455640]
+process_callback = 0
+autostart = true
+
+[connection signal="body_entered" from="enemy" to="." method="_damge"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

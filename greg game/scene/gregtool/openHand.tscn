@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cttcc664mequg"]
+
+[ext_resource type="Script" uid="uid://b2hutpu58jevm" path="res://scene/gregtool/open_hand.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://crf5bntq1t3e2" path="res://asest/sprite/toolwheelsprites/hand.png" id="2"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="3"]
+[ext_resource type="Texture2D" uid="uid://dhnplfm43yf3l" path="res://asest/sprite/allelse/openhandeye.png" id="4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10eak"]
+shader = ExtResource("3")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 1.50000007125
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="OpenHand" type="Node2D" unique_id=590959273]
+script = ExtResource("1")
+img = ExtResource("2")
+isHand = true
+metadata/_custom_type_script = "uid://ey2ph5nea8kw"
+
+[node name="Openhandeye" type="Sprite2D" parent="." unique_id=1227803235]
+material = SubResource("ShaderMaterial_10eak")
+position = Vector2(21, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=46552529]
+target_position = Vector2(50, 0)
+collision_mask = 16
+collide_with_areas = true
+collide_with_bodies = false

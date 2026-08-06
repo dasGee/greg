@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://b3hpomoh5hi0c"]
+
+[ext_resource type="Script" uid="uid://bcm0munr01fmk" path="res://scene/obj/switch.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dlj6u0u1275ub" path="res://asest/sprite/allelse/leverOff.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bq8t5icwgdpm3" path="res://asest/sprite/allelse/leverOn.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sf5bh"]
+
+[node name="switch" type="Node2D" unique_id=408961367]
+script = ExtResource("1")
+
+[node name="LeverOff" type="Sprite2D" parent="." unique_id=119129295]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[node name="LeverOn" type="Sprite2D" parent="." unique_id=106171941]
+visible = false
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=337389272]
+collision_layer = 0
+collision_mask = 32768
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=278297965]
+shape = SubResource("RectangleShape2D_sf5bh")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

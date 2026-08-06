@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ctahe7sc8gd02"]
+
+[ext_resource type="Script" uid="uid://bdn8a2ygt0y8" path="res://addons/scene_tile_map_layer/scene_tile_map_layer.gd" id="1"]
+
+[node name="SceneTileMap" type="Node2D" unique_id=1516056944]
+script = ExtResource("1")

@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://smuycbnbc08x"]
+
+[ext_resource type="Texture2D" uid="uid://ckc3i77jt86nm" path="res://asest/sprite/allelse/square.png" id="1"]
+
+[sub_resource type="Curve" id="Curve_tiqhl"]
+_data = [Vector2(0.5714286, 1), 0.0, -1.4606739, 0, 0, Vector2(1, 0), -0.35393295, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6nbg5"]
+curve = SubResource("Curve_tiqhl")
+
+[sub_resource type="Curve" id="Curve_6nbg5"]
+_limits = [0.0, 2.0, 0.0, 1.0]
+_data = [Vector2(0.07619048, 2), 0.0, -12.387639, 0, 0, Vector2(0.27142859, 1.6853933), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fipti"]
+curve = SubResource("Curve_6nbg5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6nbg5"]
+lifetime_randomness = 0.69
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(16, 1, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 15.0
+initial_velocity_min = 5.0
+initial_velocity_max = 20.0
+angular_velocity_min = -50.000015
+angular_velocity_max = 49.99998
+gravity = Vector3(0, 98, 0)
+scale_curve = SubResource("CurveTexture_fipti")
+alpha_curve = SubResource("CurveTexture_6nbg5")
+
+[node name="crumble" type="GPUParticles2D" unique_id=1044559339]
+emitting = false
+amount = 128
+texture = ExtResource("1")
+one_shot = true
+speed_scale = 1.15
+explosiveness = 0.4
+randomness = 1.0
+fixed_fps = 15
+process_material = SubResource("ParticleProcessMaterial_6nbg5")

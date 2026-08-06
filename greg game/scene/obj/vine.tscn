@@ -1,0 +1,147 @@
+[gd_scene format=3 uid="uid://d4n3pg15hxi6t"]
+
+[ext_resource type="Script" uid="uid://qwtms7l7uuo4" path="res://scene/obj/vine.gd" id="1"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="2"]
+[ext_resource type="Texture2D" uid="uid://coci1unhm8xt0" path="res://asest/sprite/levelsprites/vine.png" id="3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rf8uj"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsjo2"]
+size = Vector2(32, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pteni"]
+shader = ExtResource("2")
+shader_parameter/color = Color(0, 0, 0, 0.18431373)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = false
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wugnu"]
+atlas = ExtResource("3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pteni"]
+atlas = ExtResource("3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_houd3"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpq4a"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwv8o"]
+atlas = ExtResource("3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of27m"]
+atlas = ExtResource("3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qrou"]
+atlas = ExtResource("3")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fudt8"]
+atlas = ExtResource("3")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4pp6"]
+atlas = ExtResource("3")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5kah0"]
+atlas = ExtResource("3")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsjo2"]
+atlas = ExtResource("3")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ot0gw"]
+atlas = ExtResource("3")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5kah0"]
+animations = [{
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_wugnu")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_pteni")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_houd3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_hpq4a")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_mwv8o")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_of27m")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_7qrou")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_fudt8")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_h4pp6")
+}],
+"loop": 0,
+"name": &"new_animation",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_5kah0")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_tsjo2")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ot0gw")
+}],
+"loop": 1,
+"name": &"new_animation_1",
+"speed": 5.0
+}]
+
+[node name="vine" type="Node2D" unique_id=596042902]
+z_index = 9
+script = ExtResource("1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=129070897]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1534897490]
+shape = SubResource("RectangleShape2D_rf8uj")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2134107297]
+collision_layer = 128
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1815269946]
+shape = SubResource("RectangleShape2D_tsjo2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=619316434]
+material = SubResource("ShaderMaterial_pteni")
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_5kah0")
+autoplay = "default"
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

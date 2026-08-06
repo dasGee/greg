@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d2wkmk72bqn7"]
+
+[ext_resource type="Script" uid="uid://de1mi2cn0g0bf" path="res://scrpt/hehe/enemymarker.gd" id="1"]
+
+[node name="enemymarker" type="Marker2D" unique_id=2094320406]
+script = ExtResource("1")
+variant = "n"

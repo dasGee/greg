@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dwd1bb4yhlj5y"]
+
+[ext_resource type="Texture2D" uid="uid://b22ij7gnmkelw" path="res://asest/sprite/allelse/eye.png" id="1"]
+[ext_resource type="Script" uid="uid://ctrmihrqw4hqo" path="res://scrpt/eye.gd" id="2"]
+
+[node name="Eye" type="Sprite2D" unique_id=414400449]
+texture = ExtResource("1")
+script = ExtResource("2")

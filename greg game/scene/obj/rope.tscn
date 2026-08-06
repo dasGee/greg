@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://bhdkj1y76r2jp"]
+
+[ext_resource type="Texture2D" uid="uid://ckc3i77jt86nm" path="res://asest/sprite/allelse/square.png" id="1"]
+[ext_resource type="PackedScene" uid="uid://c2m58q35yx7l3" path="res://scene/obj/rseg.tscn" id="2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xnmw"]
+size = Vector2(10, 10)
+
+[node name="rope" type="Node2D" unique_id=1498182882]
+modulate = Color(1, 0, 1, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=738171132]
+collision_layer = 0
+collision_mask = 0
+constant_angular_velocity = 3.1415927
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1424295757]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_6xnmw")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=2047251622]
+visibility_layer = 8
+position = Vector2(0, -9.999999)
+scale = Vector2(10, 10)
+texture = ExtResource("1")
+
+[node name="pins" type="Node2D" parent="." unique_id=77565643]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="pins" unique_id=1511001978]
+position = Vector2(0, -10)
+node_a = NodePath("../../StaticBody2D")
+node_b = NodePath("../../ropes/rseg")
+bias = 0.7
+softness = 10.0
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="pins" unique_id=218542044]
+position = Vector2(0, 11)
+node_a = NodePath("../../ropes/rseg")
+node_b = NodePath("../../ropes/rseg2")
+bias = 0.7
+softness = 5.0
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="pins" unique_id=1303010579]
+position = Vector2(0, 23)
+node_a = NodePath("../../ropes/rseg2")
+node_b = NodePath("../../ropes/rseg3")
+bias = 0.7
+softness = 3.0
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="pins" unique_id=1682638726]
+position = Vector2(0, 36)
+node_a = NodePath("../../ropes/rseg3")
+node_b = NodePath("../../ropes/rseg4")
+bias = 0.7
+softness = 10.0
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="pins" unique_id=1666820244]
+position = Vector2(0, 47)
+node_a = NodePath("../../ropes/rseg4")
+node_b = NodePath("../../ropes/rseg5")
+bias = 0.7
+softness = 10.0
+
+[node name="ropes" type="Node2D" parent="." unique_id=836023791]
+
+[node name="rseg" parent="ropes" unique_id=1949187904 instance=ExtResource("2")]
+position = Vector2(0, 6)
+
+[node name="rseg2" parent="ropes" unique_id=1907272776 instance=ExtResource("2")]
+position = Vector2(0, 18)
+
+[node name="rseg3" parent="ropes" unique_id=104573426 instance=ExtResource("2")]
+position = Vector2(0, 30)
+
+[node name="rseg4" parent="ropes" unique_id=1291984747 instance=ExtResource("2")]
+position = Vector2(0, 42)
+
+[node name="rseg5" parent="ropes" unique_id=945113520 instance=ExtResource("2")]
+position = Vector2(0, 54)

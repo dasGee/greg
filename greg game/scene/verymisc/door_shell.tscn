@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://ihqw7o6uaqg3"]
+
+[ext_resource type="Script" uid="uid://bnnviesv3ibym" path="res://scene/verymisc/shopopen.gd" id="1"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="2"]
+[ext_resource type="Texture2D" uid="uid://bt8o0yd6omwxn" path="res://asest/sprite/allelse/thenoor.png" id="3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fj83d"]
+shader = ExtResource("2")
+shader_parameter/color = Color(0.44, 0.44, 0.44, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 1
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gax86"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d0toy"]
+size = Vector2(20, 32)
+
+[node name="doorShell" type="Node2D" unique_id=1052854053]
+script = ExtResource("1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1881278751]
+material = SubResource("ShaderMaterial_fj83d")
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_gax86")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1812977613]
+collision_layer = 0
+collision_mask = 4096
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=664002400]
+shape = SubResource("RectangleShape2D_d0toy")

@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b4hrw1ek4jvjv"]
+
+[ext_resource type="Script" uid="uid://d18fj553b6svd" path="res://scene/gregtool/explosion_sp.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bm0hvr0q4qvp" path="res://asest/sprite/allelse/boomexplosion.png" id="2"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_is6u6"]
+shader = ExtResource("3")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 3.0000001425
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ts2le"]
+load_path = "res://.godot/imported/swor.png-cdd4bece05a33342585f9eb35f1d8d63.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3ql2"]
+size = Vector2(41, 16)
+
+[node name="Node2D" type="Node2D" unique_id=314326441]
+script = ExtResource("1")
+img = ExtResource("2")
+metadata/_custom_type_script = "uid://ey2ph5nea8kw"
+
+[node name="shootsprite" type="Sprite2D" parent="." unique_id=214385135]
+material = SubResource("ShaderMaterial_is6u6")
+position = Vector2(10, 8)
+rotation = -1.3089969
+scale = Vector2(0.2, 0.2)
+texture = SubResource("CompressedTexture2D_ts2le")
+centered = false
+metadata/rotate = false
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=883173241]
+position = Vector2(-27, 0)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=766727211]
+collision_layer = 0
+collision_mask = 2176
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=183001877]
+position = Vector2(38.5, 1)
+shape = SubResource("RectangleShape2D_r3ql2")

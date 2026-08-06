@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bch3nuf3jp4l8"]
+
+[ext_resource type="Texture2D" uid="uid://bpjckphv82evr" path="res://asest/sprite/allelse/tile.png" id="1"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=70017304]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1430814591]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1")
+stretch_mode = 1

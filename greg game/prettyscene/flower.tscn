@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://b3ar4xgurcm6y"]
+
+[ext_resource type="Script" uid="uid://bix2veohh0vo4" path="res://prettyscene/flower.gd" id="1"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="2"]
+[ext_resource type="Texture2D" uid="uid://bg68mi33nlyr6" path="res://asest/sprite/allelse/flower.png" id="3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_18vv5"]
+shader = ExtResource("2")
+shader_parameter/color = Color(1, 0.39, 0.39, 0.28235295)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = true
+shader_parameter/add_margins = false
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p3qln"]
+atlas = ExtResource("3")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spvyl"]
+atlas = ExtResource("3")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jd5eb"]
+atlas = ExtResource("3")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t50ow"]
+atlas = ExtResource("3")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf26j"]
+atlas = ExtResource("3")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nifya"]
+atlas = ExtResource("3")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4d3nf"]
+animations = [{
+"frames": [{
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_p3qln")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_spvyl")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_jd5eb")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_spvyl")
+}],
+"loop": true,
+"name": &"flower",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_t50ow")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_gf26j")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_nifya")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_gf26j")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mk1kr"]
+shader = ExtResource("2")
+shader_parameter/color = Color(0.81, 0.81, 0.81, 1)
+shader_parameter/width = 1.0000000475
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = true
+shader_parameter/add_margins = false
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="flower" type="Node2D" unique_id=177640243]
+z_index = 5
+script = ExtResource("1")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1761131063]
+modulate = Color(1, 0.84375, 0, 1)
+material = SubResource("ShaderMaterial_18vv5")
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_4d3nf")
+animation = &"yellow"
+autoplay = "yellow"
+frame_progress = 0.5715787
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=253719818]
+material = SubResource("ShaderMaterial_mk1kr")
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_4d3nf")
+animation = &"flower"
+autoplay = "flower"
+frame_progress = 0.6980421

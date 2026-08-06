@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://bl43b5s6or3t6"]
+
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1"]
+[ext_resource type="Script" uid="uid://larey2i1s8w" path="res://scene/gregtool/bouncer.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bp7aub6iqpb0p" path="res://asest/sprite/toolwheelsprites/springer.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://dpyjidx5bnqkr" path="res://asest/sprite/allelse/bouncerspring.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cjkf5j55pp0fw" path="res://asest/sprite/allelse/bouncerbase.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://vu36e27snos7" path="res://asest/sprite/allelse/bouncerboing.png" id="6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3ql2"]
+shader = ExtResource("1")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 1
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_7ybm0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Bouncerboing:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Bouncerspring:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, -1.5046328e-36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Bouncerspring:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.1, 0.2)]
+}
+
+[sub_resource type="Animation" id="Animation_wwdmu"]
+resource_name = "bounce"
+length = 0.6333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Bouncerspring:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.633),
+"transitions": PackedFloat32Array(0.7578583, 0.23325826, 0.68302, 0.7578583),
+"update": 0,
+"values": [Vector2(2, -1.5046328e-36), Vector2(7, 0), Vector2(7, 0), Vector2(2, -1.5046328e-36)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Bouncerboing:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.633),
+"transitions": PackedFloat32Array(0.7578583, 0.23325826, 0.68302, 0.7578583),
+"update": 0,
+"values": [Vector2(4, 0), Vector2(12, 0), Vector2(12, 0), Vector2(4, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D/Bouncerspring:scale")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.633),
+"transitions": PackedFloat32Array(0.7578583, 0.23325826, 0.68302, 0.7578583),
+"update": 0,
+"values": [Vector2(0.1, 0.2), Vector2(0.25, 0.2), Vector2(0.26, 0.2), Vector2(0.1, 0.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wkee"]
+_data = {
+&"RESET": SubResource("Animation_7ybm0"),
+&"bounce": SubResource("Animation_wwdmu")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vm0f"]
+size = Vector2(43, 12)
+
+[node name="Node2D" type="Node2D" unique_id=314326441]
+material = SubResource("ShaderMaterial_r3ql2")
+script = ExtResource("2")
+img = ExtResource("3")
+metadata/_custom_type_script = "uid://ey2ph5nea8kw"
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=185755618]
+target_position = Vector2(50, 0)
+collision_mask = 2051
+collide_with_areas = true
+
+[node name="Timer" type="Timer" parent="." unique_id=2012918570]
+process_callback = 0
+wait_time = 0.35
+one_shot = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=883173241]
+position = Vector2(-275, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=253000773]
+libraries/ = SubResource("AnimationLibrary_4wkee")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1541324081]
+use_parent_material = true
+position = Vector2(18, 0)
+scale = Vector2(1.25, 1.25)
+
+[node name="Bouncerspring" type="Sprite2D" parent="Node2D" unique_id=710526346]
+use_parent_material = true
+position = Vector2(2, -1.5046328e-36)
+scale = Vector2(0.1, 0.2)
+texture = ExtResource("4")
+
+[node name="Bouncerbase" type="Sprite2D" parent="Node2D" unique_id=1449655876]
+use_parent_material = true
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5")
+
+[node name="Bouncerboing" type="Sprite2D" parent="Node2D" unique_id=584574226]
+use_parent_material = true
+position = Vector2(4, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=817495323]
+collision_layer = 0
+collision_mask = 16384
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=583440131]
+position = Vector2(29.5, 0)
+shape = SubResource("RectangleShape2D_6vm0f")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

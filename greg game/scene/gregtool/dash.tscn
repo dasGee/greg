@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://cs4odny6sjyoj"]
+
+[ext_resource type="Script" uid="uid://o3f32ybhymqr" path="res://scene/gregtool/pin.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://jgx60jumk2gd" path="res://asest/sprite/toolwheelsprites/rocket.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://3dc2sf37tj02" path="res://prettyscene/particle/smoke.tscn" id="3"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="4"]
+[ext_resource type="Texture2D" uid="uid://du3mubhhr65br" path="res://asest/sprite/allelse/rockethand.png" id="5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_10eak"]
+shader = ExtResource("4")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="pin" type="Node2D" unique_id=590959273]
+script = ExtResource("1")
+img = ExtResource("2")
+metadata/_custom_type_script = "uid://ey2ph5nea8kw"
+
+[node name="smoke" parent="." unique_id=1366636213 instance=ExtResource("3")]
+show_behind_parent = true
+z_index = -1
+position = Vector2(7, 0)
+rotation = -1.5707964
+scale = Vector2(0.2, 0.5)
+emitting = false
+amount = 100
+one_shot = true
+local_coords = false
+
+[node name="Openhandeye" type="Sprite2D" parent="." unique_id=1227803235]
+material = SubResource("ShaderMaterial_10eak")
+position = Vector2(21, 0)
+scale = Vector2(0.22619048, 0.22023812)
+texture = ExtResource("5")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=46552529]
+target_position = Vector2(31, 0)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=354871513]
+position = Vector2(56, 0)

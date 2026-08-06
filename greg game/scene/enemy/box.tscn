@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://4hfphmqdlphg"]
+
+[ext_resource type="Script" uid="uid://dlfwjqgaclqnq" path="res://folder99/enemyclass.gd" id="1"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="2"]
+[ext_resource type="Texture2D" uid="uid://dp3hf8at5ju1u" path="res://asest/sprite/allelse/box.png" id="3"]
+[ext_resource type="Script" uid="uid://g3qpkejlg1ga" path="res://folder99/itemPickupClass.gd" id="4"]
+[ext_resource type="PackedScene" uid="uid://dfajjejywtivy" path="res://scene/gregtool/box.tscn" id="5"]
+[ext_resource type="AudioStream" uid="uid://bp71plekg4m7" path="res://asest/sound/hit.wav" id="6"]
+[ext_resource type="Script" uid="uid://d2pffbbg86kbv" path="res://scrpt/hitsound.gd" id="7"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ood02"]
+friction = 0.85
+bounce = 0.15
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkq14"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwrka"]
+size = Vector2(12, 12)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y5r1i"]
+shader = ExtResource("2")
+shader_parameter/color = Color(0.4, 0.4, 0.4, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_swju3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5hdoe"]
+size = Vector2(12, 12)
+
+[node name="box" type="RigidBody2D" unique_id=1915596559 node_paths=PackedStringArray("coll", "area", "sprit") groups=["box", "enemy"]]
+physics_material_override = SubResource("PhysicsMaterial_ood02")
+can_sleep = false
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1")
+health = 4
+score = -3
+coll = NodePath("CollisionShape2D")
+area = NodePath("enemy")
+sprit = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://dlfwjqgaclqnq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1163545543]
+shape = SubResource("RectangleShape2D_tkq14")
+
+[node name="enemy" type="Area2D" parent="." unique_id=1967640760]
+collision_layer = 386
+collision_mask = 386
+metadata/look = "springy bad... avoid!!!"
+metadata/health = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=2127508767]
+shape = SubResource("RectangleShape2D_bwrka")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=230885370]
+modulate = Color(1, 0.8416667, 0.5, 1)
+material = SubResource("ShaderMaterial_y5r1i")
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_swju3")
+
+[node name="boxbox" type="Area2D" parent="." unique_id=1435254051 node_paths=PackedStringArray("destroyee")]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("4")
+item = ExtResource("5")
+destroy = true
+destroyee = NodePath("..")
+metadata/_custom_type_script = "uid://g3qpkejlg1ga"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boxbox" unique_id=1720702712]
+shape = SubResource("RectangleShape2D_5hdoe")
+
+[node name="Hit" type="AudioStreamPlayer" parent="." unique_id=155738009]
+stream = ExtResource("6")
+volume_db = -15.0
+pitch_scale = 0.5
+bus = &"sfx"
+script = ExtResource("7")

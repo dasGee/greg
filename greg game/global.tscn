@@ -1,0 +1,510 @@
+[gd_scene format=3 uid="uid://bkjff1vrt7wel"]
+
+[ext_resource type="Script" uid="uid://bpnrwgd0m87f3" path="res://global.gd" id="1"]
+[ext_resource type="AudioStream" uid="uid://pquno44reml6" path="res://asest/sound/Random (3).wav" id="2"]
+[ext_resource type="Script" uid="uid://cx78fwkvvpsyj" path="res://music.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://bju4rldu41kxr" path="res://asest/sound/music/regular/gregHappy.mp3" id="4"]
+[ext_resource type="AudioStream" uid="uid://dcf42dg6jfs6" path="res://asest/sound/music/regular/gregMoving.mp3" id="5"]
+[ext_resource type="AudioStream" uid="uid://bhyk60piwwhmg" path="res://asest/sound/music/regular/gregPeace.mp3" id="6"]
+[ext_resource type="AudioStream" uid="uid://w3mdj0tolt8n" path="res://asest/sound/music/regular/gregWeird.mp3" id="7"]
+[ext_resource type="AudioStream" uid="uid://cuma73wb6j8oy" path="res://asest/sound/music/garden/gregGarden.mp3" id="8"]
+[ext_resource type="AudioStream" uid="uid://lihdqoq0ep7i" path="res://asest/sound/music/garden/gregTurning.mp3" id="9"]
+[ext_resource type="AudioStream" uid="uid://bcm1p5a7u8x76" path="res://asest/sound/music/garden/drownsy.mp3" id="10"]
+[ext_resource type="AudioStream" uid="uid://io6o7jmb7q3r" path="res://asest/sound/music/garden/gregWhEreAtOEnY.mp3" id="11"]
+[ext_resource type="Script" uid="uid://h0w8qdplj6dn" path="res://scene/verymisc/textthing.gd" id="12"]
+[ext_resource type="Script" uid="uid://bp4b0sfts5mug" path="res://scrpt/hehe/closeWindow.gd" id="13"]
+[ext_resource type="Texture2D" uid="uid://bwc117r4sk3vu" path="res://asest/sprite/allelse/shellyshopBack.png" id="14"]
+[ext_resource type="Texture2D" uid="uid://ckjvr4pugtv6h" path="res://asest/sprite/allelse/shellyshopShell.png" id="15"]
+[ext_resource type="Texture2D" uid="uid://vidlkr4degfb" path="res://asest/sprite/allelse/shelfendtop.png" id="16"]
+[ext_resource type="Texture2D" uid="uid://p612d7dw2rgc" path="res://asest/sprite/allelse/shelf.png" id="17"]
+[ext_resource type="Texture2D" uid="uid://cmtatb6djk11x" path="res://asest/sprite/allelse/shelfbottom.png" id="18"]
+[ext_resource type="Texture2D" uid="uid://c33cqg4j4r8u1" path="res://asest/sprite/allelse/shelfend.png" id="19"]
+[ext_resource type="Script" uid="uid://bjup7kxb610f7" path="res://scrpt/hehe/shopBuy.gd" id="20"]
+[ext_resource type="Texture2D" uid="uid://cwgpq2pxdr1ja" path="res://asest/sprite/allelse/label5orb.png" id="21"]
+[ext_resource type="Texture2D" uid="uid://c4h4k0b6c4wih" path="res://asest/sprite/toolwheelsprites/box.png" id="22"]
+[ext_resource type="Texture2D" uid="uid://bp5a6pc5rm2sn" path="res://asest/sprite/allelse/buytagreberse.png" id="23"]
+[ext_resource type="Texture2D" uid="uid://bok7ein60cf8n" path="res://asest/sprite/allelse/buytag.png" id="24"]
+[ext_resource type="Texture2D" uid="uid://hkn8nhm5qf6u" path="res://asest/sprite/allelse/label75orb.png" id="25"]
+[ext_resource type="Texture2D" uid="uid://bp7aub6iqpb0p" path="res://asest/sprite/toolwheelsprites/springer.png" id="26"]
+[ext_resource type="Texture2D" uid="uid://gvokk7dvi6ly" path="res://asest/sprite/allelse/label50orb.png" id="27"]
+[ext_resource type="Texture2D" uid="uid://bl68n6pl7cdvw" path="res://asest/sprite/toolwheelsprites/trowel.png" id="28"]
+[ext_resource type="Texture2D" uid="uid://cpeh7h53h185w" path="res://asest/sprite/allelse/label100orb.png" id="29"]
+[ext_resource type="Texture2D" uid="uid://jgx60jumk2gd" path="res://asest/sprite/toolwheelsprites/rocket.png" id="30"]
+[ext_resource type="Script" uid="uid://dwi86rjvr4lfg" path="res://scrpt/hehe/rich_text_label.gd" id="31"]
+[ext_resource type="Texture2D" uid="uid://crf5bntq1t3e2" path="res://asest/sprite/toolwheelsprites/hand.png" id="32"]
+
+[sub_resource type="Animation" id="Animation_vmid0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 70)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(620, 154)]
+}
+
+[sub_resource type="Animation" id="Animation_nghc6"]
+resource_name = "hidetext"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_wbr11"]
+resource_name = "rectIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 70), Vector2(1280, 70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, 154), Vector2(0, 154)]
+}
+
+[sub_resource type="Animation" id="Animation_b7get"]
+resource_name = "rectOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1280, 70), Vector2(0, 70)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 154), Vector2(640, 154)]
+}
+
+[sub_resource type="Animation" id="Animation_5xe0w"]
+resource_name = "showtext"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_snwe2"]
+_data = {
+&"RESET": SubResource("Animation_vmid0"),
+&"hidetext": SubResource("Animation_nghc6"),
+&"rectIn": SubResource("Animation_wbr11"),
+&"rectOut": SubResource("Animation_b7get"),
+&"showtext": SubResource("Animation_5xe0w")
+}
+
+[sub_resource type="Animation" id="Animation_cq2gi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.4]
+}
+
+[sub_resource type="Animation" id="Animation_npqnj"]
+resource_name = "talke"
+length = 1.4333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25, 0.4, 0.6, 0.76, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.2, 0.45, 0.6, 0.75, 0.83, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ddhon"]
+_data = {
+&"RESET": SubResource("Animation_cq2gi"),
+&"talke": SubResource("Animation_npqnj")
+}
+
+[node name="global" type="Node" unique_id=2111478247]
+process_mode = 3
+script = ExtResource("1")
+
+[node name="Barur" type="AudioStreamPlayer" parent="." unique_id=1029671069]
+stream = ExtResource("2")
+volume_db = -20.0
+pitch_scale = 0.3
+bus = &"sfx"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1263678113]
+
+[node name="music" type="Node" parent="." unique_id=730722003]
+script = ExtResource("3")
+
+[node name="default" type="Node" parent="music" unique_id=1256943163]
+
+[node name="GregHappy" type="AudioStreamPlayer" parent="music/default" unique_id=959201811]
+stream = ExtResource("4")
+bus = &"music"
+
+[node name="GregMoving" type="AudioStreamPlayer" parent="music/default" unique_id=1926076433]
+stream = ExtResource("5")
+bus = &"music"
+
+[node name="GregPeace" type="AudioStreamPlayer" parent="music/default" unique_id=1699205219]
+stream = ExtResource("6")
+bus = &"music"
+
+[node name="GregWeird" type="AudioStreamPlayer" parent="music/default" unique_id=883270881]
+stream = ExtResource("7")
+bus = &"music"
+
+[node name="garden" type="Node" parent="music" unique_id=1554556931]
+
+[node name="GregGarden" type="AudioStreamPlayer" parent="music/garden" unique_id=1330566488]
+stream = ExtResource("8")
+bus = &"music"
+
+[node name="GregTurning" type="AudioStreamPlayer" parent="music/garden" unique_id=1767137651]
+stream = ExtResource("9")
+bus = &"music"
+
+[node name="Drownsy" type="AudioStreamPlayer" parent="music/garden" unique_id=851133420]
+stream = ExtResource("10")
+bus = &"music"
+
+[node name="GregWhEreAtOEnY" type="AudioStreamPlayer" parent="music/garden" unique_id=705378847]
+stream = ExtResource("11")
+bus = &"music"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1261843608]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=656429170]
+anchors_preset = -1
+anchor_top = 3.7250001
+anchor_right = 32.075
+anchor_bottom = 5.6000004
+offset_left = 620.0
+offset_top = -2528.0
+offset_right = -40436.0
+offset_bottom = -3808.0002
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.40392157)
+script = ExtResource("12")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ColorRect" unique_id=1952141579]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 4.0600004
+anchor_right = 32.0
+anchor_bottom = 5.3250003
+offset_top = -284.20004
+offset_right = -39680.0
+offset_bottom = -302.75003
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect" unique_id=868378349]
+root_node = NodePath("../RichTextLabel")
+libraries/ = SubResource("AnimationLibrary_snwe2")
+
+[node name="scoreDec" type="Timer" parent="." unique_id=1070537647]
+process_callback = 0
+wait_time = 4.5
+autostart = true
+
+[node name="Window" type="Window" parent="." unique_id=15916873]
+oversampling_override = 1.0
+title = "item shop"
+initial_position = 2
+size = Vector2i(500, 300)
+visible = false
+unresizable = true
+always_on_top = true
+sharp_corners = true
+minimize_disabled = true
+maximize_disabled = true
+script = ExtResource("13")
+talk = ["that is", "yup"]
+talkRefuseNothand = ["not hand", "hand is full"]
+talkNotOrb = ["get richer", "no"]
+
+[node name="ShellyshopBack" type="Sprite2D" parent="Window" unique_id=1906741512]
+position = Vector2(277, 0)
+texture = ExtResource("14")
+centered = false
+
+[node name="ShellyshopShell" type="Sprite2D" parent="Window" unique_id=2092592531]
+position = Vector2(277, 0)
+texture = ExtResource("15")
+centered = false
+
+[node name="shelf1" type="TextureRect" parent="Window" unique_id=215189913]
+offset_left = 12.0
+offset_right = 265.0
+offset_bottom = 100.0
+texture = ExtResource("16")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="shelf2" type="TextureRect" parent="Window" unique_id=1057615054]
+offset_left = 12.0
+offset_top = 100.0
+offset_right = 265.0
+offset_bottom = 200.0
+texture = ExtResource("17")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="shelf3" type="TextureRect" parent="Window" unique_id=2101337346]
+offset_left = 12.0
+offset_top = 200.0
+offset_right = 265.0
+offset_bottom = 300.0
+texture = ExtResource("18")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="ColorRect3" type="TextureRect" parent="Window" unique_id=1883010342]
+offset_left = 259.0
+offset_right = 284.0
+offset_bottom = 300.0
+texture = ExtResource("19")
+expand_mode = 1
+stretch_mode = 1
+flip_h = true
+
+[node name="ColorRect4" type="TextureRect" parent="Window" unique_id=77025054]
+offset_left = -6.0
+offset_right = 19.0
+offset_bottom = 300.0
+texture = ExtResource("19")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="buy1" type="Node2D" parent="Window" unique_id=2135218022]
+position = Vector2(27, 20)
+script = ExtResource("20")
+price = 5
+thing = "res://scene/gregtool/box.tscn"
+
+[node name="price" type="Sprite2D" parent="Window/buy1" unique_id=543489485]
+position = Vector2(20, 70)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("21")
+
+[node name="Box" type="Sprite2D" parent="Window/buy1" unique_id=1430783898]
+position = Vector2(20, 34)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("22")
+
+[node name="button" type="TextureButton" parent="Window/buy1" unique_id=703423724]
+offset_left = -6.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 55.0
+texture_pressed = ExtResource("23")
+texture_hover = ExtResource("24")
+
+[node name="buy2" type="Node2D" parent="Window" unique_id=76155184]
+position = Vector2(162, 19)
+script = ExtResource("20")
+price = 75
+thing = "res://scene/gregtool/bouncer.tscn"
+SvName = "bounce"
+
+[node name="price" type="Sprite2D" parent="Window/buy2" unique_id=1448776283]
+position = Vector2(20, 70)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("25")
+
+[node name="Box" type="Sprite2D" parent="Window/buy2" unique_id=591355538]
+position = Vector2(20, 34)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("26")
+
+[node name="button" type="TextureButton" parent="Window/buy2" unique_id=388687268]
+offset_left = -6.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 55.0
+texture_pressed = ExtResource("23")
+texture_hover = ExtResource("24")
+
+[node name="buy3" type="Node2D" parent="Window" unique_id=1239552755]
+position = Vector2(214, 120)
+script = ExtResource("20")
+price = 50
+thing = "res://scene/gregtool/trowel.tscn"
+isFind = true
+SvName = "trowel"
+
+[node name="price" type="Sprite2D" parent="Window/buy3" unique_id=2055873566]
+position = Vector2(20, 70)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("27")
+
+[node name="Box" type="Sprite2D" parent="Window/buy3" unique_id=885827905]
+position = Vector2(20, 34)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("28")
+
+[node name="button" type="TextureButton" parent="Window/buy3" unique_id=107858464]
+offset_left = -6.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 55.0
+texture_pressed = ExtResource("23")
+texture_hover = ExtResource("24")
+
+[node name="buy4" type="Node2D" parent="Window" unique_id=185982717]
+position = Vector2(161, 121)
+script = ExtResource("20")
+price = 100
+thing = "res://scene/gregtool/dash.tscn"
+isFind = true
+SvName = "rocket"
+
+[node name="price" type="Sprite2D" parent="Window/buy4" unique_id=18429396]
+position = Vector2(20, 70)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("29")
+
+[node name="Box" type="Sprite2D" parent="Window/buy4" unique_id=1918977700]
+position = Vector2(20, 34)
+scale = Vector2(0.85, 0.85)
+texture = ExtResource("30")
+
+[node name="button" type="TextureButton" parent="Window/buy4" unique_id=382264400]
+offset_left = -6.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 55.0
+texture_pressed = ExtResource("23")
+texture_hover = ExtResource("24")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Window" unique_id=1092633271]
+offset_left = 277.0
+offset_top = 222.0
+offset_right = 499.0
+offset_bottom = 257.0
+bbcode_enabled = true
+text = "[font=res://asest/greg.ttf][font_size=19
+]you have 9001 orb (fake"
+fit_content = true
+horizontal_alignment = 1
+script = ExtResource("31")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Window" unique_id=658522072]
+offset_left = 276.0
+offset_top = 5.0
+offset_right = 498.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "[shake rate=10.0 level=3 connected=1][font=res://asest/greg.ttf][font_size=19][outline_size=6][outline_color=706438]hello hi its me"
+fit_content = true
+horizontal_alignment = 1
+visible_characters = 6
+visible_ratio = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Window/RichTextLabel2" unique_id=1454499377]
+libraries/ = SubResource("AnimationLibrary_ddhon")
+
+[node name="StatusIndicator" type="StatusIndicator" parent="." unique_id=1614424842]
+tooltip = "YOU ARE CURRENTLY GREGGING"
+icon = ExtResource("32")
+
+[connection signal="timeout" from="scoreDec" to="." method="_on_score_dec_timeout"]
+[connection signal="about_to_popup" from="Window" to="Window" method="_on_about_to_popup"]
+[connection signal="close_requested" from="Window" to="Window" method="_on_close_requested"]
