@@ -57,7 +57,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ct4mp")
 }],
-"loop": true,
+"loop": 1,
 "name": &"gethit",
 "speed": 5.0
 }, {
@@ -71,7 +71,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_g2vtq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -79,7 +79,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2fvbb")
 }],
-"loop": true,
+"loop": 1,
 "name": &"jump",
 "speed": 5.0
 }, {
@@ -96,7 +96,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_34jf3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -170,6 +170,7 @@ shape = SubResource("RectangleShape2D_welfw")
 
 [node name="anchor" type="Node2D" parent="." unique_id=1794281247]
 use_parent_material = true
+position = Vector2(0, 4)
 script = ExtResource("4")
 
 [node name="placeholder" type="Node2D" parent="anchor" unique_id=1310771410]

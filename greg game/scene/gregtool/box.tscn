@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c4h4k0b6c4wih" path="res://asest/sprite/toolwheelsprites/box.png" id="2"]
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="3"]
 [ext_resource type="Texture2D" uid="uid://dp3hf8at5ju1u" path="res://asest/sprite/allelse/box.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_ocaxw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bo47f"]
 shader = ExtResource("3")
@@ -15,9 +16,23 @@ shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
 
-[node name="Node2D" type="Node2D" unique_id=1682027990]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2v3n"]
+shader = ExtResource("3")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="Node2D" type="Node2D" unique_id=1682027990 node_paths=PackedStringArray("line", "prite")]
 script = ExtResource("1")
 img = ExtResource("2")
+hasline = true
+line = NodePath("Line2D")
+prite = NodePath("Box")
+maximimi = 27
 metadata/_custom_type_script = "uid://ey2ph5nea8kw"
 
 [node name="Box" type="Sprite2D" parent="." unique_id=1903188963]
@@ -29,3 +44,14 @@ texture = ExtResource("4")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=450703040]
 position = Vector2(225, 0)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=133269531]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_h2v3n")
+points = PackedVector2Array(3, 0, 19, 0)
+width = 1.0
+default_color = Color(0.31764707, 0.31764707, 0.31764707, 1)
+texture = ExtResource("5_ocaxw")
+texture_mode = 1
+begin_cap_mode = 1

@@ -4,6 +4,13 @@ var dist
 var ragedspeed = 185
 var rage = 0
 var rara
+func _ready():
+	rara = speed
+	speed = 0
+func _process(_delta: float):
+	if rage >= 4:
+		$AnimatedSprite2D.position = Vector2(randf_range(rage*0.5,-rage*0.5),randf_range(rage*0.5,-rage*0.5))
+		$Node2D.position= Vector2(randf_range(rage*0.5,-rage*0.5),randf_range(rage*0.5,-rage*0.5)+1)
 func _physics_process(_delta: float) -> void :
 	if $enemy.has_overlapping_areas():
 		g.health -= 1
@@ -13,7 +20,6 @@ func _physics_process(_delta: float) -> void :
 func _damagin(amount):
 	rage += 1
 	health -= amount
-	rara = speed
 	speed = -125
 	if rage >= 4:
 		ragedspeed += 30
@@ -30,3 +36,8 @@ func _damagin(amount):
 
 func _on_timer_timeout() -> void :
 	speed += 0.25
+
+
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
+	$AnimationPlayer.play("theonlyanimationthereis")
+	speed = rara

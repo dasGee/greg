@@ -11,6 +11,7 @@ shader = ExtResource("1")
 shader_parameter/color = Color(1, 0, 0, 1)
 shader_parameter/width = 2.000000095
 shader_parameter/pattern = 1
+shader_parameter/modulate_affects_color = true
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
@@ -21,7 +22,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -40,10 +41,73 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.4)]
+}
+
+[sub_resource type="Animation" id="Animation_hff02"]
+resource_name = "nevermind"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.37892917, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.25, 0.25)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.53333336, 0.74, 1),
+"transitions": PackedFloat32Array(0.7071067, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.45, 0.45), Vector2(0.5, 0.5), Vector2(0.4, 0.4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Node2D:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1.0717734, 1),
+"update": 0,
+"values": [0.9372418083209547, 6.283185307179586]
+}
 
 [sub_resource type="Animation" id="Animation_gi7ao"]
 resource_name = "theonlyanimationthereis"
-length = 2.5
+length = 2.0
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -52,7 +116,7 @@ tracks/0/path = NodePath("Node2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
+"times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 6.283185307179586]
@@ -61,6 +125,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hff02"]
 _data = {
 &"RESET": SubResource("Animation_p2i44"),
+&"nevermind": SubResource("Animation_hff02"),
 &"theonlyanimationthereis": SubResource("Animation_gi7ao")
 }
 
@@ -154,7 +219,7 @@ flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=681897340]
 libraries/ = SubResource("AnimationLibrary_hff02")
-autoplay = &"theonlyanimationthereis"
+autoplay = &"nevermind"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1016790086]
 shape = SubResource("CircleShape2D_v8y0q")
@@ -177,4 +242,5 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

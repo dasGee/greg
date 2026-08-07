@@ -175,11 +175,6 @@ variant = "N"
 [node name="enemyspawn3" parent="enemyspawners" unique_id=1220371496 instance=ExtResource("11")]
 position = Vector2(1343, 124)
 
-[node name="enemymarker" parent="enemyspawners/enemyspawn3" unique_id=1922127217 instance=ExtResource("12")]
-position = Vector2(-437, 254)
-enemy = "turret_b_wall"
-variant = "N"
-
 [node name="enemymarker7" parent="enemyspawners/enemyspawn3" unique_id=1890543493 instance=ExtResource("12")]
 position = Vector2(46, 124)
 enemy = "turret_b_wall"

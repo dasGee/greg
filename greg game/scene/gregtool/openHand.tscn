@@ -4,21 +4,36 @@
 [ext_resource type="Texture2D" uid="uid://crf5bntq1t3e2" path="res://asest/sprite/toolwheelsprites/hand.png" id="2"]
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="3"]
 [ext_resource type="Texture2D" uid="uid://dhnplfm43yf3l" path="res://asest/sprite/allelse/openhandeye.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_2rail"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10eak"]
 shader = ExtResource("3")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/width = 1.50000007125
-shader_parameter/pattern = 0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 1
 shader_parameter/modulate_affects_color = true
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
 
-[node name="OpenHand" type="Node2D" unique_id=590959273]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fherp"]
+shader = ExtResource("3")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="OpenHand" type="Node2D" unique_id=590959273 node_paths=PackedStringArray("line", "prite")]
 script = ExtResource("1")
 img = ExtResource("2")
 isHand = true
+hasline = true
+line = NodePath("Line2D")
+prite = NodePath("Openhandeye")
+maximimi = 28
 metadata/_custom_type_script = "uid://ey2ph5nea8kw"
 
 [node name="Openhandeye" type="Sprite2D" parent="." unique_id=1227803235]
@@ -32,3 +47,14 @@ target_position = Vector2(50, 0)
 collision_mask = 16
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1868661572]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_fherp")
+points = PackedVector2Array(3, 0, 17, 0)
+width = 1.0
+default_color = Color(0.31764707, 0.31764707, 0.31764707, 1)
+texture = ExtResource("5_2rail")
+texture_mode = 1
+begin_cap_mode = 1

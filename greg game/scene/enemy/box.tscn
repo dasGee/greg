@@ -14,6 +14,7 @@ bounce = 0.15
 absorbent = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkq14"]
+custom_solver_bias = 0.25
 size = Vector2(12, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwrka"]
@@ -24,6 +25,7 @@ shader = ExtResource("2")
 shader_parameter/color = Color(0.4, 0.4, 0.4, 1)
 shader_parameter/width = 1.0
 shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
@@ -34,7 +36,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]

@@ -14,10 +14,9 @@ func _physics_process(_delta):
 			g.lock = true
 			anc.yes = false
 			$AnimationPlayer.play("lunge")
-			$Timer.start()
 			await get_tree().create_timer(0.02).timeout
 			if ray.get_collider():
-				$".." / "..".velocity += Vector2($".." / ".." / "marker".position.x * 8.5, $".." / ".." / "marker".position.y * 5.75)
+				$".." / "..".velocity += Vector2($".." / ".." / "marker".position.x * 10, $".." / ".." / "marker".position.y * 6)
 			if $Area2D.has_overlapping_areas():
 				for a in $Area2D.get_overlapping_areas():
 					if a:
@@ -30,12 +29,12 @@ func _physics_process(_delta):
 						g.score += scoreDam
 					elif unlockman.get("friend") == false:
 						unlockman.friend = true
-						unlockman.linear_velocity = Vector2($".." / ".." / "marker".position.x * -8, $".." / ".." / "marker".position.y * -8)
+						unlockman.linear_velocity = Vector2($".." / ".." / "marker".position.x * -8.5, $".." / ".." / "marker".position.y * -8.5)
 					elif unlockman.get("wallHealth"):
 						unlockman.wallHealth -= damage
 					else:
 						return
 
-func _on_timer_timeout() -> void :
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	anc.yes = true
 	g.lock = false

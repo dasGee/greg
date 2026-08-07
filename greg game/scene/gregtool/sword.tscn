@@ -4,11 +4,12 @@
 [ext_resource type="Script" uid="uid://c4remjhl3tgcq" path="res://scene/gregtool/sword.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://bf82mbaqsgs1g" path="res://asest/sprite/toolwheelsprites/sword.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://bpg3qw50iwjed" path="res://asest/sprite/allelse/sword.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_ts2le"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r3ql2"]
 shader = ExtResource("1")
 shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 3.0000001425
+shader_parameter/width = 2.000000095
 shader_parameter/pattern = 0
 shader_parameter/modulate_affects_color = true
 shader_parameter/inside = false
@@ -41,6 +42,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(10, 8)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Line2D:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(3, 0, 17, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_g2vtq"]
 resource_name = "lunge"
@@ -55,7 +68,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.9),
 "transitions": PackedFloat32Array(1.8660661, 1, 1),
 "update": 0,
-"values": [-1.3089969389957472, -0.15707963267948966, -1.3089969]
+"values": [-1.3089969389957472, -0.17453292519943295, -1.3089969]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -67,7 +80,19 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.43333334, 0.7),
 "transitions": PackedFloat32Array(1.8660661, 1, 1, 1),
 "update": 0,
-"values": [Vector2(10, 8), Vector2(21, -3), Vector2(21, -3), Vector2(10, 8)]
+"values": [Vector2(10, 8), Vector2(21, -3.5), Vector2(21, -3.5), Vector2(10, 8)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Line2D:points")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4333, 0.6333333, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(3, 0, 15, 5.5), PackedVector2Array(3, 0, 17, 1.25), PackedVector2Array(3, 0, 18, 1.75), PackedVector2Array(3, 0, 15, 9), PackedVector2Array(3, 0, 15, 5.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ajmw"]
@@ -79,10 +104,26 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3ql2"]
 size = Vector2(42.5, 20)
 
-[node name="Node2D" type="Node2D" unique_id=314326441]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ajmw"]
+shader = ExtResource("1")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="Node2D" type="Node2D" unique_id=314326441 node_paths=PackedStringArray("line", "prite")]
 material = SubResource("ShaderMaterial_r3ql2")
 script = ExtResource("2")
 img = ExtResource("3")
+hasline = true
+line = NodePath("Line2D")
+prite = NodePath("shootsprite")
+maximimi = 10
+offset = Vector2(0, 8)
+LO = Vector2(5, 5.5)
 metadata/_custom_type_script = "uid://ey2ph5nea8kw"
 
 [node name="shootsprite" type="Sprite2D" parent="." unique_id=214385135]
@@ -100,15 +141,10 @@ target_position = Vector2(58, 0)
 collision_mask = 2051
 collide_with_areas = true
 
-[node name="Timer" type="Timer" parent="." unique_id=2012918570]
-process_callback = 0
-wait_time = 0.455
-one_shot = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=966656682]
 root_node = NodePath("../shootsprite")
 libraries/ = SubResource("AnimationLibrary_0ajmw")
-speed_scale = 2.0
+speed_scale = 1.7
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=883173241]
 position = Vector2(-27, 0)
@@ -123,4 +159,15 @@ monitorable = false
 position = Vector2(36.25, 1)
 shape = SubResource("RectangleShape2D_r3ql2")
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Line2D" type="Line2D" parent="." unique_id=912730839]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0ajmw")
+points = PackedVector2Array(3, 0, 17, 0)
+width = 1.0
+default_color = Color(0.31764707, 0.31764707, 0.31764707, 1)
+texture = ExtResource("5_ts2le")
+texture_mode = 1
+begin_cap_mode = 1
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
