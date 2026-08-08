@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="greg game"
 config/version="pre pre alpha"
-run/main_scene="uid://c14l0xy8cmom"
+run/main_scene="uid://c038i3c20evv7"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="dasG"
 config/quit_on_go_back=false

@@ -102,7 +102,7 @@ size = Vector2(24, 27)
 [node name="TurretB" type="RigidBody2D" unique_id=2139472078 node_paths=PackedStringArray("coll", "area", "sprit")]
 mass = 999.0
 script = ExtResource("1")
-health = 6
+health = 5
 damage = 2
 score = 80
 coll = NodePath("CollisionShape2D")

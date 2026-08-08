@@ -39,7 +39,7 @@ script = ExtResource("2")
 position = Vector2(-233, -257)
 item = ExtResource("4")
 destroy = true
-destroyee = NodePath("Square/Sword")
+destroyee = NodePath(".")
 
 [node name="Square" type="Sprite2D" parent="pickUp3" unique_id=252989283]
 clip_children = 1

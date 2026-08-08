@@ -39,7 +39,7 @@ metadata/_custom_type_script = "uid://0g17egfxex6q"
 position = Vector2(-65, -33)
 item = ExtResource("3")
 destroy = true
-destroyee = NodePath("Sword")
+destroyee = NodePath(".")
 
 [node name="Sword" type="Sprite2D" parent="pickUp3" unique_id=1614868152]
 position = Vector2(2, -1.9999962)

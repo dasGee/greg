@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://0ov26l0rrb5a"]
+
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_sonhp"]
+[ext_resource type="Script" uid="uid://o3yy0wek0to6" path="res://scene/gregtool/cannon.gd" id="2_6ep5g"]
+[ext_resource type="Texture2D" uid="uid://d0dl1v1nmheon" path="res://asest/sprite/toolwheelsprites/cannon.png" id="3_mad44"]
+[ext_resource type="Texture2D" uid="uid://cp3hu2yp2s5yr" path="res://asest/sprite/allelse/cannon.png" id="3_sonhp"]
+[ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_hdl4n"]
+[ext_resource type="AudioStream" uid="uid://btcx1gspoeb42" path="res://asest/sound/Kerplunk.ogg" id="5_uwxst"]
+[ext_resource type="AudioStream" uid="uid://cycc6aaf10e1g" path="res://asest/sound/paintball.ogg" id="6_mad44"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3ql2"]
+shader = ExtResource("1_sonhp")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ajmw"]
+shader = ExtResource("1_sonhp")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="cannon" type="Node2D" unique_id=314326441 node_paths=PackedStringArray("line", "prite")]
+material = SubResource("ShaderMaterial_r3ql2")
+script = ExtResource("2_6ep5g")
+img = ExtResource("3_mad44")
+hasline = true
+line = NodePath("Line2D")
+prite = NodePath("shootsprite")
+maximimi = 25
+metadata/_custom_type_script = "uid://ey2ph5nea8kw"
+
+[node name="shootsprite" type="Sprite2D" parent="." unique_id=214385135]
+use_parent_material = true
+position = Vector2(20, -2.842171e-14)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_sonhp")
+centered = false
+offset = Vector2(-40, -30.000002)
+metadata/rotate = false
+
+[node name="Marker2D3" type="Marker2D" parent="shootsprite" unique_id=1689222383]
+position = Vector2(135, 1)
+scale = Vector2(4.9999995, 4.9999995)
+
+[node name="Marker2D4" type="Marker2D" parent="shootsprite" unique_id=1605659352]
+position = Vector2(24.999992, 1)
+scale = Vector2(4.9999995, 4.9999995)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=883173241]
+position = Vector2(-27, 0)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=912730839]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0ajmw")
+points = PackedVector2Array(3, 0, 17, 0)
+width = 1.0
+default_color = Color(0.31764707, 0.31764707, 0.31764707, 1)
+texture = ExtResource("5_hdl4n")
+texture_mode = 1
+begin_cap_mode = 1
+
+[node name="Kerplunk" type="AudioStreamPlayer" parent="." unique_id=576837275]
+stream = ExtResource("5_uwxst")
+volume_db = -5.0
+max_polyphony = 3
+bus = &"sfx"
+
+[node name="Paintball" type="AudioStreamPlayer" parent="." unique_id=676308482]
+stream = ExtResource("6_mad44")
+volume_db = -15.0
+max_polyphony = 3
+bus = &"sfx"

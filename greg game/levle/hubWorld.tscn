@@ -9,8 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://1nqqaibwnocb" path="res://scene/enemy/newspringy.tscn" id="7"]
 [ext_resource type="PackedScene" uid="uid://rtx4krhtlv60" path="res://prettyscene/signer.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://cocnh0q1sysrd" path="res://scene/gregtool/pick_up.tscn" id="9_lexnp"]
-[ext_resource type="PackedScene" uid="uid://dfajjejywtivy" path="res://scene/gregtool/box.tscn" id="10_lexnp"]
+[ext_resource type="PackedScene" uid="uid://0ov26l0rrb5a" path="res://scene/gregtool/cannon.tscn" id="10_lexnp"]
 [ext_resource type="Texture2D" uid="uid://bhjl70uaykf4u" path="res://asest/sprite/allelse/gregcurso.png" id="11_vxhfm"]
+[ext_resource type="Texture2D" uid="uid://h5cvkto4b63b" path="res://asest/sprite/allelse/esct.png" id="12_jelug"]
 
 [sub_resource type="GDScript" id="GDScript_sao81"]
 script/source = "extends TileMapLayer
@@ -200,3 +201,7 @@ saying = "nope not yet"
 position = Vector2(-1009, -118)
 item = ExtResource("10_lexnp")
 img = ExtResource("11_vxhfm")
+
+[node name="Esct" type="Sprite2D" parent="." unique_id=1491766323]
+position = Vector2(-823, -26)
+texture = ExtResource("12_jelug")

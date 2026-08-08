@@ -36,7 +36,7 @@ func _ready():
 		CurColor = Color("FFB600")
 		rang = 1
 	elif variation == "minigun":
-		health = floori(health * 0.5)
+		health = 3
 		anothervariableidontreallycareabout = 1.75
 		$Timer.wait_time *= 0.25
 		damage = 1

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://jjmyeggyox3m" path="res://asest/sprite/allelse/cryplatform.png" id="3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6077a"]
-size = Vector2(24, 4)
+size = Vector2(14, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vle84"]
 size = Vector2(30, 8)
@@ -136,8 +136,7 @@ collision_layer = 0
 collision_mask = 32768
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1951876813]
-visible = false
-position = Vector2(0, -12)
+position = Vector2(0, -11.5)
 shape = SubResource("RectangleShape2D_6077a")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=464725239]

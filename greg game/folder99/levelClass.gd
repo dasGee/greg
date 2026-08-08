@@ -34,7 +34,7 @@ var wawaha
 var memeha
 
 func _ready() -> void :
-	if g.find_child("music").curFolder != music:
+	if g.find_child("music").curFolder != music and music != "keep":
 		g.find_child("music").curFolder = music
 		g.find_child("music").wawa()
 

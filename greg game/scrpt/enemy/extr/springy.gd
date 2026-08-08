@@ -14,8 +14,8 @@ var maxm = 1.2
 func _ready():
 	super ()
 	if variation == "champ":
-		minm = 0.5
-		maxm = 0.8
+		minm = 0.7
+		maxm = 0.9
 		prite.play("champ")
 	if rng.randi_range(1, 100) == 100:
 		minm = 1

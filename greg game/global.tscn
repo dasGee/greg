@@ -9,9 +9,10 @@
 [ext_resource type="AudioStream" uid="uid://w3mdj0tolt8n" path="res://asest/sound/music/regular/gregWeird.mp3" id="7"]
 [ext_resource type="AudioStream" uid="uid://cuma73wb6j8oy" path="res://asest/sound/music/garden/gregGarden.mp3" id="8"]
 [ext_resource type="AudioStream" uid="uid://lihdqoq0ep7i" path="res://asest/sound/music/garden/gregTurning.mp3" id="9"]
-[ext_resource type="AudioStream" uid="uid://bcm1p5a7u8x76" path="res://asest/sound/music/garden/drownsy.mp3" id="10"]
 [ext_resource type="AudioStream" uid="uid://io6o7jmb7q3r" path="res://asest/sound/music/garden/gregWhEreAtOEnY.mp3" id="11"]
+[ext_resource type="AudioStream" uid="uid://de0yyqkirwqcx" path="res://asest/sound/music/scrap/gregNo.ogg" id="11_aqnmw"]
 [ext_resource type="Script" uid="uid://h0w8qdplj6dn" path="res://scene/verymisc/textthing.gd" id="12"]
+[ext_resource type="AudioStream" uid="uid://f8mhbvw8syst" path="res://asest/sound/music/scrap/gregScrapped.ogg" id="12_qmp0v"]
 [ext_resource type="Script" uid="uid://bp4b0sfts5mug" path="res://scrpt/hehe/closeWindow.gd" id="13"]
 [ext_resource type="Texture2D" uid="uid://bwc117r4sk3vu" path="res://asest/sprite/allelse/shellyshopBack.png" id="14"]
 [ext_resource type="Texture2D" uid="uid://ckjvr4pugtv6h" path="res://asest/sprite/allelse/shellyshopShell.png" id="15"]
@@ -249,12 +250,18 @@ bus = &"music"
 stream = ExtResource("9")
 bus = &"music"
 
-[node name="Drownsy" type="AudioStreamPlayer" parent="music/garden" unique_id=851133420]
-stream = ExtResource("10")
-bus = &"music"
-
 [node name="GregWhEreAtOEnY" type="AudioStreamPlayer" parent="music/garden" unique_id=705378847]
 stream = ExtResource("11")
+bus = &"music"
+
+[node name="scrap" type="Node" parent="music" unique_id=2123494453]
+
+[node name="GregNo" type="AudioStreamPlayer" parent="music/scrap" unique_id=279364757]
+stream = ExtResource("11_aqnmw")
+bus = &"music"
+
+[node name="GregScrapped" type="AudioStreamPlayer" parent="music/scrap" unique_id=1856871471]
+stream = ExtResource("12_qmp0v")
 bus = &"music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1261843608]
@@ -316,9 +323,9 @@ sharp_corners = true
 minimize_disabled = true
 maximize_disabled = true
 script = ExtResource("13")
-talk = ["that is", "yup"]
-talkRefuseNothand = ["not hand", "hand is full"]
-talkNotOrb = ["get richer", "no"]
+talk = Array[String](["that is", "yup"])
+talkRefuseNothand = Array[String](["not hand", "hand is full"])
+talkNotOrb = Array[String](["get richer", "no"])
 
 [node name="ShellyshopBack" type="Sprite2D" parent="Window" unique_id=1906741512]
 position = Vector2(277, 0)
