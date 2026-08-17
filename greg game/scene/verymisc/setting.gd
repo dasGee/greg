@@ -66,6 +66,7 @@ func _on_control_pressed() -> void :
 
 func _on_control_2_pressed() -> void :
 	hide()
+	g.score = 0
 	g.canHealth = true
 	g.health = g.maxhealth
 	g.lock = false
@@ -106,3 +107,7 @@ func _on_hp_toggled(t: bool):
 		g.health = 1
 		config.set_value("setting", "1hp", true)
 		config.save("user://Greg.cfg")
+
+
+func _on_diskrod_pressed() -> void:
+	OS.shell_open("https://discord.gg/SEGG6QaWDQ")

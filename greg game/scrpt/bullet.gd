@@ -22,3 +22,5 @@ func _on_body_entered(area: Node) -> void :
 		set_deferred("contact_monitor", false)
 	else:
 		$AnimationPlayer.play("begone")
+	if area.get_parent().get("wallHealth"):
+		area.get_parent().wallHealth -=2

@@ -5,19 +5,35 @@
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="3"]
 [ext_resource type="Texture2D" uid="uid://2nb654otnyjy" path="res://asest/sprite/allelse/trowel.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://bmifpgkvsnrcf" path="res://asest/sprite/allelse/brickplatformnot.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="6_holhw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_10eak"]
 shader = ExtResource("3")
-shader_parameter/color = Color(0, 0, 0, 1)
-shader_parameter/width = 1.0000000475
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
 shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
 
-[node name="OpenHand" type="Node2D" unique_id=590959273]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dp7g8"]
+shader = ExtResource("3")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="OpenHand" type="Node2D" unique_id=590959273 node_paths=PackedStringArray("line", "prite")]
 script = ExtResource("1")
 img = ExtResource("2")
+hasline = true
+line = NodePath("Line2D")
+prite = NodePath("trowle")
+maximimi = 25
 metadata/_custom_type_script = "uid://ey2ph5nea8kw"
 
 [node name="trowle" type="Sprite2D" parent="." unique_id=1227803235]
@@ -27,7 +43,7 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("4")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=46552529]
-target_position = Vector2(54, 0)
+target_position = Vector2(56, 0)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1638058530]
 position = Vector2(54, 0)
@@ -37,3 +53,14 @@ modulate = Color(1, 1, 1, 0.5)
 position = Vector2(54, 0)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1440132094]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_dp7g8")
+points = PackedVector2Array(3, 0, 17, 0)
+width = 1.0
+default_color = Color(0.31764707, 0.31764707, 0.31764707, 1)
+texture = ExtResource("6_holhw")
+texture_mode = 1
+begin_cap_mode = 1

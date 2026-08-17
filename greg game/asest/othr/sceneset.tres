@@ -7,8 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://bv2d8fymmwv" path="res://scene/obj/moverChamp.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://cnfugvh6x2182" path="res://scene/obj/oneway.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://dk85ktcqa53if" path="res://scene/scrap.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://clvs2xxpp4ijy" path="res://scene/SetDefTools.tscn" id="7_6fi0c"]
+[ext_resource type="PackedScene" uid="uid://bvcboyragbyu5" path="res://scene/obj/laserbean.tscn" id="7_avv6w"]
 [ext_resource type="PackedScene" uid="uid://b7gpaare80vef" path="res://scene/death.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://dvlc2mx4ooqap" path="res://scene/obj/wator.tscn" id="9"]
+[ext_resource type="PackedScene" uid="uid://caxclieaywwnu" path="res://scene/scrapack.tscn" id="9_h162x"]
 [ext_resource type="PackedScene" uid="uid://dsywegpx4vjx7" path="res://scene/obj/packed_air.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://312o7h0p1a1d" path="res://scene/obj/mover.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://d4n3pg15hxi6t" path="res://scene/obj/vine.tscn" id="12"]
@@ -33,6 +36,9 @@ scenes/11/scene = ExtResource("3")
 scenes/12/scene = ExtResource("4")
 scenes/13/scene = ExtResource("5")
 scenes/14/scene = ExtResource("6")
+scenes/15/scene = ExtResource("7_6fi0c")
+scenes/16/scene = ExtResource("7_avv6w")
+scenes/17/scene = ExtResource("9_h162x")
 
 [resource]
 tile_size = Vector2i(32, 32)

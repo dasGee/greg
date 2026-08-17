@@ -102,8 +102,8 @@ size = Vector2(24, 27)
 [node name="TurretB" type="RigidBody2D" unique_id=2139472078 node_paths=PackedStringArray("coll", "area", "sprit")]
 mass = 999.0
 script = ExtResource("1")
-health = 5
-damage = 2
+health = 6
+damage = 5
 score = 80
 coll = NodePath("CollisionShape2D")
 area = NodePath("Area2D")
@@ -161,6 +161,7 @@ shape = SubResource("RectangleShape2D_b4aed")
 
 [node name="Timer" type="Timer" parent="." unique_id=1811613263]
 process_callback = 0
+one_shot = true
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

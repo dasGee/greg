@@ -5,6 +5,9 @@ var dist
 var boom = preload("res://scene/boom.tscn")
 var boo
 
+var burst = 1
+var burstwait = 0.0
+
 var anothervariableidontreallycareabout = 1
 
 var beee = true
@@ -30,29 +33,37 @@ func _ready():
 	super ()
 	if variation == "champ":
 		anothervariableidontreallycareabout = 1.75
-		$Timer.wait_time *= 0.8
+		$Timer.wait_time *= 0.85
 		$AnimatedSprite2D / TurretGun.play("champ")
 		$AnimatedSprite2D / TurretTabke.play("champ")
 		CurColor = Color("FFB600")
 		rang = 1
 	elif variation == "minigun":
-		health = 3
-		anothervariableidontreallycareabout = 1.75
-		$Timer.wait_time *= 0.25
-		damage = 1
+		burstwait = 0.175
+		anothervariableidontreallycareabout = 1.5
+		$Timer.wait_time *= 1.5
+		burst = 12
+		damage = 2
 		$AnimatedSprite2D / TurretGun.play("minigun")
 		CurColor = Color("FFE900")
-		rang = 25
+		rang = 17
 func _damaged():
 	thingie()
 	super ()
+
+func _shoot():
+	bulleta = bullet.instantiate()
+	bulleta.modulate = CurColor
+	$AnimatedSprite2D / TurretGun / Marker2D2.position.y = rng.randf_range( - rang, rang)
+	bulleta.damage = damage
+	bulleta.global_position = $AnimatedSprite2D / TurretGun / Marker2D.global_position
+	dist = $AnimatedSprite2D / TurretGun / Marker2D2.global_position - global_position
+	bulleta.linear_velocity = dist.normalized() * rng.randi_range(105, 165) * anothervariableidontreallycareabout
+	get_tree().current_scene.add_child(bulleta)
+
 func _on_timer_timeout() -> void :
 	if bingbing == false:
-		bulleta = bullet.instantiate()
-		bulleta.modulate = CurColor
-		$AnimatedSprite2D / TurretGun / Marker2D2.position.y = rng.randf_range( - rang, rang)
-		bulleta.damage = damage
-		bulleta.global_position = $AnimatedSprite2D / TurretGun / Marker2D.global_position
-		dist = $AnimatedSprite2D / TurretGun / Marker2D2.global_position - global_position
-		bulleta.linear_velocity = dist.normalized() * rng.randi_range(105, 165) * anothervariableidontreallycareabout
-		get_tree().current_scene.add_child(bulleta)
+		for a in burst:
+			_shoot()
+			await get_tree().create_timer(burstwait).timeout
+		$Timer.start()

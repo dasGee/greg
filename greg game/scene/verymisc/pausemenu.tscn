@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cv643igxi0dvo" path="res://asest/sprite/off.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://b3xb4b6frp4kl" path="res://asest/sprite/on.png" id="7"]
 [ext_resource type="FontFile" uid="uid://rr1fym2wttn7" path="res://asest/sprite/dasG greg.ttf" id="8"]
+[ext_resource type="Texture2D" uid="uid://dfuthcdb78r71" path="res://asest/sprite/allelse/diskrod.png" id="8_0m2m7"]
 [ext_resource type="Script" uid="uid://ba3ynanblo45g" path="res://scrpt/hehe/timer.gd" id="9"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qm2h5"]
@@ -323,6 +324,14 @@ toggle_mode = true
 texture_normal = ExtResource("6")
 texture_pressed = ExtResource("7")
 
+[node name="diskrod" type="TextureButton" parent="setting" unique_id=1976745675]
+offset_left = 331.0
+offset_top = 323.0
+offset_right = 395.0
+offset_bottom = 387.0
+texture_normal = ExtResource("8_0m2m7")
+texture_pressed = ExtResource("8_0m2m7")
+
 [node name="RichTextLabel6" type="RichTextLabel" parent="setting" unique_id=1859892456]
 offset_left = 72.0
 offset_top = 274.0
@@ -404,6 +413,7 @@ script = ExtResource("9")
 [connection signal="toggled" from="setting/togglemantex" to="setting" method="_togglemantex"]
 [connection signal="toggled" from="setting/timerbutton" to="setting" method="_ontimerbutton"]
 [connection signal="toggled" from="setting/oneHp" to="setting" method="_on_hp_toggled"]
+[connection signal="pressed" from="setting/diskrod" to="setting" method="_on_diskrod_pressed"]
 [connection signal="toggled" from="setting/qrestart" to="setting" method="_on_qrestart_toggled"]
 [connection signal="pressed" from="setting/TextureButton2" to="setting" method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="setting/Control" to="setting" method="_on_control_pressed"]

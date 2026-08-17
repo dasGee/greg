@@ -167,10 +167,12 @@ interact={
 [layer_names]
 
 2d_physics/layer_16="wallturret"
+2d_physics/layer_19="toolreset"
 
 [physics]
 
 2d/default_gravity=1505.1279999999997
+2d/solver/default_contact_bias=1.0
 
 [rendering]
 

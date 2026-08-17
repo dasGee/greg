@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://4hfphmqdlphg"]
 
-[ext_resource type="Script" uid="uid://dlfwjqgaclqnq" path="res://folder99/enemyclass.gd" id="1"]
+[ext_resource type="Script" uid="uid://dlfwjqgaclqnq" path="res://folder99/enemyclass.gd" id="1_bwrka"]
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="2"]
 [ext_resource type="Texture2D" uid="uid://dp3hf8at5ju1u" path="res://asest/sprite/allelse/box.png" id="3"]
 [ext_resource type="Script" uid="uid://g3qpkejlg1ga" path="res://folder99/itemPickupClass.gd" id="4"]
@@ -14,8 +14,8 @@ bounce = 0.15
 absorbent = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkq14"]
-custom_solver_bias = 0.25
-size = Vector2(12, 12)
+custom_solver_bias = 1.0
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bwrka"]
 size = Vector2(12, 12)
@@ -42,19 +42,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5hdoe"]
-size = Vector2(12, 12)
+size = Vector2(16, 16)
 
-[node name="box" type="RigidBody2D" unique_id=1915596559 node_paths=PackedStringArray("coll", "area", "sprit") groups=["box", "enemy"]]
+[node name="box" type="RigidBody2D" unique_id=1915596559 groups=["box", "enemy"]]
+collision_mask = 262145
 physics_material_override = SubResource("PhysicsMaterial_ood02")
 can_sleep = false
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1")
-health = 4
-score = -3
-coll = NodePath("CollisionShape2D")
-area = NodePath("enemy")
-sprit = NodePath("AnimatedSprite2D")
+script = ExtResource("1_bwrka")
 metadata/_custom_type_script = "uid://dlfwjqgaclqnq"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1163545543]
@@ -72,7 +68,7 @@ shape = SubResource("RectangleShape2D_bwrka")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=230885370]
 modulate = Color(1, 0.8416667, 0.5, 1)
 material = SubResource("ShaderMaterial_y5r1i")
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.24999999, 0.24999999)
 sprite_frames = SubResource("SpriteFrames_swju3")
 
 [node name="boxbox" type="Area2D" parent="." unique_id=1435254051 node_paths=PackedStringArray("destroyee")]

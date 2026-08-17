@@ -95,7 +95,7 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_kqmod")
 }],
-"loop": false,
+"loop": 0,
 "name": &"N",
 "speed": 5.0
 }, {
@@ -112,7 +112,7 @@ animations = [{
 "duration": 1.5,
 "texture": SubResource("AtlasTexture_i2den")
 }],
-"loop": false,
+"loop": 0,
 "name": &"cat",
 "speed": 5.0
 }, {
@@ -129,7 +129,7 @@ animations = [{
 "duration": 1.5,
 "texture": SubResource("AtlasTexture_4rs8b")
 }],
-"loop": false,
+"loop": 0,
 "name": &"champ",
 "speed": 5.0
 }, {
@@ -149,7 +149,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o8scr")
 }],
-"loop": true,
+"loop": 1,
 "name": &"champIdle",
 "speed": 5.0
 }, {
@@ -169,7 +169,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yvcfn")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -192,7 +192,7 @@ gravity_scale = 0.65
 lock_rotation = true
 script = ExtResource("2")
 health = 3
-damage = 3
+damage = 6
 variation = "N"
 score = 10
 coll = NodePath("CollisionShape2D")

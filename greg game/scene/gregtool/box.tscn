@@ -39,8 +39,9 @@ metadata/_custom_type_script = "uid://ey2ph5nea8kw"
 modulate = Color(1, 0.84313726, 0.5019608, 1)
 material = SubResource("ShaderMaterial_bo47f")
 position = Vector2(19, 0)
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("4")
+offset = Vector2(15, 0)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=450703040]
 position = Vector2(225, 0)

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://caxclieaywwnu"]
+
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_43xp4"]
+[ext_resource type="Script" uid="uid://n50iqsgym3hj" path="res://scrpt/scrappickup.gd" id="2_chntl"]
+[ext_resource type="Texture2D" uid="uid://dktx8oij2jcwt" path="res://asest/sprite/allelse/scrappack.png" id="3_43xp4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u46ec"]
+shader = ExtResource("1_43xp4")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u46ec"]
+
+[node name="scrapP" type="Area2D" unique_id=708330860]
+material = SubResource("ShaderMaterial_u46ec")
+collision_layer = 0
+collision_mask = 8192
+script = ExtResource("2_chntl")
+gain = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=856790161]
+shape = SubResource("RectangleShape2D_u46ec")
+
+[node name="Rustycube" type="Sprite2D" parent="." unique_id=882127578]
+use_parent_material = true
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_43xp4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
