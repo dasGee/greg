@@ -10,6 +10,18 @@
 [ext_resource type="FontFile" uid="uid://rr1fym2wttn7" path="res://asest/sprite/dasG greg.ttf" id="8"]
 [ext_resource type="Texture2D" uid="uid://dfuthcdb78r71" path="res://asest/sprite/allelse/diskrod.png" id="8_0m2m7"]
 [ext_resource type="Script" uid="uid://ba3ynanblo45g" path="res://scrpt/hehe/timer.gd" id="9"]
+[ext_resource type="Texture2D" uid="uid://xra0rrghir3r" path="res://asest/sprite/allelse/arrowarrow.png" id="11_dqqny"]
+[ext_resource type="Script" uid="uid://bpu3hr0oufo3v" path="res://scene/verymisc/mobile.gd" id="11_ekcqf"]
+[ext_resource type="Texture2D" uid="uid://2dypfmcqqy3o" path="res://asest/sprite/allelse/E.png" id="13_31ssy"]
+[ext_resource type="Texture2D" uid="uid://co8jbrpxup3gj" path="res://asest/sprite/allelse/1.png" id="13_c1cjb"]
+[ext_resource type="Texture2D" uid="uid://b2t02w88viem6" path="res://asest/sprite/allelse/pause.png" id="13_hhu0j"]
+[ext_resource type="Texture2D" uid="uid://djfh6w833hh3b" path="res://asest/sprite/allelse/m1.png" id="13_tqgn8"]
+[ext_resource type="Texture2D" uid="uid://rqc8miek0og7" path="res://asest/sprite/allelse/m2.png" id="14_012q0"]
+[ext_resource type="Texture2D" uid="uid://ccxlnwt6eg0it" path="res://asest/sprite/allelse/2.png" id="14_ydcr2"]
+[ext_resource type="Texture2D" uid="uid://qej6u8sf5yxy" path="res://asest/sprite/allelse/3.png" id="15_38tn7"]
+[ext_resource type="Script" uid="uid://dl2q2dnehqr1c" path="res://addons/virtual_joystick_DX/vjdx_core_script.gd" id="15_p4qdb"]
+[ext_resource type="Texture2D" uid="uid://bwfu27i2kuaom" path="res://asest/sprite/allelse/button.png" id="16_n2dgi"]
+[ext_resource type="Texture2D" uid="uid://ctguwi8bhkt2s" path="res://asest/sprite/allelse/4.png" id="16_v5cmb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qm2h5"]
 bg_color = Color(1, 1, 0, 1)
@@ -212,7 +224,7 @@ transparent_bg = true
 oversampling_override = 1.0
 title = "pause menu :)"
 initial_position = 2
-size = Vector2i(400, 500)
+size = Vector2i(500, 500)
 visible = false
 unresizable = true
 transparent = true
@@ -236,6 +248,17 @@ offset_bottom = 42.0
 bbcode_enabled = true
 text = "[wave amp=12 freq=1][font=res://asest/greg.ttf][outline_size=5][font_size=20
 ]music"
+horizontal_alignment = 1
+
+[node name="usedelaytext" type="RichTextLabel" parent="setting" unique_id=1121301790 groups=["mobile"]]
+visible = false
+offset_left = 362.0
+offset_top = 2.0
+offset_right = 467.0
+offset_bottom = 34.0
+bbcode_enabled = true
+text = "[wave amp=12 freq=1][font=res://asest/greg.ttf][outline_size=5][font_size=20
+]use delay"
 horizontal_alignment = 1
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="setting" unique_id=1474641535]
@@ -266,6 +289,47 @@ theme = SubResource("Theme_lpbpy")
 max_value = 1.0
 step = 0.05
 value = 0.5
+
+[node name="usedelay" type="HSlider" parent="setting" unique_id=1732246815 groups=["mobile"]]
+visible = false
+anchors_preset = -1
+anchor_left = 0.69200003
+anchor_top = 0.1
+anchor_right = 0.98
+anchor_bottom = 0.132
+offset_left = -3.0517578e-05
+offset_bottom = 16.0
+theme = SubResource("Theme_lpbpy")
+max_value = 1.0
+step = 0.01
+value = 0.25
+
+[node name="jumpdelaytext" type="RichTextLabel" parent="setting" unique_id=1858668168 groups=["mobile"]]
+visible = false
+offset_left = 361.0
+offset_top = 82.0
+offset_right = 466.0
+offset_bottom = 114.0
+bbcode_enabled = true
+text = "[wave amp=12 freq=1][font=res://asest/greg.ttf][outline_size=5][font_size=20
+]jump delay
+"
+horizontal_alignment = 1
+
+[node name="jumpdelay" type="HSlider" parent="setting" unique_id=1958551724 groups=["mobile"]]
+visible = false
+anchors_preset = -1
+anchor_left = 0.69200003
+anchor_top = 0.26000002
+anchor_right = 0.98
+anchor_bottom = 0.29200003
+offset_left = -3.0517578e-05
+offset_top = -1.5258789e-05
+offset_bottom = 15.999985
+theme = SubResource("Theme_lpbpy")
+max_value = 1.0
+step = 0.01
+value = 0.25
 
 [node name="HSlider2" type="HSlider" parent="setting" unique_id=690280264]
 offset_left = 8.0
@@ -325,10 +389,12 @@ texture_normal = ExtResource("6")
 texture_pressed = ExtResource("7")
 
 [node name="diskrod" type="TextureButton" parent="setting" unique_id=1976745675]
-offset_left = 331.0
-offset_top = 323.0
-offset_right = 395.0
-offset_bottom = 387.0
+anchors_preset = -1
+anchor_left = 0.85200006
+anchor_top = 0.74
+anchor_right = 0.98
+anchor_bottom = 0.86800003
+offset_left = -3.0517578e-05
 texture_normal = ExtResource("8_0m2m7")
 texture_pressed = ExtResource("8_0m2m7")
 
@@ -352,37 +418,37 @@ texture_normal = ExtResource("6")
 texture_pressed = ExtResource("7")
 
 [node name="TextureButton2" type="Button" parent="setting" unique_id=153103938]
-offset_left = 192.0
-offset_top = 442.0
-offset_right = 392.0
-offset_bottom = 490.0
+anchors_preset = -1
+anchor_left = 0.596
+anchor_top = 0.86800003
+anchor_right = 0.98
+anchor_bottom = 0.96400005
+offset_bottom = -3.0517578e-05
 theme = SubResource("Theme_dqqny")
 text = "open data folder"
 
 [node name="Control" type="Button" parent="setting" unique_id=698044435]
 anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.060000002
-anchor_right = 0.8
-anchor_bottom = 0.24000001
-offset_left = -72.0
-offset_top = 420.0
-offset_right = -160.0
-offset_bottom = 370.0
+anchor_left = 0.056
+anchor_top = 0.90000004
+anchor_right = 0.372
+anchor_bottom = 0.96400005
+offset_left = -2.0
+offset_top = -16.00003
+offset_bottom = -3.0517578e-05
 theme = SubResource("Theme_ekcqf")
 text = "restart at hub "
 icon = ExtResource("5")
 
 [node name="Control2" type="Button" parent="setting" unique_id=601784345]
 anchors_preset = -1
-anchor_left = 0.2
-anchor_top = 0.33600003
-anchor_right = 0.8
-anchor_bottom = 0.51600003
-offset_left = -72.0
-offset_top = 233.99998
-offset_right = -160.0
-offset_bottom = 183.99997
+anchor_left = 0.056
+anchor_top = 0.804
+anchor_right = 0.372
+anchor_bottom = 0.86800003
+offset_left = -2.0
+offset_top = -32.0
+offset_bottom = -16.0
 theme = SubResource("Theme_ekcqf")
 disabled = true
 text = "restart level
@@ -405,10 +471,240 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("9")
 
+[node name="mobile" type="CanvasLayer" parent="." unique_id=1371590102]
+process_mode = 3
+layer = 2
+script = ExtResource("11_ekcqf")
+
+[node name="Control" type="Control" parent="mobile" unique_id=432018750]
+top_level = true
+z_index = 99
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="right" type="TextureButton" parent="mobile/Control" unique_id=2100729101]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.18900001
+anchor_top = 0.767
+anchor_right = 0.264
+anchor_bottom = 0.90000004
+offset_left = 16.079987
+offset_top = 7.76001
+offset_right = 32.080017
+offset_bottom = 24.0
+texture_normal = ExtResource("11_dqqny")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="down" type="TextureButton" parent="mobile/Control" unique_id=1536391265]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.11100001
+anchor_top = 0.767
+anchor_right = 0.186
+anchor_bottom = 0.90000004
+offset_left = 3.919983
+offset_top = 7.76001
+offset_right = 19.919998
+offset_bottom = 24.0
+offset_transform_enabled = true
+offset_transform_rotation = 1.5707964
+texture_normal = ExtResource("11_dqqny")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="up" type="TextureButton" parent="mobile/Control" unique_id=1933538409]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.637
+anchor_top = 0.711
+anchor_right = 0.72
+anchor_bottom = 0.836
+offset_left = 0.6399536
+offset_top = -5.9200134
+offset_right = -0.6000366
+offset_bottom = 6.079956
+offset_transform_enabled = true
+offset_transform_rotation = 1.5707964
+texture_normal = ExtResource("11_dqqny")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+flip_v = true
+
+[node name="left" type="TextureButton" parent="mobile/Control" unique_id=423525016]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.767
+anchor_right = 0.11000001
+anchor_bottom = 0.933
+offset_top = 7.76001
+offset_right = 3.199997
+offset_bottom = 0.23999023
+texture_normal = ExtResource("11_dqqny")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+flip_v = true
+
+[node name="1" type="TextureButton" parent="mobile/Control" unique_id=1818625491]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.767
+anchor_right = 0.11000001
+anchor_bottom = 0.90000004
+offset_left = 1012.2
+offset_top = -386.24
+offset_right = 1012.2
+offset_bottom = -386.0
+texture_normal = ExtResource("13_c1cjb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="2" type="TextureButton" parent="mobile/Control" unique_id=2015328211]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.767
+anchor_right = 0.11000001
+anchor_bottom = 0.90000004
+offset_left = 1012.2
+offset_top = -290.24
+offset_right = 1012.2
+offset_bottom = -290.0
+texture_normal = ExtResource("14_ydcr2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="3" type="TextureButton" parent="mobile/Control" unique_id=572960791]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.767
+anchor_right = 0.11000001
+anchor_bottom = 0.90000004
+offset_left = 1108.2
+offset_top = -386.24
+offset_right = 1108.2
+offset_bottom = -386.0
+texture_normal = ExtResource("15_38tn7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="4" type="TextureButton" parent="mobile/Control" unique_id=1467475192]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.767
+anchor_right = 0.11000001
+anchor_bottom = 0.90000004
+offset_left = 1109.2
+offset_top = -288.24
+offset_right = 1109.2
+offset_bottom = -288.0
+texture_normal = ExtResource("16_v5cmb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="mode" type="TextureButton" parent="mobile/Control" unique_id=662432743]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.767
+anchor_right = 0.11000001
+anchor_bottom = 0.90000004
+offset_left = 1065.2
+offset_top = -156.23999
+offset_right = 1065.2
+offset_bottom = -156.0
+toggle_mode = true
+texture_normal = ExtResource("13_tqgn8")
+texture_pressed = ExtResource("14_012q0")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="pause" type="TextureButton" parent="mobile/Control" unique_id=958573944]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.90000004
+anchor_top = 0.032
+anchor_right = 0.975
+anchor_bottom = 0.165
+offset_top = -0.040000916
+offset_bottom = 0.19999695
+texture_normal = ExtResource("13_hhu0j")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+flip_v = true
+
+[node name="e" type="TextureButton" parent="mobile/Control" unique_id=1376696458]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.035
+anchor_top = 0.767
+anchor_right = 0.11000001
+anchor_bottom = 0.90000004
+offset_left = 213.2
+offset_top = -88.23999
+offset_right = 213.2
+offset_bottom = -88.0
+texture_normal = ExtResource("13_31ssy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="VirtualJoystickDX" type="Control" parent="mobile/Control" unique_id=1057768093]
+custom_minimum_size = Vector2(200, 200)
+anchors_preset = 0
+offset_left = 960.0
+offset_top = 480.0
+offset_right = 1149.0
+offset_bottom = 662.0
+pivot_offset = Vector2(100, 100)
+mouse_filter = 2
+script = ExtResource("15_p4qdb")
+joystick_radius = 100.0
+thumb_radius = 40.0
+deadzone = 0.077
+debug_deadzone = false
+haptic_enabled = false
+auto_hide_on_physical_input = false
+auto_show_on_touch = false
+action_left = &"dummy"
+action_right = &"dummy"
+action_up = &"dummy"
+action_down = &"dummy"
+use_active_region = false
+debug_show_region = false
+region_x = 801.0
+region_y = 383.0
+region_w = 359.0
+region_h = 337.0
+color_js_base = Color(0, 0, 0, 0.54901963)
+color_js_border = Color(0.7882426, 0.9614304, 0, 0.41960785)
+color_js_thumb = Color(0.8716553, 0.96714205, 0, 0.81960785)
+"Colors - D-Pad" = null
+tex_joystick_base = ExtResource("16_n2dgi")
+tex_joystick_thumb = ExtResource("16_n2dgi")
+tex_joystick_thumb_pressed = ExtResource("16_n2dgi")
+"Textures - D-Pad" = null
+Cardinals = null
+Diagonals = null
+metadata/_custom_type_script = "uid://dl2q2dnehqr1c"
+
 [connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
 [connection signal="pressed" from="Window/Button" to="Window/Button" method="_on_pressed"]
 [connection signal="close_requested" from="setting" to="setting" method="_on_close_requested"]
 [connection signal="value_changed" from="setting/HSlider" to="setting" method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="setting/usedelay" to="setting" method="_on_usedelay_value_changed"]
+[connection signal="value_changed" from="setting/jumpdelay" to="setting" method="_on_jumpdelay_value_changed"]
 [connection signal="value_changed" from="setting/HSlider2" to="setting" method="_on_h_slider_2_value_changed"]
 [connection signal="toggled" from="setting/togglemantex" to="setting" method="_togglemantex"]
 [connection signal="toggled" from="setting/timerbutton" to="setting" method="_ontimerbutton"]
@@ -418,3 +714,8 @@ script = ExtResource("9")
 [connection signal="pressed" from="setting/TextureButton2" to="setting" method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="setting/Control" to="setting" method="_on_control_pressed"]
 [connection signal="pressed" from="setting/Control2" to="setting" method="_on_control_2_pressed"]
+[connection signal="toggled" from="mobile/Control/mode" to="mobile" method="_on_mode_toggled"]
+[connection signal="pressed" from="mobile/Control/pause" to="mobile" method="_on_pause_pressed"]
+[connection signal="pressed" from="mobile/Control/e" to="mobile" method="_on_e_pressed"]
+[connection signal="joystick_moved" from="mobile/Control/VirtualJoystickDX" to="mobile" method="_on_virtual_joystick_dx_joystick_moved"]
+[connection signal="joystick_released" from="mobile/Control/VirtualJoystickDX" to="mobile" method="_on_virtual_joystick_dx_joystick_released"]

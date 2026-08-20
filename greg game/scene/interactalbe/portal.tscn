@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bb8r6o58veu47" path="res://asest/sprite/allelse/EscPortalClose.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://cgynoe38kjvb8" path="res://asest/sprite/allelse/EscPortals.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://oykl7bploddm" path="res://asest/sprite/allelse/portal.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://b4xii8frnrlj5" path="res://asest/sprite/allelse/portalChamp.png" id="5_j0htg"]
 [ext_resource type="Texture2D" uid="uid://cvmc0w31oq8wy" path="res://asest/sprite/allelse/signsmall.png" id="6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2u325"]
@@ -39,6 +40,18 @@ region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgl8j"]
 atlas = ExtResource("4")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm1r7"]
+atlas = ExtResource("5_j0htg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iha2a"]
+atlas = ExtResource("5_j0htg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fwot"]
+atlas = ExtResource("5_j0htg")
 region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0htg"]
@@ -81,6 +94,20 @@ animations = [{
 }],
 "loop": 1,
 "name": &"EscOpen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mm1r7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iha2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fwot")
+}],
+"loop": 1,
+"name": &"champ",
 "speed": 5.0
 }, {
 "frames": [{
@@ -165,7 +192,7 @@ material = SubResource("ShaderMaterial_2u325")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_d5itm")
 autoplay = "default"
-frame_progress = 0.29839945
+frame_progress = 0.7146666
 
 [node name="Signsmall" type="Sprite2D" parent="." unique_id=1235247847]
 visible = false

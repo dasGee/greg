@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dbcwsetju8d8y" path="res://asest/sprite/allelse/crack.png" id="11"]
 [ext_resource type="PackedScene" uid="uid://rtx4krhtlv60" path="res://prettyscene/signer.tscn" id="12"]
 [ext_resource type="PackedScene" uid="uid://b5ssq3fyxih75" path="res://scene/coin10.tscn" id="13"]
+[ext_resource type="Texture2D" uid="uid://co8jbrpxup3gj" path="res://asest/sprite/allelse/1.png" id="14_nn4sk"]
 
 [sub_resource type="GDScript" id="GDScript_ovck4"]
 script/source = "extends TileMapLayer
@@ -274,3 +275,8 @@ metadata/_scene_painted = true
 position = Vector2(-368, -880)
 much = 50
 metadata/_scene_painted = true
+
+[node name="1" type="Sprite2D" parent="." unique_id=583995911]
+position = Vector2(-65, -10)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("14_nn4sk")

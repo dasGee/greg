@@ -195,3 +195,6 @@ target_position = Vector2(0, 4)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1681841822]
 current = true
+
+[node name="virtcursor" type="Marker2D" parent="." unique_id=1065753302]
+position = Vector2(40, 0)

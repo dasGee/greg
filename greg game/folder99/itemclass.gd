@@ -12,12 +12,16 @@ class_name itemer extends Node2D
 @export var LO:Vector2
 
 var M
-
+var tempp
 func _process(_delta: float):
 	if hasline==true and get_parent().yes == true:
-		M = get_local_mouse_position()
+		if pausemenu.find_child("mobile"):
+			tempp = get_tree().current_scene.find_child("player").find_child("virtcursor").position.distance_to(Vector2(0,0))
+			M=Vector2(tempp,0)
+		else:
+			M = get_local_mouse_position()
 		if M.x < maximimi or -M.x > -maximimi:
-			prite.position = M+offset
+			prite.position = Vector2(abs(M.x)+abs(M.y),0)+offset
 			line.set_point_position(1,Vector2(prite.position.x*0.95+LO.x,LO.y))
 		else:
 			prite.position = Vector2(maximimi,0)+offset

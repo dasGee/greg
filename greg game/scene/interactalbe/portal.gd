@@ -2,6 +2,7 @@ extends Node2D
 @export var scene: String
 @export var textie: String
 
+@export var champ: bool
 @export var square: bool
 @export var esc: bool
 @export var closed: bool
@@ -33,6 +34,8 @@ func _ready():
 		$AnimatedSprite2D.play("EscClosed")
 	elif square:
 		$AnimatedSprite2D.play("EscOpen")
+	elif champ:
+		$AnimatedSprite2D.play("champ")
 	$RichTextLabel.text = "[wave amp=6 freq=0.5 connected=1][font_size=5][font=\"res://asest/greg.ttf\"][outline_size=1][outline_color=808080]" + textie
 	if islevel == true:
 		$Signsmall.visible = true

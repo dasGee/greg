@@ -102,7 +102,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1.0717734, 1),
 "update": 0,
-"values": [0.9372418083209547, 6.283185307179586]
+"values": [0.9372418083209548, 6.283185307179586]
 }
 
 [sub_resource type="Animation" id="Animation_gi7ao"]
@@ -137,7 +137,7 @@ radius = 25.09
 
 [node name="roaringSun" type="RigidBody2D" unique_id=995861027 node_paths=PackedStringArray("coll", "area", "sprit")]
 material = SubResource("ShaderMaterial_gi7ao")
-collision_layer = 0
+collision_layer = 524288
 collision_mask = 0
 mass = 0.1
 gravity_scale = 0.0

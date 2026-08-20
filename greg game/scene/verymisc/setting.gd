@@ -20,6 +20,13 @@ func _ready():
 		$HSlider2.set_value_no_signal(config.get_value("setting", "sfxVol", 1))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), linear_to_db(config.get_value("setting", "musicVol", 1)))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("sfx"), linear_to_db(config.get_value("setting", "sfxVol", 1)))
+	if $"../mobile".enabled==true:
+		for a in get_tree().get_nodes_in_group("mobile"):
+			a.visible = true
+		$jumpdelay.set_value_no_signal(config.get_value("setting", "jumpdelay", 0.25))
+		$usedelay.set_value_no_signal(config.get_value("setting", "usedelay", 0.25))
+		$"../mobile".shootDelay=config.get_value("setting", "usedelay", 0.25)
+		$"../mobile".jumpDelat=config.get_value("setting", "jumpdelay", 0.25)
 
 func _on_h_slider_value_changed(value: float) -> void :
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), linear_to_db(value))
@@ -111,3 +118,15 @@ func _on_hp_toggled(t: bool):
 
 func _on_diskrod_pressed() -> void:
 	OS.shell_open("https://discord.gg/SEGG6QaWDQ")
+
+
+func _on_usedelay_value_changed(value: float) -> void:
+	config.set_value("setting", "usedelay", value)
+	config.save("user://Greg.cfg")
+	$"../mobile".shootDelay=value
+
+
+func _on_jumpdelay_value_changed(value: float) -> void:
+	config.set_value("setting", "jumpdelay", value)
+	config.save("user://Greg.cfg")
+	$"../mobile".jumpDelat=value

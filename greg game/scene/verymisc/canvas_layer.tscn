@@ -141,11 +141,11 @@ scale = Vector2(2.45, 2.45)
 texture = ExtResource("5")
 
 [node name="Bubble2" type="Sprite2D" parent="." unique_id=616080339]
-self_modulate = Color(1, 1, 1, 0.18039216)
+self_modulate = Color(1, 1, 1, 0.32156864)
 z_index = -1
 material = SubResource("ShaderMaterial_5xe0w")
-position = Vector2(233, 721)
-scale = Vector2(3, 3)
+position = Vector2(207.5, 714.9)
+scale = Vector2(2.45, 2.45)
 texture = ExtResource("5")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=374371784]
@@ -171,15 +171,16 @@ text = "[wave amp=50 freq=2][font=res://asest/greg.ttf][font_size=40]cur health"
 fit_content = true
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="Node2D" unique_id=2123621140]
-offset_left = 76.0
-offset_top = 653.0
-offset_right = 397.0
-offset_bottom = 710.0
+offset_left = 65.0
+offset_top = 652.0
+offset_right = 347.0
+offset_bottom = 709.0
 bbcode_enabled = true
 text = "[outline_size=5][font=res://asest/greg.ttf][font_size=40]score: 0"
 fit_content = true
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="Node2D" unique_id=974532938]
+visible = false
 offset_left = 1129.0
 offset_top = 317.0
 offset_right = 1259.0
