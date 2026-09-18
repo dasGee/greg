@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://d0phpgxwaeonr"]
+
+[ext_resource type="Texture2D" uid="uid://cwofo1mp5lwgo" path="res://asest/sprite/allelse/lamp.png" id="1_ad7k2"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_gkvwv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dv31n"]
+shader = ExtResource("1_gkvwv")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_j0htg"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.1, 0.9)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gkvwv"]
+gradient = SubResource("Gradient_j0htg")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=113149480]
+scale = Vector2(0.5, 0.5)
+
+[node name="Lamp" type="Sprite2D" parent="." unique_id=2111380882]
+material = SubResource("ShaderMaterial_dv31n")
+position = Vector2(0, -32)
+texture = ExtResource("1_ad7k2")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=36690527]
+position = Vector2(1.5, -68.5)
+scale = Vector2(4, 4)
+blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_gkvwv")

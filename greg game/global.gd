@@ -16,6 +16,8 @@ var toolsAvailable: Array
 
 var mantex: bool = false
 
+var levelExit: Vector2
+
 var canHealth: bool = true
 var maxhealth: int = 100
 var health: int = 100:
@@ -28,9 +30,7 @@ var health: int = 100:
 var orb: int = 0:
 	set(val):
 		orb = val
-		config.set_value("things", "orbs", val)
-		config.save("user://Greg.cfg")
-
+		print(orb)
 var scrap: int = 0
 var ammo: int = 0
 var text: String
@@ -93,9 +93,10 @@ var config = ConfigFile.new()
 var err = config.load("user://Greg.cfg")
 
 func _ready():
+
 	config.set_value("belbanga", "haha i see you messing around with the save :)", "alright go ahead! i dont mind")
-	config.save("user://Greg.cfg")
 	orb = config.get_value("things", "orbs", 0)
+	config.save("user://Greg.cfg")
 
 func _physics_process(_delta: float):
 	if maxhealth < health:

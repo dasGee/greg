@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ddof537htkk5h"]
 
 [ext_resource type="Script" uid="uid://brfd6a4in8wys" path="res://scene/verymisc/transition.gd" id="1"]
-[ext_resource type="AudioStream" uid="uid://ccsqtskspt42a" path="res://asest/sound/woah.mp3" id="2"]
+[ext_resource type="Texture2D" uid="uid://clhanpujcc4xy" path="res://asest/sprite/allelse/carkeyman2.png" id="3_4cd7p"]
 
 [sub_resource type="Animation" id="Animation_jl1jx"]
 length = 0.001
@@ -61,50 +61,66 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/path = NodePath("Carkeyman2:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 0)]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("RichTextLabel:position")
+tracks/1/path = NodePath("Carkeyman2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(320, 800)]
+"values": [Vector2(-109, 617)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("RichTextLabel:rotation")
+tracks/2/path = NodePath("ColorRect2:color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Color(0, 0, 0, 0)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("RichTextLabel:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+
+[sub_resource type="Animation" id="Animation_pe230"]
+resource_name = "carkey"
+length = 0.75
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Carkeyman2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [0.0, 12.566370614359172]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Carkeyman2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-109, 617), Vector2(1397, 617)]
 }
 
 [sub_resource type="Animation" id="Animation_jgsnc"]
@@ -117,7 +133,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1.319508),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
@@ -132,72 +148,54 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1.319508, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_yqkf3"]
-resource_name = "itemget"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("RichTextLabel:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 3, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(320, 800), Vector2(320, 475), Vector2(320, 475), Vector2(320, 800)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("RichTextLabel:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.16666663, 0.36666667, 0.5333333, 0.73333323, 0.9333333, 1.2333333),
-"transitions": PackedFloat32Array(0.9330329, 0.9330329, 0.9330329, 0.9330329, 0.9330329, 0.9330329),
-"update": 0,
-"values": [0.0, 0.34906584, 1.0471976, 2.0943952, 4.71238898038469, 6.283185307179586]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("RichTextLabel:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6333333, 1.17, 1.4, 3, 3.5),
-"transitions": PackedFloat32Array(1, 1, 2.0705297, 2.3784146, 2.3784146, 2.3784146),
-"update": 0,
-"values": [Vector2(0.5, 0.5), Vector2(1, 1), Vector2(1.5, 1.5), Vector2(1, 1), Vector2(1, 1), Vector2(0.5, 0.5)]
-}
-tracks/3/type = "audio"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Woah")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.35,
-"stream": ExtResource("2")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/3/use_blend = true
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yqkf3"]
 _data = {
 &"RESET": SubResource("Animation_4cd7p"),
+&"carkey": SubResource("Animation_pe230"),
 &"fadeIn": SubResource("Animation_jgsnc"),
-&"fadeOut": SubResource("Animation_omy00"),
-&"itemget": SubResource("Animation_yqkf3")
+&"fadeOut": SubResource("Animation_omy00")
+}
+
+[sub_resource type="Animation" id="Animation_yqkf3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(315, 774)]
+}
+
+[sub_resource type="Animation" id="Animation_iqjc8"]
+resource_name = "new_animation"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13, 0.31, 0.47, 0.62, 0.74, 0.84, 0.95, 1.05, 1.16, 1.23, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(315, 774), Vector2(192, 658), Vector2(285, 552), Vector2(267, 493), Vector2(305, 411), Vector2(254, 325), Vector2(292, 261), Vector2(304, 164), Vector2(243, 114), Vector2(265, 86), Vector2(366, 26), Vector2(309, -167)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ox3yl"]
+_data = {
+&"RESET": SubResource("Animation_yqkf3"),
+&"new_animation": SubResource("Animation_iqjc8")
 }
 
 [node name="transition" type="CanvasLayer" unique_id=1765851372]
@@ -227,22 +225,49 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
+[node name="par" type="ColorRect" parent="." unique_id=1884554381]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.27058825)
+
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=825966617]
 libraries/ = SubResource("AnimationLibrary_yqkf3")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1154040516]
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="." unique_id=383110778]
+libraries/ = SubResource("AnimationLibrary_yqkf3")
+
+[node name="hamr" type="RichTextLabel" parent="." unique_id=1154040516]
 clip_contents = false
-offset_left = 320.0
-offset_top = 800.0
-offset_right = 924.0
-offset_bottom = 849.9999
+offset_left = 315.0
+offset_top = 774.0
+offset_right = 966.9999
+offset_bottom = 824.0001
 pivot_offset_ratio = Vector2(0.5, 0.5)
 bbcode_enabled = true
-text = "[font=res://asest/greg.ttf][font_size=38][outline_size=8][outline_color=000]you have unlocked a new shop item!"
+text = "[font=res://asest/greg.ttf][font_size=38][outline_size=8][outline_color=000]you have unlocked a permanent item"
 horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="hamr" unique_id=1039541288]
+libraries/ = SubResource("AnimationLibrary_ox3yl")
+speed_scale = 0.35
 
 [node name="Woah" type="AudioStreamPlayer" parent="." unique_id=1770229911]
 bus = &"sfx"
 
+[node name="Carkeyman2" type="Sprite2D" parent="." unique_id=324121925]
+position = Vector2(-109, 617)
+texture = ExtResource("3_4cd7p")
+
+[node name="Timer" type="Timer" parent="." unique_id=751902334]
+process_callback = 0
+autostart = true
+
 [connection signal="animation_finished" from="ColorRect/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer2" to="." method="_on_animation_player_2_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer3" to="." method="_on_animation_player_2_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

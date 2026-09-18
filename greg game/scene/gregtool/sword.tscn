@@ -118,6 +118,7 @@ shader_parameter/number_of_images = Vector2(1, 1)
 material = SubResource("ShaderMaterial_r3ql2")
 script = ExtResource("2")
 img = ExtResource("3")
+scrapVal = 15
 hasline = true
 line = NodePath("Line2D")
 prite = NodePath("shootsprite")

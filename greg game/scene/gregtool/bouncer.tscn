@@ -109,6 +109,7 @@ size = Vector2(43, 12)
 material = SubResource("ShaderMaterial_r3ql2")
 script = ExtResource("2")
 img = ExtResource("3")
+scrapVal = 15
 metadata/_custom_type_script = "uid://ey2ph5nea8kw"
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=185755618]

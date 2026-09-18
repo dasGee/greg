@@ -30,6 +30,7 @@ shader_parameter/number_of_images = Vector2(1, 1)
 script = ExtResource("1")
 img = ExtResource("2")
 isHand = true
+scrappable = false
 hasline = true
 line = NodePath("Line2D")
 prite = NodePath("Openhandeye")

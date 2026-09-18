@@ -7,6 +7,7 @@ class_name level extends Node2D
 @export var escapeMessage: String
 @export var camear: Camera2D
 @export var startPos: Marker2D
+@export var dark: bool = false
 @export var isHub: bool = false
 @export var music: String = "default"
 @export_subgroup("man")
@@ -34,6 +35,10 @@ var wawaha
 var memeha
 
 func _ready() -> void :
+	config.set_value("things", "orbs", g.orb)
+	config.save("user://Greg.cfg")
+	if dark == true:
+		$CanvasModulate.visible = true
 	if pausemenu.find_child("mobile"):#.enabled == true:
 		timego = true
 	if g.find_child("music").curFolder != music and music != "keep":

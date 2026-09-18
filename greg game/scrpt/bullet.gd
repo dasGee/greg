@@ -2,7 +2,8 @@ extends RigidBody2D
 
 var dist
 var vel
-var damage
+
+@export var damage: int
 
 @export var friend: bool
 
@@ -17,6 +18,7 @@ func _on_body_entered(area: Node) -> void :
 		$AnimationPlayer.play("begone")
 		set_deferred("contact_monitor", false)
 	elif area.has_method("_damagin") and friend == true:
+		g.score+=damage
 		area._damagin(damage)
 		$AnimationPlayer.play("begone")
 		set_deferred("contact_monitor", false)

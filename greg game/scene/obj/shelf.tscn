@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://dw7acsuxy726m"]
+
+[ext_resource type="Texture2D" uid="uid://bu8elg37oi7bf" path="res://asest/sprite/allelse/shelffer.png" id="1_c36fg"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_f8ot0"]
+[ext_resource type="Script" uid="uid://d2u2by42khqw0" path="res://scrpt/hehe/platformColShape.gd" id="2_f8ot0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q7wbh"]
+shader = ExtResource("1_f8ot0")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 1
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx7w4"]
+size = Vector2(48, 5)
+
+[node name="shelf" type="Node2D" unique_id=1106447447]
+
+[node name="Shelffer" type="Sprite2D" parent="." unique_id=1672019164]
+z_index = -2
+material = SubResource("ShaderMaterial_q7wbh")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_c36fg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1045690489]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2055428348]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_xx7w4")
+one_way_collision = true
+script = ExtResource("2_f8ot0")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=997922221]
+position = Vector2(0, -23)
+shape = SubResource("RectangleShape2D_xx7w4")
+one_way_collision = true
+script = ExtResource("2_f8ot0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1502322397]
+position = Vector2(0, 22)
+shape = SubResource("RectangleShape2D_xx7w4")
+one_way_collision = true
+script = ExtResource("2_f8ot0")

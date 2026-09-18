@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://2uajr5mv6qpy"]
+
+[ext_resource type="Script" uid="uid://b0xwrtrfyxbr2" path="res://scene/hammerpick.gd" id="1_6xb68"]
+[ext_resource type="Texture2D" uid="uid://c36sklv18823j" path="res://asest/sprite/allelse/hammer.png" id="2_q2mua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_loydq"]
+
+[node name="hammerpickup" type="Node2D" unique_id=2085509818 node_paths=PackedStringArray("area")]
+script = ExtResource("1_6xb68")
+area = NodePath("Area2D")
+metadata/_custom_type_script = "uid://7l8hy7pmi46c"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1004638334]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1534164064]
+shape = SubResource("RectangleShape2D_loydq")
+
+[node name="Hammer" type="Sprite2D" parent="." unique_id=1203441810]
+rotation = 1.2495669
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_q2mua")

@@ -8,6 +8,8 @@ const SPEED = 150.0
 var JUMP_VELOCITY = -450.0
 var canjump = false
 
+var config = ConfigFile.new()
+var erre = config.load("user://Greg.cfg")
 
 @onready var TemCur = $anchor / placeholder
 
@@ -39,17 +41,29 @@ func _gothit(_meh):
 
 
 func _ready():
+	if get_tree().current_scene.dark == true:
+		$PointLight2D.visible = true
 	g.healthChange.connect(_gothit)
 	g.toolr.connect(_wobble)
 	get_tree().current_scene.add_child(ui1.instantiate())
 	get_tree().current_scene.add_child(ui2.instantiate())
+	if config.get_value("things", "gotHam", false) == true:
+		g.DefaultTools = {
+		1: load("res://scene/gregtool/hammer.tscn"), 
+		2: load("res://scene/gregtool/openHand.tscn"), 
+		3: load("res://scene/gregtool/openHand.tscn"), 
+		4: load("res://scene/gregtool/openHand.tscn"), 
+		}
+		g.tools.set(1,load("res://scene/gregtool/hammer.tscn"))
+	else:
+		g.DefaultTools = {
+		1: load("res://scene/gregtool/openHand.tscn"), 
+		2: load("res://scene/gregtool/openHand.tscn"), 
+		3: load("res://scene/gregtool/openHand.tscn"), 
+		4: load("res://scene/gregtool/openHand.tscn"), 
+		}
 
-	g.DefaultTools = {
-	1: load("res://scene/gregtool/openHand.tscn"), 
-	2: load("res://scene/gregtool/openHand.tscn"), 
-	3: load("res://scene/gregtool/openHand.tscn"), 
-	4: load("res://scene/gregtool/openHand.tscn"), 
-	}
+
 
 func _jump():
 	JUMP_VELOCITY = -350 - abs(velocity.x * 0.45)

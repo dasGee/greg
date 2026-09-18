@@ -1,7 +1,7 @@
 extends Camera2D
 var tween
-@export var maximi = 5
-@export var minimi = 2
+@export var maximi = 5.0
+@export var minimi = 2.0
 func _process(_delta: float) -> void :
 	if zoom.x == 0:
 		zoom = Vector2(0.1, 0.1)

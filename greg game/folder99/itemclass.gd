@@ -2,7 +2,8 @@
 class_name itemer extends Node2D
 @export var img: CompressedTexture2D
 @export var isHand: bool
-
+@export var scrappable:bool =true
+@export var scrapVal: int=1
 @export_subgroup("line")
 @export var hasline:bool
 @export var line:Line2D
@@ -26,3 +27,8 @@ func _process(_delta: float):
 		else:
 			prite.position = Vector2(maximimi,0)+offset
 			line.set_point_position(1,Vector2(maximimi*0.95+LO.x,LO.y))
+func _physics_process(_delta: float):
+	if Input.is_action_just_pressed("scrap") and scrappable==true:
+		g.scrap += scrapVal
+		g.tools.set(g.current, load("res://scene/gregtool/openHand.tscn"))
+		g.toolr.emit()

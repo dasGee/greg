@@ -11,6 +11,7 @@ shader = ExtResource("4")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/width = 2.000000095
 shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
@@ -18,6 +19,7 @@ shader_parameter/number_of_images = Vector2(1, 1)
 [node name="pin" type="Node2D" unique_id=590959273]
 script = ExtResource("1")
 img = ExtResource("2")
+scrapVal = 25
 metadata/_custom_type_script = "uid://ey2ph5nea8kw"
 
 [node name="smoke" parent="." unique_id=1366636213 instance=ExtResource("3")]

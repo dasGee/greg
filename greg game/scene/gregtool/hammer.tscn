@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://3x33pueuv3pu"]
+
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_mr7g4"]
+[ext_resource type="Script" uid="uid://bs8fwiuen32nv" path="res://scene/gregtool/hammer.gd" id="2_3vg8f"]
+[ext_resource type="Texture2D" uid="uid://c36sklv18823j" path="res://asest/sprite/allelse/hammer.png" id="4_mr7g4"]
+[ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_cnr5x"]
+[ext_resource type="AudioStream" uid="uid://nwr2rfaxwyfv" path="res://asest/sound/snap.ogg" id="5_mr7g4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3ql2"]
+shader = ExtResource("1_mr7g4")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_hp4bs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Line2D:points")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(3, 0, 15, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, -9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_g2vtq"]
+resource_name = "lunge"
+length = 2.5000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Line2D:points")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.72, 1, 1.04, 1.18, 1.32, 1.44, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 5, 1, 1, 1, 0.31864023, 0.31864023, 1),
+"update": 0,
+"values": [PackedVector2Array(3, 0, 15, 0), PackedVector2Array(3, 0, 3, -5), PackedVector2Array(3, 0, -3, -9), PackedVector2Array(3, 0, -13, -11), PackedVector2Array(3, 0, -12, -11), PackedVector2Array(3, 0, -13, -11), PackedVector2Array(3, 0, -5, -11), PackedVector2Array(3, 0, 15, 1), PackedVector2Array(3, 0, 15, 0), PackedVector2Array(3, 0, 15, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 5, 0.31864023, 1),
+"update": 0,
+"values": [Vector2(12, -9), Vector2(-7, -4), Vector2(-12, -1.9999996), Vector2(26, -8), Vector2(12, -9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2.5),
+"transitions": PackedFloat32Array(1, 1, 5, 0.31864023, 1),
+"update": 0,
+"values": [0.0, -1.1359146, -2.2718291, 1.2732785, 0.0]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.45),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_dobe"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ajmw"]
+_data = {
+&"RESET": SubResource("Animation_hp4bs"),
+&"lunge": SubResource("Animation_g2vtq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3ql2"]
+size = Vector2(21, 32)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ajmw"]
+shader = ExtResource("1_mr7g4")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="Node2D" type="Node2D" unique_id=314326441]
+material = SubResource("ShaderMaterial_r3ql2")
+script = ExtResource("2_3vg8f")
+damage = 3
+scoreDam = 10
+metadata/_custom_type_script = "uid://ey2ph5nea8kw"
+
+[node name="shootsprite" type="Sprite2D" parent="." unique_id=214385135]
+use_parent_material = true
+position = Vector2(12, -9)
+scale = Vector2(0.225, 0.225)
+texture = ExtResource("4_mr7g4")
+centered = false
+metadata/rotate = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=966656682]
+root_node = NodePath("../shootsprite")
+libraries/ = SubResource("AnimationLibrary_0ajmw")
+speed_scale = 1.7
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=883173241]
+position = Vector2(30, 0)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=766727211]
+collision_layer = 0
+collision_mask = 2176
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=183001877]
+position = Vector2(29.5, 0)
+shape = SubResource("RectangleShape2D_r3ql2")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=912730839]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0ajmw")
+points = PackedVector2Array(3, 0, 15, 0)
+width = 1.0
+default_color = Color(0.31764707, 0.31764707, 0.31764707, 1)
+texture = ExtResource("5_cnr5x")
+texture_mode = 1
+begin_cap_mode = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=392269229]
+wait_time = 0.15
+one_shot = true
+ignore_time_scale = true
+
+[node name="Snap" type="AudioStreamPlayer" parent="." unique_id=1868432790]
+stream = ExtResource("5_mr7g4")
+volume_db = -5.0
+pitch_scale = 1.1
+bus = &"sfx"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

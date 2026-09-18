@@ -16,6 +16,7 @@ var CurColor = Color("ff0000ff")
 
 var rang = 15
 
+var wa = 99
 
 func thingie():
 	if health <= 0 and bingbing == false and beee == true:
@@ -47,6 +48,16 @@ func _ready():
 		$AnimatedSprite2D / TurretGun.play("minigun")
 		CurColor = Color("FFE900")
 		rang = 17
+	elif variation == "alpha":
+		anothervariableidontreallycareabout = 1.75
+		$Timer.wait_time *= 1.5
+		burst = 1
+		damage = 2
+		$AnimatedSprite2D / TurretGun.play("alpha")
+		$AnimatedSprite2D / TurretTabke.play("alpha")
+		CurColor = Color("59AAFF")
+		rang = 0
+		wa = 0
 func _damaged():
 	thingie()
 	super ()
@@ -58,7 +69,12 @@ func _shoot():
 	bulleta.damage = damage
 	bulleta.global_position = $AnimatedSprite2D / TurretGun / Marker2D.global_position
 	dist = $AnimatedSprite2D / TurretGun / Marker2D2.global_position - global_position
-	bulleta.linear_velocity = dist.normalized() * rng.randi_range(105, 165) * anothervariableidontreallycareabout
+	bulleta.linear_velocity = dist.normalized() * rng.randi_range(125, 145) * anothervariableidontreallycareabout
+	if wa == 0:
+		$AnimatedSprite2D / TurretGun / Marker2D2.position.y =9
+		dist = $AnimatedSprite2D / TurretGun / Marker2D2.global_position - global_position
+		bulleta.linear_velocity = dist.normalized() * 100 * anothervariableidontreallycareabout
+		bulleta.gravity_scale = wa
 	get_tree().current_scene.add_child(bulleta)
 
 func _on_timer_timeout() -> void :

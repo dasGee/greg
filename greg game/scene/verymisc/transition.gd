@@ -11,3 +11,9 @@ func _on_animation_player_2_animation_finished(anim_name: StringName) -> void :
 		$ColorRect / AnimationPlayer.play("fadeOut")
 	elif anim_name == "out":
 		$ColorRect / AnimationPlayer.play("RESET")
+
+
+func _on_timer_timeout() -> void:
+	var weawea=randi_range(1,9001)
+	if weawea==1:
+		$AnimationPlayer3.play("carkey")

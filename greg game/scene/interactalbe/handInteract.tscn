@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://111j3uwmxbed"]
+
+[ext_resource type="Script" uid="uid://7l8hy7pmi46c" path="res://folder99/interact.gd" id="1_b2j06"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx7w4"]
+
+[node name="Node2D" type="Node2D" unique_id=642455870 node_paths=PackedStringArray("area")]
+script = ExtResource("1_b2j06")
+area = NodePath("Area2D")
+metadata/_custom_type_script = "uid://7l8hy7pmi46c"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1995529923]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1844297790]
+shape = SubResource("RectangleShape2D_xx7w4")

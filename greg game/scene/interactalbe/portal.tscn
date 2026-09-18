@@ -178,15 +178,23 @@ _data = {
 &"text": SubResource("Animation_bewnu")
 }
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bewnu"]
-polygon = PackedVector2Array(-14, 16, 14, 16, 0, 17)
+[sub_resource type="Gradient" id="Gradient_j0htg"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.4, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wavtb"]
+gradient = SubResource("Gradient_j0htg")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 1)
 
 [node name="portal" type="Node2D" unique_id=736645892]
 script = ExtResource("1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1549996866]
 process_mode = 1
-light_mask = 2
 z_index = -1
 material = SubResource("ShaderMaterial_2u325")
 scale = Vector2(0.5, 0.5)
@@ -246,15 +254,15 @@ shape = SubResource("RectangleShape2D_uys6x")
 debug_color = Color(0.595, 0.7, 0, 0.19607843)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=865481956]
-light_mask = 0
 z_index = 99
 offset_left = -42.0
-offset_top = -41.0
+offset_top = -37.0
 offset_right = 42.0
-offset_bottom = -25.0
+offset_bottom = -21.0
+scale = Vector2(3, 3)
 pivot_offset = Vector2(42, 8)
 bbcode_enabled = true
-text = "[font_size=16][font=\"res://asest/greg.ttf\"][outline_size=1][outline_color=808080]A"
+text = "[font_size=16][font=\"res://asest/greg.ttf\"][outline_size=1][outline_color=808080]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
@@ -266,7 +274,12 @@ visible_ratio = 0.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=607077374]
 libraries/ = SubResource("AnimationLibrary_2u325")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=2090921839]
-occluder = SubResource("OccluderPolygon2D_bewnu")
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1498042724]
+visible = false
+scale = Vector2(2, 2)
+blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_wavtb")
 
 [connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]

@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dvlc2mx4ooqap" path="res://scene/obj/wator.tscn" id="9"]
 [ext_resource type="PackedScene" uid="uid://caxclieaywwnu" path="res://scene/scrapack.tscn" id="9_h162x"]
 [ext_resource type="PackedScene" uid="uid://dsywegpx4vjx7" path="res://scene/obj/packed_air.tscn" id="10"]
+[ext_resource type="PackedScene" uid="uid://d0phpgxwaeonr" path="res://prettyscene/lamp.tscn" id="10_e1jbu"]
 [ext_resource type="PackedScene" uid="uid://312o7h0p1a1d" path="res://scene/obj/mover.tscn" id="11"]
 [ext_resource type="PackedScene" uid="uid://d4n3pg15hxi6t" path="res://scene/obj/vine.tscn" id="12"]
 [ext_resource type="PackedScene" uid="uid://d2tgmijqdocju" path="res://scene/obj/cryplatform.tscn" id="13"]
@@ -39,6 +40,7 @@ scenes/14/scene = ExtResource("6")
 scenes/15/scene = ExtResource("7_6fi0c")
 scenes/16/scene = ExtResource("7_avv6w")
 scenes/17/scene = ExtResource("9_h162x")
+scenes/18/scene = ExtResource("10_e1jbu")
 
 [resource]
 tile_size = Vector2i(32, 32)

@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://8hpreull6qe5"]
+
+[ext_resource type="Script" uid="uid://c6fkw43427bwn" path="res://scene/gregtool/box.gd" id="1_n4q3j"]
+[ext_resource type="Texture2D" uid="uid://csc3tnua8gviq" path="res://asest/sprite/toolwheelsprites/lightbox.png" id="2_n4q3j"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="3_635re"]
+[ext_resource type="Texture2D" uid="uid://dok8oglpwmxo1" path="res://asest/sprite/allelse/lightbox.png" id="4_jsca2"]
+[ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_tjvdh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bo47f"]
+shader = ExtResource("3_635re")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_y5r1i"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n4q3j"]
+gradient = SubResource("Gradient_y5r1i")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2v3n"]
+shader = ExtResource("3_635re")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="Node2D" type="Node2D" unique_id=1682027990 node_paths=PackedStringArray("line", "prite")]
+script = ExtResource("1_n4q3j")
+variation = "light"
+img = ExtResource("2_n4q3j")
+hasline = true
+line = NodePath("Line2D")
+prite = NodePath("Box")
+maximimi = 27
+metadata/_custom_type_script = "uid://ey2ph5nea8kw"
+
+[node name="Box" type="Sprite2D" parent="." unique_id=1903188963]
+material = SubResource("ShaderMaterial_bo47f")
+position = Vector2(19, 0)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_jsca2")
+offset = Vector2(15, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="Box" unique_id=1491465642]
+position = Vector2(16, 0)
+scale = Vector2(2.625, 2.625)
+blend_mode = 2
+texture = SubResource("GradientTexture2D_n4q3j")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=450703040]
+position = Vector2(225, 0)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=133269531]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_h2v3n")
+points = PackedVector2Array(3, 0, 19, 0)
+width = 1.0
+default_color = Color(0.31764707, 0.31764707, 0.31764707, 1)
+texture = ExtResource("5_tjvdh")
+texture_mode = 1
+begin_cap_mode = 1

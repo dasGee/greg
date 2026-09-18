@@ -14,7 +14,9 @@
 [ext_resource type="Script" uid="uid://h0w8qdplj6dn" path="res://scene/verymisc/textthing.gd" id="12"]
 [ext_resource type="AudioStream" uid="uid://f8mhbvw8syst" path="res://asest/sound/music/scrap/gregScrapped.ogg" id="12_qmp0v"]
 [ext_resource type="Script" uid="uid://bp4b0sfts5mug" path="res://scrpt/hehe/closeWindow.gd" id="13"]
+[ext_resource type="AudioStream" uid="uid://bhn0o77umgmfv" path="res://asest/sound/music/storeroom/AND THE WHOLE PLACE TURNS.ogg" id="13_b2iof"]
 [ext_resource type="Texture2D" uid="uid://bwc117r4sk3vu" path="res://asest/sprite/allelse/shellyshopBack.png" id="14"]
+[ext_resource type="AudioStream" uid="uid://cqkpr2gvbkjw0" path="res://asest/sound/music/storeroom/SCRAP THAT, SCRAP THIS.ogg" id="14_jpiwu"]
 [ext_resource type="Texture2D" uid="uid://ckjvr4pugtv6h" path="res://asest/sprite/allelse/shellyshopShell.png" id="15"]
 [ext_resource type="Texture2D" uid="uid://vidlkr4degfb" path="res://asest/sprite/allelse/shelfendtop.png" id="16"]
 [ext_resource type="Texture2D" uid="uid://p612d7dw2rgc" path="res://asest/sprite/allelse/shelf.png" id="17"]
@@ -262,6 +264,16 @@ bus = &"music"
 
 [node name="GregScrapped" type="AudioStreamPlayer" parent="music/scrap" unique_id=1856871471]
 stream = ExtResource("12_qmp0v")
+bus = &"music"
+
+[node name="storeroom" type="Node" parent="music" unique_id=1307036321]
+
+[node name="AndTheWholePlaceTurns" type="AudioStreamPlayer" parent="music/storeroom" unique_id=1125670467]
+stream = ExtResource("13_b2iof")
+bus = &"music"
+
+[node name="ScrapThat,ScrapThis" type="AudioStreamPlayer" parent="music/storeroom" unique_id=1682760493]
+stream = ExtResource("14_jpiwu")
 bus = &"music"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1261843608]

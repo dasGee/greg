@@ -17,6 +17,12 @@ func _ready():
 		minm = 0.7
 		maxm = 0.9
 		prite.play("champ")
+	if variation == "ghost":
+		health =1
+		damage = 2
+		minm = 1.5
+		maxm = 2.25
+		prite.play("ghost")
 	if rng.randi_range(1, 100) == 100:
 		minm = 1
 		maxm = 2
@@ -28,13 +34,13 @@ func _on_timer_timeout() -> void :
 		pass
 	else:
 		if seeleft.is_colliding():
-			if seeleft.get_collider().name == "hit":
-				g.health -= floori(damage * 0.5)
+			#if seeleft.get_collider().name == "hit":
+				#g.health -= floori(damage * 0.5)
 			prite.flip_h = false
 			direct = rng.randf_range(140, 210)
 		elif seeright.is_colliding():
-			if seeright.get_collider().name == "hit":
-				g.health -= floori(damage * 0.5)
+			#if seeright.get_collider().name == "hit":
+				#g.health -= floori(damage * 0.5)
 			prite.flip_h = true
 			direct = rng.randf_range(-210, -140)
 		_velocii(direct, rng.randf_range(220, 280))

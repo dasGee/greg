@@ -15,6 +15,9 @@ var config = ConfigFile.new()
 var err = config.load("user://Greg.cfg")
 
 func _ready():
+	print(g.find_child("music").curFolder)
+	print($"../tiles".find_child(g.find_child("music").curFolder))
+	$"../tiles".find_child(g.find_child("music").curFolder).visible = true
 	one = g.tempscore
 	two = g.enScore
 	three = snappedf(g.timeC / 0.6, 0.01)
@@ -32,8 +35,7 @@ func _ready():
 	$"../portal".levelis = g.currentLevel
 	g.finalscore = afterpenalty
 	g.orb += ceili(g.finalscore * 0.01)
-	config.set_value("things", "orbs", g.orb)
-	config.save("user://Greg.cfg")
+	#config.set_value("things", "orbs", g.orb)
 
 	$RichTextLabel.text = m + "score: " + str(one)
 	$RichTextLabel2.text = m + "...of which is from enemies: " + str(two)

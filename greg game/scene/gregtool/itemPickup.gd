@@ -1,5 +1,5 @@
 @icon("res://asest/sprite/toolwheelsprites/hand.png")
-class_name pickUp extends Area2D
+extends interact
 @export var item: PackedScene
 @export var img: CompressedTexture2D
 @export var destroy: bool

@@ -1,12 +1,7 @@
 extends Node2D
 var bee
 var meh
-func _physics_process(_delta):
-	for a in get_children():
-		bee = a.find_child("Circul2")
-		meh = g.tools.get(a.name.to_int()).instantiate()
-		bee.texture = meh.get("img")
-		meh.queue_free()
+func _process(_delta):
 	if g.lock == false:
 		if Input.is_action_just_pressed("tool_one"):
 			$"../Spring".pitch_scale = 1.2
@@ -36,3 +31,8 @@ func _physics_process(_delta):
 			$b1.modulate = Color(1, 1, 1, 1)
 			$b3.modulate = Color(1, 1, 1, 1)
 			$b2.modulate = Color(1, 1, 1, 1)
+	for a in get_children():
+		bee = a.find_child("Circul2")
+		meh = g.tools.get(a.name.to_int()).instantiate()
+		bee.texture = meh.get("img")
+		meh.queue_free()

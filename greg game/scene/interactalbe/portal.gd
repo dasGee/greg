@@ -8,6 +8,7 @@ extends Node2D
 @export var closed: bool
 @export var pos: Vector2
 
+
 @export_subgroup("level")
 @export var islevel: bool
 @export var levelis: String
@@ -29,6 +30,8 @@ func _open():
 		closed = false
 		$AnimatedSprite2D.play("EscOpen")
 func _ready():
+	if get_tree().current_scene.dark == true:
+		$PointLight2D.visible = true
 	key.connect(_open)
 	if closed:
 		$AnimatedSprite2D.play("EscClosed")
@@ -66,12 +69,14 @@ func _physics_process(_delta: float):
 				config.set_value("level", g.currentLevel + "_time", g.timeC)
 			config.save("user://Greg.cfg")
 			g.set("score", 0)
+			pos = g.levelExit
 			g.scrap = 0
 			g.enScore -= g.score
 			g.health = g.maxhealth
 			g.tools = g.DefaultTools
 		if islevel == true:
 			g.set("score", 0)
+			g.levelExit=global_position
 			g.currentLevel = levelis
 		g.popos = pos
 		get_tree().current_scene.process_mode = Node.PROCESS_MODE_DISABLED

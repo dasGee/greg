@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dhrjku8olg8xt" path="res://asest/sprite/allelse/srpingywingy.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://cey2f6vgditrb" path="res://asest/sprite/allelse/catspringy.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://dwieabkxewotc" path="res://asest/sprite/allelse/champSpring.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://nfwkcakn33es" path="res://asest/sprite/allelse/ghostspringy.png" id="6_y3ebq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g77af"]
 shader = ExtResource("1")
@@ -78,6 +79,22 @@ region = Rect2(48, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ulb22"]
 atlas = ExtResource("3")
+region = Rect2(0, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_37fki"]
+atlas = ExtResource("6_y3ebq")
+region = Rect2(48, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugudp"]
+atlas = ExtResource("6_y3ebq")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k42wn"]
+atlas = ExtResource("6_y3ebq")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1fqj"]
+atlas = ExtResource("6_y3ebq")
 region = Rect2(0, 48, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5nhlv"]
@@ -172,6 +189,23 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_37fki")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_ugudp")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_k42wn")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_d1fqj")
+}],
+"loop": 1,
+"name": &"ghost",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iu5ul"]
@@ -179,9 +213,6 @@ size = Vector2(12, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g77af"]
 size = Vector2(22, 23)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wolg8"]
-polygon = PackedVector2Array(6, 8, -6, 8, -3, 10, 3, 10)
 
 [node name="springy" type="RigidBody2D" unique_id=1697380430 node_paths=PackedStringArray("coll", "area", "sprit")]
 material = SubResource("ShaderMaterial_g77af")
@@ -229,10 +260,6 @@ metadata/health = 10.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=1980049690]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_g77af")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="." unique_id=505394421]
-visible = false
-occluder = SubResource("OccluderPolygon2D_wolg8")
 
 [node name="Timer" type="Timer" parent="." unique_id=679230113]
 process_callback = 0

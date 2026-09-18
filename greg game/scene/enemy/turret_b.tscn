@@ -3,8 +3,10 @@
 [ext_resource type="Script" uid="uid://dhubvy1i8hm0s" path="res://scene/enemy/turret_b.gd" id="1"]
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="2"]
 [ext_resource type="Texture2D" uid="uid://cri6jnsufylc4" path="res://asest/sprite/allelse/champturrettable.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://0aao44jm52nn" path="res://asest/sprite/allelse/alphaturrettable.png" id="3_vpseg"]
 [ext_resource type="Texture2D" uid="uid://d4anr3g2ei4j2" path="res://asest/sprite/allelse/turretTabke.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://7kdwe0xv5u01" path="res://asest/sprite/allelse/champturretgun.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://iacbag4g3jop" path="res://asest/sprite/allelse/turretAlpha.png" id="5_rqcd8"]
 [ext_resource type="Texture2D" uid="uid://d082q5purrnw1" path="res://asest/sprite/allelse/turretGun.png" id="6"]
 [ext_resource type="Texture2D" uid="uid://b8g415ymr6gm7" path="res://asest/sprite/allelse/minigun.png" id="7"]
 [ext_resource type="Script" uid="uid://ctrmihrqw4hqo" path="res://scrpt/eye.gd" id="8"]
@@ -43,6 +45,14 @@ region = Rect2(0, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_vpseg")
+}],
+"loop": 1,
+"name": &"alpha",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rqcd8")
 }],
 "loop": 1,
@@ -71,6 +81,14 @@ region = Rect2(0, 0, 72, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_rqcd8"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_rqcd8")
+}],
+"loop": 1,
+"name": &"alpha",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gomkg")

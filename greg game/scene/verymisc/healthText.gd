@@ -21,7 +21,7 @@ func score(_val):
 	meh.find_child("AnimationPlayer").play("upyougo")
 	add_child(meh)
 
-func _physics_process(_delta: float) -> void :
+func _process(_delta: float) -> void :
 	$RichTextLabel.text = waveT + "[font=res://asest/greg.ttf][font_size=40][outline_size=5]health " + str(g.health)
 	$RichTextLabel2.text = waveT + "[font=res://asest/greg.ttf][font_size=40][outline_size=5]scrap " + str(g.scrap)
 	$TextureProgressBar.value = g.water
