@@ -4,11 +4,17 @@
 [ext_resource type="FontFile" uid="uid://c6rhp83iqg7pt" path="res://asest/BadScript-Regular.ttf" id="2"]
 [ext_resource type="Script" uid="uid://081f31vvvw3w" path="res://scrpt/pausemenu/opensetting.gd" id="3"]
 [ext_resource type="Script" uid="uid://cnfa3kd1daejy" path="res://scene/verymisc/setting.gd" id="4"]
+[ext_resource type="Script" uid="uid://ctyxcraks6kyk" path="res://scene/verymisc/warmorte.gd" id="4_38tn7"]
+[ext_resource type="Texture2D" uid="uid://crf5bntq1t3e2" path="res://asest/sprite/toolwheelsprites/hand.png" id="4_ydcr2"]
 [ext_resource type="Texture2D" uid="uid://dk0pfn8f517lv" path="res://asest/sprite/allelse/bobbe.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://cv643igxi0dvo" path="res://asest/sprite/off.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://y0wunppqthuj" path="res://asest/sprite/allelse/check.png" id="6_v5cmb"]
 [ext_resource type="Texture2D" uid="uid://b3xb4b6frp4kl" path="res://asest/sprite/on.png" id="7"]
+[ext_resource type="Script" uid="uid://575m4ngplmv1" path="res://scene/verymisc/warmorteslotbutton.gd" id="7_6li55"]
+[ext_resource type="Script" uid="uid://csre1fnispl4j" path="res://scene/verymisc/unlockedtoolbutton.gd" id="7_hr8m6"]
 [ext_resource type="FontFile" uid="uid://rr1fym2wttn7" path="res://asest/sprite/dasG greg.ttf" id="8"]
 [ext_resource type="Texture2D" uid="uid://dfuthcdb78r71" path="res://asest/sprite/allelse/diskrod.png" id="8_0m2m7"]
+[ext_resource type="PackedScene" uid="uid://cttcc664mequg" path="res://scene/gregtool/openHand.tscn" id="8_ylnum"]
 [ext_resource type="Script" uid="uid://ba3ynanblo45g" path="res://scrpt/hehe/timer.gd" id="9"]
 [ext_resource type="Texture2D" uid="uid://xra0rrghir3r" path="res://asest/sprite/allelse/arrowarrow.png" id="11_dqqny"]
 [ext_resource type="Script" uid="uid://bpu3hr0oufo3v" path="res://scene/verymisc/mobile.gd" id="11_ekcqf"]
@@ -86,6 +92,31 @@ CheckButton/styles/hover = SubResource("StyleBoxEmpty_jtp3a")
 CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_gq4wf")
 CheckButton/styles/normal = SubResource("StyleBoxEmpty_qm2h5")
 CheckButton/styles/pressed = SubResource("StyleBoxEmpty_fp5k8")
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_v5cmb"]
+allow_unpress = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5cmb"]
+border_width_top = 8
+border_color = Color(0.86898494, 0.8689849, 0.8689849, 1)
+border_blend = true
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hr8m6"]
+bg_color = Color(0.63375676, 0.6337568, 0.63375676, 1)
+border_width_top = 6
+border_color = Color(0.38039216, 0.38039216, 0.38039216, 1)
+border_blend = true
+corner_detail = 1
+
+[sub_resource type="Theme" id="Theme_xx7w4"]
+HScrollBar/styles/grabber = SubResource("StyleBoxFlat_v5cmb")
+HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_v5cmb")
+HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_v5cmb")
+HScrollBar/styles/scroll = SubResource("StyleBoxFlat_hr8m6")
+HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_hr8m6")
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_loydq"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ygddx"]
 color = Color(1, 1, 1, 1)
@@ -185,14 +216,12 @@ process_mode = 3
 script = ExtResource("1")
 
 [node name="Window" type="Window" parent="." unique_id=745797895]
-transparent_bg = true
 oversampling_override = 1.0
 title = "greg is pause"
 initial_position = 2
 size = Vector2i(250, 125)
 visible = false
 unresizable = true
-transparent = true
 sharp_corners = true
 minimize_disabled = true
 maximize_disabled = true
@@ -219,15 +248,225 @@ action_mode = 0
 text = "settings"
 script = ExtResource("3")
 
-[node name="setting" type="Window" parent="." unique_id=1822110160]
+[node name="warmorte" type="Window" parent="." unique_id=854456280]
+process_mode = 3
 transparent_bg = true
+oversampling_override = 1.0
+title = "warmorte"
+initial_position = 2
+size = Vector2i(400, 400)
+visible = false
+unresizable = true
+transparent = true
+sharp_corners = true
+minimize_disabled = true
+maximize_disabled = true
+script = ExtResource("4_38tn7")
+
+[node name="ColorRect4" type="ColorRect" parent="warmorte" unique_id=1836157680]
+z_index = -1
+offset_left = -8.0
+offset_right = 408.0
+offset_bottom = 400.0
+color = Color(0.7212532, 0.5160797, 0.33091134, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="warmorte" unique_id=1315186039]
+z_index = -1
+offset_left = 8.0
+offset_top = 16.0
+offset_right = 392.0
+offset_bottom = 176.0
+color = Color(0.5420144, 0.37591395, 0.22039023, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="warmorte" unique_id=160930051]
+z_index = -1
+offset_left = 8.0
+offset_top = 208.0
+offset_right = 392.0
+offset_bottom = 288.0
+color = Color(0.9044335, 0.73988444, 0.5987463, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="warmorte" unique_id=1128442859]
+z_index = -1
+offset_left = 8.0
+offset_top = 304.0
+offset_right = 392.0
+offset_bottom = 384.0
+color = Color(0.9044335, 0.73988444, 0.5987463, 1)
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="warmorte" unique_id=1113535240]
+offset_left = 8.0
+offset_top = 288.0
+offset_right = 88.0
+offset_bottom = 320.0
+bbcode_enabled = true
+text = "[font=res://asest/greg.ttf][font_size=16][outline_size=5]equipped:"
+horizontal_alignment = 1
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="warmorte" unique_id=207643450]
+offset_left = 8.0
+offset_top = 192.0
+offset_right = 120.0
+offset_bottom = 224.0
+bbcode_enabled = true
+text = "[font=res://asest/greg.ttf][font_size=16][outline_size=5]unlocked tools:"
+horizontal_alignment = 1
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="warmorte" unique_id=1695896185]
+visible = false
+offset_left = 72.0
+offset_top = 80.0
+offset_right = 344.0
+offset_bottom = 128.0
+bbcode_enabled = true
+text = "[font=res://asest/greg.ttf][font_size=16][outline_size=5]WHATEVER sorry caps whatever is going to be here is not yet made "
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="warmorte" unique_id=892444221]
+layout_mode = 3
+anchor_right = 1.0200001
+anchor_bottom = 1.0
+offset_right = -8.0000305
+
+[node name="S0" type="TextureButton" parent="warmorte/Control" unique_id=502049092]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.060000002
+anchor_top = 0.76000005
+anchor_right = 0.26000002
+anchor_bottom = 0.96000004
+offset_left = -4.0
+offset_top = 3.9999695
+offset_right = -12.0
+offset_bottom = -4.000061
+toggle_mode = true
+button_group = SubResource("ButtonGroup_v5cmb")
+texture_normal = ExtResource("4_ydcr2")
+texture_pressed = ExtResource("6_v5cmb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_6li55")
+slot = 1
+
+[node name="S1" type="TextureButton" parent="warmorte/Control" unique_id=1433467841]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26000002
+anchor_top = 0.76000005
+anchor_right = 0.46
+anchor_bottom = 0.96000004
+offset_left = 11.999992
+offset_top = 3.9999695
+offset_right = 4.0
+offset_bottom = -4.000061
+toggle_mode = true
+button_group = SubResource("ButtonGroup_v5cmb")
+texture_normal = ExtResource("4_ydcr2")
+texture_pressed = ExtResource("6_v5cmb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_6li55")
+slot = 2
+
+[node name="S2" type="TextureButton" parent="warmorte/Control" unique_id=1618227804]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26000002
+anchor_top = 0.76000005
+anchor_right = 0.46
+anchor_bottom = 0.96000004
+offset_left = 107.99999
+offset_top = 3.9999695
+offset_right = 100.0
+offset_bottom = -4.000061
+toggle_mode = true
+button_group = SubResource("ButtonGroup_v5cmb")
+texture_normal = ExtResource("4_ydcr2")
+texture_pressed = ExtResource("6_v5cmb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_6li55")
+slot = 3
+
+[node name="S3" type="TextureButton" parent="warmorte/Control" unique_id=1548625766]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26000002
+anchor_top = 0.76000005
+anchor_right = 0.46
+anchor_bottom = 0.96000004
+offset_left = 204.0
+offset_top = 3.9999695
+offset_right = 196.0
+offset_bottom = -4.000061
+toggle_mode = true
+button_group = SubResource("ButtonGroup_v5cmb")
+texture_normal = ExtResource("4_ydcr2")
+texture_pressed = ExtResource("6_v5cmb")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_6li55")
+slot = 4
+
+[node name="ScrollContainer" type="ScrollContainer" parent="warmorte" unique_id=966934673]
+custom_minimum_size = Vector2(384, 80)
+offset_left = 8.000001
+offset_top = 208.0
+offset_right = 392.0
+offset_bottom = 288.0
+mouse_filter = 0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_xx7w4")
+theme_override_constants/scrollbar_h_separation = 0
+draw_focus_border = true
+scroll_horizontal_custom_step = 5.0
+scroll_vertical_custom_step = 5.0
+horizontal_scroll_mode = 2
+
+[node name="Control" type="Control" parent="warmorte/ScrollContainer" unique_id=554243976]
+custom_minimum_size = Vector2(1000, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+offset_transform_enabled = true
+focus_mode = 2
+
+[node name="ColorRect0" type="TextureButton" parent="warmorte/ScrollContainer/Control" unique_id=1976869501]
+texture_filter = 1
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 64.0
+offset_bottom = 64.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_loydq")
+texture_normal = ExtResource("4_ydcr2")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_hr8m6")
+stool = ExtResource("8_ylnum")
+
+[node name="TextureRect" type="TextureRect" parent="warmorte/ScrollContainer/Control/ColorRect0" unique_id=1675307002]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 50.0
+offset_bottom = 50.0
+texture = ExtResource("6_v5cmb")
+expand_mode = 1
+
+[node name="setting" type="Window" parent="." unique_id=1822110160]
 oversampling_override = 1.0
 title = "pause menu :)"
 initial_position = 2
 size = Vector2i(500, 500)
 visible = false
 unresizable = true
-transparent = true
 sharp_corners = true
 minimize_disabled = true
 maximize_disabled = true
@@ -238,7 +477,7 @@ z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(1, 0.7666667, 0, 0.49019608)
+color = Color(1, 0.76862746, 0.12156863, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="setting" unique_id=912525156]
 offset_left = 144.0
@@ -474,6 +713,7 @@ script = ExtResource("9")
 [node name="mobile" type="CanvasLayer" parent="." unique_id=1371590102]
 process_mode = 3
 layer = 2
+visible = false
 script = ExtResource("11_ekcqf")
 
 [node name="Control" type="Control" parent="mobile" unique_id=432018750]
@@ -701,6 +941,9 @@ metadata/_custom_type_script = "uid://dl2q2dnehqr1c"
 
 [connection signal="close_requested" from="Window" to="." method="_on_window_close_requested"]
 [connection signal="pressed" from="Window/Button" to="Window/Button" method="_on_pressed"]
+[connection signal="about_to_popup" from="warmorte" to="warmorte" method="_on_about_to_popup"]
+[connection signal="close_requested" from="warmorte" to="warmorte" method="_on_close_requested"]
+[connection signal="toggled" from="warmorte/ScrollContainer/Control/ColorRect0" to="warmorte/ScrollContainer/Control/ColorRect0" method="_on_toggled"]
 [connection signal="close_requested" from="setting" to="setting" method="_on_close_requested"]
 [connection signal="value_changed" from="setting/HSlider" to="setting" method="_on_h_slider_value_changed"]
 [connection signal="value_changed" from="setting/usedelay" to="setting" method="_on_usedelay_value_changed"]

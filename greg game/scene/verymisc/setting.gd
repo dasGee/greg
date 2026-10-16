@@ -64,7 +64,9 @@ func _on_control_pressed() -> void :
 	g.canHealth = true
 	g.health = g.maxhealth
 	g.lock = false
-	g.tools = g.DefaultTools
+	for a in 4:
+		if g.DefaultTools.get(a+1) is not String:
+			g.tools.set(a+1,g.DefaultTools.get(a+1))
 	g.scrap = 0
 	get_tree().paused = false
 	transition.find_child("ColorRect2").color = Color(0, 0, 0)
@@ -77,7 +79,9 @@ func _on_control_2_pressed() -> void :
 	g.canHealth = true
 	g.health = g.maxhealth
 	g.lock = false
-	g.tools = g.DefaultTools
+	for a in 4:
+		if g.DefaultTools.get(a+1) is not String:
+			g.tools.set(a+1,g.DefaultTools.get(a+1))
 	g.scrap = 0
 	get_tree().paused = false
 	transition.find_child("ColorRect2").color = Color(0, 0, 0)

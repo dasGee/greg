@@ -15,9 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://dsywegpx4vjx7" path="res://scene/obj/packed_air.tscn" id="10"]
 [ext_resource type="PackedScene" uid="uid://d0phpgxwaeonr" path="res://prettyscene/lamp.tscn" id="10_e1jbu"]
 [ext_resource type="PackedScene" uid="uid://312o7h0p1a1d" path="res://scene/obj/mover.tscn" id="11"]
+[ext_resource type="PackedScene" uid="uid://8011a4q2tlu7" path="res://scene/obj/cryplatformchamp.tscn" id="11_scb5t"]
 [ext_resource type="PackedScene" uid="uid://d4n3pg15hxi6t" path="res://scene/obj/vine.tscn" id="12"]
 [ext_resource type="PackedScene" uid="uid://d2tgmijqdocju" path="res://scene/obj/cryplatform.tscn" id="13"]
+[ext_resource type="PackedScene" uid="uid://ddxqd30y4o17u" path="res://prettyscene/antpeople.tscn" id="13_l2fev"]
 [ext_resource type="PackedScene" uid="uid://bqsfc88x8wj2h" path="res://scene/obj/spike.tscn" id="14"]
+[ext_resource type="PackedScene" uid="uid://8je7y66blfqy" path="res://prettyscene/bulbant.tscn" id="14_katvy"]
+[ext_resource type="PackedScene" uid="uid://c87umt01g5qqy" path="res://prettyscene/nest.tscn" id="15_sf7et"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_3rh50"]
 tile_data = PackedInt32Array(65536, 0, 1611202560, 1, 0, 589824, 131073, 0, 805896192, 65538, 0, 1342767104)
@@ -41,6 +45,10 @@ scenes/15/scene = ExtResource("7_6fi0c")
 scenes/16/scene = ExtResource("7_avv6w")
 scenes/17/scene = ExtResource("9_h162x")
 scenes/18/scene = ExtResource("10_e1jbu")
+scenes/19/scene = ExtResource("11_scb5t")
+scenes/20/scene = ExtResource("13_l2fev")
+scenes/21/scene = ExtResource("14_katvy")
+scenes/22/scene = ExtResource("15_sf7et")
 
 [resource]
 tile_size = Vector2i(32, 32)

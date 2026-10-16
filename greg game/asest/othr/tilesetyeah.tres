@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://drks30u6ipnyb" path="res://asest/sprite/levelsprites/grass.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://bd2hjlxor7tqv" path="res://asest/sprite/levelsprites/conveyor.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://2r4idf2evxcj" path="res://asest/sprite/levelsprites/storerooms.png" id="6_l5bm5"]
+[ext_resource type="Texture2D" uid="uid://c8w25kerynhxt" path="res://asest/sprite/levelsprites/shrro.png" id="6_tfp0y"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_njkbu"]
 tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1610612736, 1, 0, 1342177280, 65537, 0, 805306368)
@@ -15,6 +16,9 @@ tile_data = PackedInt32Array(0, 0, 0, 65536, 0, 1610612736, 1, 262144, 134217728
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_cklcv"]
 tile_data = PackedInt32Array(0, 327682, 1610612738, 1, 131074, 805306369, 2, 327682, 805306370)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_vcrnc"]
+tile_data = PackedInt32Array(0, 262149, 1610612736, 65536, 5, 1610612736, 131072, 262149, 805306368, 1, 5, 0, 131073, 5, 805306368, 2, 262149, 0, 65538, 5, 1342177280, 131074, 262149, 1342177280)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_jcdes"]
 tile_data = PackedInt32Array(0, 65536, 1, 65536, 65536, 2, 1, 65536, 1, 65537, 65536, 2)
@@ -457,6 +461,27 @@ texture_region_size = Vector2i(64, 64)
 0:1/0/physics_layer_0/linear_velocity = Vector2(-100, -35)
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a0d75"]
+texture = ExtResource("6_tfp0y")
+texture_region_size = Vector2i(64, 64)
+1:0/0 = 0
+2:0/animation_mode = 1
+2:0/animation_frame_0/duration = 1.0
+2:0/animation_frame_1/duration = 1.0
+2:0/animation_frame_2/duration = 1.0
+2:0/0 = 0
+1:2/0 = 0
+0:0/animation_columns = 1
+0:0/animation_mode = 1
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/0 = 0
+0:2/animation_columns = 1
+0:2/animation_mode = 1
+0:2/animation_frame_0/duration = 1.0
+0:2/animation_frame_1/duration = 1.0
+0:2/0 = 0
+
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tfp0y"]
 polygon = PackedVector2Array(-32, 0, 32, 0, 32, 32, -32, 32)
 
@@ -540,7 +565,7 @@ texture_region_size = Vector2i(64, 64)
 [resource]
 tile_size = Vector2i(64, 64)
 occlusion_layer_0/light_mask = 1
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2097153
 sources/0 = SubResource("TileSetAtlasSource_h4vaj")
 sources/1 = SubResource("TileSetAtlasSource_hytyk")
 sources/2 = SubResource("TileSetAtlasSource_tth67")
@@ -549,6 +574,7 @@ sources/4 = SubResource("TileSetAtlasSource_htt5j")
 sources/5 = SubResource("TileSetAtlasSource_652vc")
 sources/6 = SubResource("TileSetAtlasSource_jd3wj")
 sources/8 = SubResource("TileSetAtlasSource_vcrnc")
+sources/7 = SubResource("TileSetAtlasSource_a0d75")
 pattern_0 = SubResource("TileMapPattern_njkbu")
 pattern_1 = SubResource("TileMapPattern_3qe3a")
 pattern_2 = SubResource("TileMapPattern_jcdes")
@@ -560,3 +586,4 @@ pattern_7 = SubResource("TileMapPattern_l5bm5")
 pattern_8 = SubResource("TileMapPattern_tfp0y")
 pattern_9 = SubResource("TileMapPattern_a0d75")
 pattern_10 = SubResource("TileMapPattern_cklcv")
+pattern_11 = SubResource("TileMapPattern_vcrnc")

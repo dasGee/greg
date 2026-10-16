@@ -2,6 +2,7 @@
 
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_mr7g4"]
 [ext_resource type="Script" uid="uid://bs8fwiuen32nv" path="res://scene/gregtool/hammer.gd" id="2_3vg8f"]
+[ext_resource type="Texture2D" uid="uid://dstwbcxceyu3s" path="res://asest/sprite/toolwheelsprites/hammer.png" id="3_vxb7c"]
 [ext_resource type="Texture2D" uid="uid://c36sklv18823j" path="res://asest/sprite/allelse/hammer.png" id="4_mr7g4"]
 [ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_cnr5x"]
 [ext_resource type="AudioStream" uid="uid://nwr2rfaxwyfv" path="res://asest/sound/snap.ogg" id="5_mr7g4"]
@@ -57,7 +58,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_g2vtq"]
 resource_name = "lunge"
-length = 2.5000000000000004
+length = 2.1666667
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,8 +66,8 @@ tracks/0/path = NodePath("../Line2D:points")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.72, 1, 1.04, 1.18, 1.32, 1.44, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 5, 1, 1, 1, 0.31864023, 0.31864023, 1),
+"times": PackedFloat32Array(0, 0.5, 0.72, 1, 1.04, 1.18, 1.32, 1.44, 1.5, 2.1666667),
+"transitions": PackedFloat32Array(1, 1, 1, 5, 1, 1, 1, 0.31864023, 0.37892905, 1),
 "update": 0,
 "values": [PackedVector2Array(3, 0, 15, 0), PackedVector2Array(3, 0, 3, -5), PackedVector2Array(3, 0, -3, -9), PackedVector2Array(3, 0, -13, -11), PackedVector2Array(3, 0, -12, -11), PackedVector2Array(3, 0, -13, -11), PackedVector2Array(3, 0, -5, -11), PackedVector2Array(3, 0, 15, 1), PackedVector2Array(3, 0, 15, 0), PackedVector2Array(3, 0, 15, 0)]
 }
@@ -77,8 +78,8 @@ tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 5, 0.31864023, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2.1666667),
+"transitions": PackedFloat32Array(1, 1, 5, 0.37892905, 1),
 "update": 0,
 "values": [Vector2(12, -9), Vector2(-7, -4), Vector2(-12, -1.9999996), Vector2(26, -8), Vector2(12, -9)]
 }
@@ -89,8 +90,8 @@ tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 5, 0.31864023, 1),
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2.1666667),
+"transitions": PackedFloat32Array(1, 1, 5, 0.37892905, 1),
 "update": 0,
 "values": [0.0, -1.1359146, -2.2718291, 1.2732785, 0.0]
 }
@@ -116,7 +117,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3ql2"]
-size = Vector2(21, 32)
+size = Vector2(18, 32)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ajmw"]
 shader = ExtResource("1_mr7g4")
@@ -133,6 +134,7 @@ material = SubResource("ShaderMaterial_r3ql2")
 script = ExtResource("2_3vg8f")
 damage = 3
 scoreDam = 10
+img = ExtResource("3_vxb7c")
 metadata/_custom_type_script = "uid://ey2ph5nea8kw"
 
 [node name="shootsprite" type="Sprite2D" parent="." unique_id=214385135]
@@ -146,7 +148,7 @@ metadata/rotate = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=966656682]
 root_node = NodePath("../shootsprite")
 libraries/ = SubResource("AnimationLibrary_0ajmw")
-speed_scale = 1.7
+speed_scale = 1.85
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=883173241]
 position = Vector2(30, 0)
@@ -158,7 +160,7 @@ input_pickable = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=183001877]
-position = Vector2(29.5, 0)
+position = Vector2(33, 0)
 shape = SubResource("RectangleShape2D_r3ql2")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=912730839]

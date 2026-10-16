@@ -75,10 +75,10 @@ var boxBurn = 0:
 var current: int = 0
 
 var DefaultTools = {
-1: load("res://scene/gregtool/openHand.tscn"), 
-2: load("res://scene/gregtool/openHand.tscn"), 
-3: load("res://scene/gregtool/openHand.tscn"), 
-4: load("res://scene/gregtool/openHand.tscn"), 
+1: "none", 
+2: "none", 
+3: "none", 
+4: "none", 
 }
 var tools = {
 1: load("res://scene/gregtool/openHand.tscn"), 
@@ -93,8 +93,13 @@ var config = ConfigFile.new()
 var err = config.load("user://Greg.cfg")
 
 func _ready():
+	DefaultTools = {
+1: config.get_value("things", "DefTools1","none"), 
+2: config.get_value("things", "DefTools2","none"), 
+3: config.get_value("things", "DefTools3","none"), 
+4: config.get_value("things", "DefTools4","none"), 
+}
 
-	config.set_value("belbanga", "haha i see you messing around with the save :)", "alright go ahead! i dont mind")
 	orb = config.get_value("things", "orbs", 0)
 	config.save("user://Greg.cfg")
 

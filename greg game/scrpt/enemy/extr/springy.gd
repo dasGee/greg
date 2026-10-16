@@ -51,3 +51,4 @@ func _on_enemy_body_entered(grr: Node2D) -> void :
 	if grr.name == "player":
 		if health > 0:
 			g.health -= damage
+			

@@ -15,6 +15,7 @@ func _physics_process(_delta):
 		get_tree().current_scene.add_child(a)
 		g.tools.set(g.current, load("res://scene/gregtool/openHand.tscn"))
 		g.toolr.emit()
+		get_tree().current_scene.find_child("ui", false, false).find_child("Node").emit_signal("puck")
 	elif Input.is_action_just_pressed("shoot2") and g.find_child("Window").visible == false:
 		box = load("res://scene/enemy/box.tscn")
 		$".." / ".." / "marker".global_position = $Marker2D.global_position
@@ -24,3 +25,4 @@ func _physics_process(_delta):
 		get_tree().current_scene.add_child(a)
 		g.tools.set(g.current, load("res://scene/gregtool/openHand.tscn"))
 		g.toolr.emit()
+		get_tree().current_scene.find_child("ui", false, false).find_child("Node").emit_signal("puck")

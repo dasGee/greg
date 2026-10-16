@@ -13,7 +13,8 @@ func _physics_process(_delta: float) -> void :
 			get_tree().paused = true
 		else:
 
-
+			$warmorte.hide()
+			$warmorte._on_close_requested()
 			$setting.hide()
 			$Window.hide()
 			get_tree().paused = false

@@ -18,7 +18,7 @@ var ui2 = preload("res://scene/verymisc/canvas_layer.tscn")
 
 func _changetool(num):
 	g.current = num
-	if g.lock:
+	if g.lock or g.tools.get(num) is String or g.tools.get(num) == null:
 		return
 	else:
 		TemCur.queue_free()
@@ -41,29 +41,25 @@ func _gothit(_meh):
 
 
 func _ready():
+	for a in g.DefaultTools:
+		if g.DefaultTools[a] is not String:
+			if g.DefaultTools[a] == load("res://scene/gregtool/openHand.tscn"):
+				g.DefaultTools[a] = "none"
 	if get_tree().current_scene.dark == true:
 		$PointLight2D.visible = true
 	g.healthChange.connect(_gothit)
 	g.toolr.connect(_wobble)
-	get_tree().current_scene.add_child(ui1.instantiate())
-	get_tree().current_scene.add_child(ui2.instantiate())
-	if config.get_value("things", "gotHam", false) == true:
-		g.DefaultTools = {
-		1: load("res://scene/gregtool/hammer.tscn"), 
-		2: load("res://scene/gregtool/openHand.tscn"), 
-		3: load("res://scene/gregtool/openHand.tscn"), 
-		4: load("res://scene/gregtool/openHand.tscn"), 
-		}
-		g.tools.set(1,load("res://scene/gregtool/hammer.tscn"))
-	else:
-		g.DefaultTools = {
-		1: load("res://scene/gregtool/openHand.tscn"), 
-		2: load("res://scene/gregtool/openHand.tscn"), 
-		3: load("res://scene/gregtool/openHand.tscn"), 
-		4: load("res://scene/gregtool/openHand.tscn"), 
-		}
-
-
+	var va1 = ui1.instantiate()
+	var va2 = ui2.instantiate()
+	va1.name = "backgroove"
+	get_tree().current_scene.add_child(va1)
+	va2.name = "ui"
+	get_tree().current_scene.add_child(va2)
+	for a in 4:
+		if g.DefaultTools.get(a+1) is not String:
+			g.tools.set(a+1,g.DefaultTools.get(a+1))
+		elif g.tools.get(a+1) is String:
+			g.tools.set(a+1,load("res://scene/gregtool/openHand.tscn"))
 
 func _jump():
 	JUMP_VELOCITY = -350 - abs(velocity.x * 0.45)

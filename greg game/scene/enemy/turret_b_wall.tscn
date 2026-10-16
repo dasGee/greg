@@ -5,11 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://kdqcr28co716" path="res://asest/sprite/allelse/turretWallchamp.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://io2ekcugksp" path="res://asest/sprite/allelse/alphaturretwall.png" id="3_jcupx"]
 [ext_resource type="Texture2D" uid="uid://dw2akq4k6mjs3" path="res://asest/sprite/allelse/turretWall.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://br4uv038dcvdw" path="res://asest/sprite/allelse/minusalphaturretwall.png" id="4_svmrr"]
 [ext_resource type="Texture2D" uid="uid://7kdwe0xv5u01" path="res://asest/sprite/allelse/champturretgun.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://iacbag4g3jop" path="res://asest/sprite/allelse/turretAlpha.png" id="5_a78qf"]
 [ext_resource type="Texture2D" uid="uid://d082q5purrnw1" path="res://asest/sprite/allelse/turretGun.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://xe31eeggjx8v" path="res://asest/sprite/allelse/turretDirtWall.png" id="6_i0vw1"]
 [ext_resource type="Texture2D" uid="uid://b8g415ymr6gm7" path="res://asest/sprite/allelse/minigun.png" id="7"]
 [ext_resource type="Script" uid="uid://ctrmihrqw4hqo" path="res://scrpt/eye.gd" id="8"]
+[ext_resource type="Texture2D" uid="uid://db3i3gtalgghf" path="res://asest/sprite/allelse/turretminusalpha.png" id="9_is1n4"]
+[ext_resource type="Texture2D" uid="uid://4q73talvj33b" path="res://asest/sprite/allelse/turretDirtGun.png" id="10_f1g3w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vpseg"]
 shader = ExtResource("2")
@@ -45,6 +49,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_svmrr")
+}],
+"loop": 1,
+"name": &"alpha-",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3")
 }],
 "loop": 1,
@@ -57,6 +69,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_i0vw1")
+}],
+"loop": 1,
+"name": &"dirt",
 "speed": 5.0
 }]
 
@@ -80,6 +100,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("9_is1n4")
+}],
+"loop": 1,
+"name": &"alpha-",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gomkg")
 }],
 "loop": 1,
@@ -92,6 +120,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_f1g3w")
+}],
+"loop": 1,
+"name": &"dirt",
 "speed": 5.0
 }, {
 "frames": [{

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bpspv63j5urbs"]
 
 [ext_resource type="Script" uid="uid://ey2ph5nea8kw" path="res://folder99/itemclass.gd" id="1_2lxnb"]
+[ext_resource type="Texture2D" uid="uid://fsjqiyog5nwj" path="res://asest/sprite/toolwheelsprites/flashlight.png" id="2_f1jbl"]
 [ext_resource type="Texture2D" uid="uid://b8ruhe5y1upct" path="res://asest/sprite/allelse/flashlight.png" id="3_f1jbl"]
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="3_rkhe4"]
 [ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_ibx10"]
@@ -28,6 +29,7 @@ shader_parameter/number_of_images = Vector2(1, 1)
 
 [node name="flashlight" type="Node2D" unique_id=590959273 node_paths=PackedStringArray("line", "prite")]
 script = ExtResource("1_2lxnb")
+img = ExtResource("2_f1jbl")
 scrapVal = 5
 hasline = true
 line = NodePath("Line2D")

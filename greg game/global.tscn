@@ -11,7 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://lihdqoq0ep7i" path="res://asest/sound/music/garden/gregTurning.mp3" id="9"]
 [ext_resource type="AudioStream" uid="uid://io6o7jmb7q3r" path="res://asest/sound/music/garden/gregWhEreAtOEnY.mp3" id="11"]
 [ext_resource type="AudioStream" uid="uid://de0yyqkirwqcx" path="res://asest/sound/music/scrap/gregNo.ogg" id="11_aqnmw"]
+[ext_resource type="AudioStream" uid="uid://du862iscr5n6h" path="res://asest/sound/music/gardenB/gregGardenSuide.ogg" id="11_lnlp6"]
 [ext_resource type="Script" uid="uid://h0w8qdplj6dn" path="res://scene/verymisc/textthing.gd" id="12"]
+[ext_resource type="AudioStream" uid="uid://b7auhv2edlqwh" path="res://asest/sound/music/gardenB/gregTwoone.ogg" id="12_nb8v8"]
 [ext_resource type="AudioStream" uid="uid://f8mhbvw8syst" path="res://asest/sound/music/scrap/gregScrapped.ogg" id="12_qmp0v"]
 [ext_resource type="Script" uid="uid://bp4b0sfts5mug" path="res://scrpt/hehe/closeWindow.gd" id="13"]
 [ext_resource type="AudioStream" uid="uid://bhn0o77umgmfv" path="res://asest/sound/music/storeroom/AND THE WHOLE PLACE TURNS.ogg" id="13_b2iof"]
@@ -254,6 +256,16 @@ bus = &"music"
 
 [node name="GregWhEreAtOEnY" type="AudioStreamPlayer" parent="music/garden" unique_id=705378847]
 stream = ExtResource("11")
+bus = &"music"
+
+[node name="garladen" type="Node" parent="music" unique_id=880530059]
+
+[node name="GregGardenSuide" type="AudioStreamPlayer" parent="music/garladen" unique_id=66054937]
+stream = ExtResource("11_lnlp6")
+bus = &"music"
+
+[node name="GregTwoone" type="AudioStreamPlayer" parent="music/garladen" unique_id=1856067791]
+stream = ExtResource("12_nb8v8")
 bus = &"music"
 
 [node name="scrap" type="Node" parent="music" unique_id=2123494453]

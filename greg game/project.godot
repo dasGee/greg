@@ -39,7 +39,6 @@ transition="*uid://ddof537htkk5h"
 
 [debug]
 
-settings/crash_handler/message="somehow dasg messed wahtever happened up and this has crashed the game"
 shapes/collision/draw_2d_outlines=false
 
 [display]
@@ -181,6 +180,8 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_16="wallturret"
 2d_physics/layer_19="toolreset"
 2d_physics/layer_20="sunroarcol"
+2d_physics/layer_21="funny"
+2d_physics/layer_22="fellawalki"
 
 [physics]
 

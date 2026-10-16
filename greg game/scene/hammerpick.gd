@@ -10,13 +10,10 @@ func _ready():
 
 func _interacted():
 	super()
-	if erer:
-		pass
-	else:
-		return
 	config.set_value("things", "gotHam", true)
 	transition.find_child("hamr").find_child("AnimationPlayer").play("new_animation")
 	g.tools.set(g.current,load("res://scene/gregtool/hammer.tscn"))
+	config.set_value("things", "DefTools1",load("res://scene/gregtool/hammer.tscn"))
 	g.toolr.emit()
 	config.save("user://Greg.cfg")
 	g.DefaultTools = {

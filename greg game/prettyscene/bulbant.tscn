@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://8je7y66blfqy"]
+
+[ext_resource type="Texture2D" uid="uid://crg4q8bvtofqp" path="res://asest/sprite/allelse/bulbant.png" id="1_4s2dt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c10ll"]
+atlas = ExtResource("1_4s2dt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cei03"]
+atlas = ExtResource("1_4s2dt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3md8v"]
+atlas = ExtResource("1_4s2dt")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xx7w4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c10ll")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cei03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3md8v")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_j0htg"]
+interpolation_color_space = 1
+offsets = PackedFloat32Array(0.1, 0.9)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_d64wm"]
+gradient = SubResource("Gradient_j0htg")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 1)
+
+[node name="bulbant" type="Node2D" unique_id=802847584]
+z_index = -5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=391719908]
+z_index = -2
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_xx7w4")
+frame_progress = 0.64359945
+offset = Vector2(-2, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=58854212]
+position = Vector2(0, 3)
+scale = Vector2(3, 3)
+color = Color(0.6544554, 0.6243844, 0.9999991, 1)
+blend_mode = 2
+shadow_enabled = true
+shadow_color = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_d64wm")

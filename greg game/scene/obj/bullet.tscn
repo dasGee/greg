@@ -2,12 +2,32 @@
 
 [ext_resource type="Script" uid="uid://bvor7ptq5a0wd" path="res://scrpt/bullet.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://gwmc8byrsvh6" path="res://asest/sprite/allelse/bullet.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://btfu1h45nbd4o" path="res://asest/sprite/allelse/dirtbullet.png" id="3_t5o17"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4snrl"]
 friction = 0.1
 bounce = 0.5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fs0di"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xx7w4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_t5o17")
+}],
+"loop": 1,
+"name": &"dirt",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t5o17"]
 size = Vector2(6.0000014, 4.0000005)
@@ -28,6 +48,30 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_t5o17"]
@@ -59,6 +103,30 @@ tracks/1/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p273l"]
 _data = {
@@ -73,16 +141,17 @@ z_index = 1
 collision_layer = 0
 collision_mask = 575681
 physics_material_override = SubResource("PhysicsMaterial_4snrl")
-gravity_scale = 0.025
+gravity_scale = 0.01
 lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=599685603]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=151896765]
 material = SubResource("ShaderMaterial_fs0di")
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("2")
+sprite_frames = SubResource("SpriteFrames_xx7w4")
+autoplay = "default"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1571129994]
 scale = Vector2(0.99999994, 0.99999994)
@@ -109,4 +178,3 @@ libraries/ = SubResource("AnimationLibrary_p273l")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

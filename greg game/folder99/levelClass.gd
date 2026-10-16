@@ -10,9 +10,21 @@ class_name level extends Node2D
 @export var dark: bool = false
 @export var isHub: bool = false
 @export var music: String = "default"
+@export var misColor = Color()
 @export_subgroup("man")
 @export var manPos: Marker2D
 @export var manStartSpeed: int
+
+@export_subgroup("flower")
+@export var cangreen: bool = false
+@export var forceVar : String = "no"
+@export var yellow: bool = true
+@export var forceYellow: bool = false
+@export_range(0.0, 1.0) var frMi = 0.0
+@export_range(0.0, 1.0) var frMa = 1.0
+@export_range(0.0, 1.0) var frSaMi = 0.25
+@export_range(0.0, 1.0) var frSaMa = 0.85
+
 @export_category("modifier")
 @export_subgroup("fun")
 @export var wide: bool = false
@@ -35,6 +47,8 @@ var wawaha
 var memeha
 
 func _ready() -> void :
+	Color.from_hsv(0.058, 1.0, 1.0, 1.0)
+	
 	config.set_value("things", "orbs", g.orb)
 	config.save("user://Greg.cfg")
 	if dark == true:

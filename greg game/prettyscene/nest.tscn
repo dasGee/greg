@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c87umt01g5qqy"]
+
+[ext_resource type="Texture2D" uid="uid://dmxqe6n2npj4p" path="res://asest/sprite/allelse/nest.png" id="1_gv5kp"]
+[ext_resource type="Script" uid="uid://cls2urhiw78w8" path="res://prettyscene/colored.gd" id="2_xaves"]
+
+[node name="nest" type="Sprite2D" unique_id=35260022 node_paths=PackedStringArray("sprite")]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gv5kp")
+script = ExtResource("2_xaves")
+sprite = NodePath(".")

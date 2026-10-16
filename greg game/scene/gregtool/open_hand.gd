@@ -11,6 +11,7 @@ func _physics_process(_delta: float):
 		if $RayCast2D.is_colliding():
 			if $RayCast2D.get_collider().get_parent() is interact:
 				$RayCast2D.get_collider().get_parent().emit_signal("interacted")
+				get_tree().current_scene.find_child("ui", false, false).find_child("Node").emit_signal("puck")
 			if $RayCast2D.get_collider().get("destroy"):
 				if $RayCast2D.get_collider().destroy == true and $RayCast2D.get_collider().ugh == false:
 					$RayCast2D.get_collider().ugh = true

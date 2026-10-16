@@ -23,9 +23,18 @@ func _ready():
 	if randf() > 0.95:
 		$AnimatedSprite2D2.flip_v = true
 	if randf() > 0.15:
-		$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(0, 1), randf_range(0.5, 0.85), randf_range(0.85, 1))
+		if get_tree().current_scene.cangreen==true:
+			$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(0, 1), randf_range(0.5, 0.85), randf_range(0.85, 1))
+		else:
+			$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(0.5, 1), randf_range(0.5, 0.85), randf_range(0.85, 1))
 	else:
-		$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(0, 1), randf_range(0, 1), randf_range(0, 1))
+		if get_tree().current_scene.cangreen==true:
+			$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(0, 1), randf_range(0, 1), randf_range(0, 1))
+		else:
+			if randi()%3 >= 1:
+				$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(0.5, 1), randf_range(0, 1), randf_range(0, 1))
+			else:
+				$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(0, 0.2), randf_range(0, 1), randf_range(0, 1))
 
 func _on_timer_timeout() -> void :
 	if movercan == true and health > 0:
