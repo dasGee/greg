@@ -155,6 +155,7 @@ size = Vector2(24, 27)
 
 [node name="TurretB" type="RigidBody2D" unique_id=2139472078 node_paths=PackedStringArray("coll", "area", "sprit")]
 mass = 999.0
+constant_force = Vector2(0, 999)
 script = ExtResource("1")
 health = 6
 damage = 5

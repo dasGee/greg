@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://cbwng2n2ys2v3"]
+
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_4agde"]
+[ext_resource type="Script" uid="uid://cvkfxpf0bjdhe" path="res://scene/gregtool/bowtie.gd" id="2_genra"]
+[ext_resource type="Texture2D" uid="uid://ulwp2onrh55u" path="res://asest/sprite/toolwheelsprites/bowtie.png" id="3_4agde"]
+[ext_resource type="Texture2D" uid="uid://ceuvuy1fwj3t4" path="res://asest/sprite/allelse/tiebow.png" id="3_genra"]
+[ext_resource type="AudioStream" uid="uid://qpl7cioycky5" path="res://asest/sound/Harp1.wav" id="5_8poqb"]
+[ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_yyony"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3ql2"]
+shader = ExtResource("1_4agde")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ajmw"]
+shader = ExtResource("1_4agde")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_8poqb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shootsprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.25, 0.35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:deb")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_genra"]
+resource_name = "shoot"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shootsprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 13.454345, 0.30778632, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.35), Vector2(0.4, 0.25), Vector2(0.3, 0.35), Vector2(0.25, 0.35)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_shot"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:deb")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4agde"]
+_data = {
+&"RESET": SubResource("Animation_8poqb"),
+&"shoot": SubResource("Animation_genra")
+}
+
+[node name="bow" type="Node2D" unique_id=314326441 node_paths=PackedStringArray("line", "prite")]
+material = SubResource("ShaderMaterial_r3ql2")
+script = ExtResource("2_genra")
+img = ExtResource("3_4agde")
+hasline = true
+line = NodePath("Line2D")
+prite = NodePath("shootsprite")
+maximimi = 26
+metadata/_custom_type_script = "uid://ey2ph5nea8kw"
+
+[node name="shootsprite" type="Sprite2D" parent="." unique_id=214385135]
+use_parent_material = true
+position = Vector2(20, 0)
+scale = Vector2(0.25, 0.35)
+texture = ExtResource("3_genra")
+centered = false
+offset = Vector2(-42, -42)
+flip_v = true
+metadata/rotate = false
+
+[node name="Marker2D3" type="Marker2D" parent="shootsprite" unique_id=1689222383]
+position = Vector2(145, 0)
+scale = Vector2(4.9999995, 4.9999995)
+
+[node name="Marker2D4" type="Marker2D" parent="shootsprite" unique_id=1605659352]
+position = Vector2(49.999992, 0)
+scale = Vector2(4.9999995, 4.9999995)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=883173241]
+position = Vector2(-27, 0)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=912730839]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0ajmw")
+points = PackedVector2Array(3, 0, 17, 0)
+width = 1.0
+default_color = Color(0.31764707, 0.31764707, 0.31764707, 1)
+texture = ExtResource("5_yyony")
+texture_mode = 1
+begin_cap_mode = 1
+
+[node name="Paintball" type="AudioStreamPlayer" parent="." unique_id=676308482]
+stream = ExtResource("5_8poqb")
+volume_db = 5.0
+max_polyphony = 3
+bus = &"sfx"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=442516528]
+libraries/ = SubResource("AnimationLibrary_4agde")

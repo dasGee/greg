@@ -6,6 +6,8 @@ var err = config.load("user://Greg.cfg")
 
 var we = false
 func _on_area_2d_area_entered(_area: Area2D) -> void:
+	if fixe == true:
+		return
 	if we == false:
 		we = true
 	else:
@@ -14,6 +16,7 @@ func _on_area_2d_area_entered(_area: Area2D) -> void:
 	$AnimationPlayer.play("new_animation")
 func _ready() -> void:
 	if config.get_value("things", "rocketre", false) == true:
+		fixe = true
 		$Rocketre.play("still")
 func _repair():
 	if fixe == false:
@@ -41,3 +44,5 @@ func _on_rocketre_animation_finished() -> void:
 		$Rocketre.play("still")
 		await get_tree().create_timer(2).timeout
 		$RichTextLabel.text = ''
+		config.set_value("things", "rocketre", true)
+		config.save("user://Greg.cfg")

@@ -84,6 +84,12 @@ func _physics_process(_delta: float):
 		anim.play("in")
 func _animation_finished(wawa):
 	if wawa == "in":
+		if manUnlock==true:
+			for a in 4:
+				if g.DefaultTools.get(a+1) is not String:
+					g.tools.set(a+1,g.DefaultTools.get(a+1))
+				else:
+					g.tools.set(a+1,load("res://scene/gregtool/openHand.tscn"))
 		get_tree().change_scene_to_file(scene)
 		g.lock = false
 func _on_area_2d_2_area_entered(_area: Area2D) -> void :

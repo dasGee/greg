@@ -29,7 +29,7 @@ func _dobe():
 				unlockman.linear_velocity = Vector2($".." / ".." / "marker".position.x * 15, $".." / ".." / "marker".position.y * 15)
 				$".." / "..".velocity += Vector2($".." / ".." / "marker".position.x * -10, $".." / ".." / "marker".position.y * -10)
 				$Timer.start()
-				g.score+=30
+				g.score+=60
 			elif unlockman.get("wallHealth"):
 				unlockman.wallHealth -= damage
 				$".." / "..".velocity += Vector2($".." / ".." / "marker".position.x * 10, $".." / ".." / "marker".position.y * 9.5)

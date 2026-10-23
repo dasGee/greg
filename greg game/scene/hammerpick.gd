@@ -11,6 +11,7 @@ func _ready():
 func _interacted():
 	super()
 	config.set_value("things", "gotHam", true)
+	config.set_value("unlockeds", "hammer", true)
 	transition.find_child("hamr").find_child("AnimationPlayer").play("new_animation")
 	g.tools.set(g.current,load("res://scene/gregtool/hammer.tscn"))
 	config.set_value("things", "DefTools1",load("res://scene/gregtool/hammer.tscn"))

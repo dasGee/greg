@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ci43vwy8fbp1g"]
+
+[ext_resource type="Script" uid="uid://dcvnk7eom732a" path="res://scrpt/tool_unlock.gd" id="1_r8f4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk1gg"]
+
+[node name="toolUnlock" type="Node2D" unique_id=1927680427 node_paths=PackedStringArray("area")]
+script = ExtResource("1_r8f4j")
+area = NodePath("Area2D")
+metadata/_custom_type_script = "uid://7l8hy7pmi46c"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=23924952]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1132829492]
+shape = SubResource("RectangleShape2D_yk1gg")

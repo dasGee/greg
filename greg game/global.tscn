@@ -17,9 +17,12 @@
 [ext_resource type="AudioStream" uid="uid://f8mhbvw8syst" path="res://asest/sound/music/scrap/gregScrapped.ogg" id="12_qmp0v"]
 [ext_resource type="Script" uid="uid://bp4b0sfts5mug" path="res://scrpt/hehe/closeWindow.gd" id="13"]
 [ext_resource type="AudioStream" uid="uid://bhn0o77umgmfv" path="res://asest/sound/music/storeroom/AND THE WHOLE PLACE TURNS.ogg" id="13_b2iof"]
+[ext_resource type="AudioStream" uid="uid://dqfnalxkue0md" path="res://asest/sound/music/shroo/sweet.ogg" id="13_nb8v8"]
 [ext_resource type="Texture2D" uid="uid://bwc117r4sk3vu" path="res://asest/sprite/allelse/shellyshopBack.png" id="14"]
+[ext_resource type="AudioStream" uid="uid://db3mwxxrnvctc" path="res://asest/sound/music/secondreg/gregLypiros.ogg" id="14_2qadb"]
 [ext_resource type="AudioStream" uid="uid://cqkpr2gvbkjw0" path="res://asest/sound/music/storeroom/SCRAP THAT, SCRAP THIS.ogg" id="14_jpiwu"]
 [ext_resource type="Texture2D" uid="uid://ckjvr4pugtv6h" path="res://asest/sprite/allelse/shellyshopShell.png" id="15"]
+[ext_resource type="AudioStream" uid="uid://d4j41ssxs44gy" path="res://asest/sound/music/secondreg/gregStenagmose.ogg" id="15_qe8cd"]
 [ext_resource type="Texture2D" uid="uid://vidlkr4degfb" path="res://asest/sprite/allelse/shelfendtop.png" id="16"]
 [ext_resource type="Texture2D" uid="uid://p612d7dw2rgc" path="res://asest/sprite/allelse/shelf.png" id="17"]
 [ext_resource type="Texture2D" uid="uid://cmtatb6djk11x" path="res://asest/sprite/allelse/shelfbottom.png" id="18"]
@@ -266,6 +269,22 @@ bus = &"music"
 
 [node name="GregTwoone" type="AudioStreamPlayer" parent="music/garladen" unique_id=1856067791]
 stream = ExtResource("12_nb8v8")
+bus = &"music"
+
+[node name="shroo" type="Node" parent="music" unique_id=1368203117]
+
+[node name="GregSweet" type="AudioStreamPlayer" parent="music/shroo" unique_id=229226961]
+stream = ExtResource("13_nb8v8")
+bus = &"music"
+
+[node name="secondreg" type="Node" parent="music" unique_id=1628527754]
+
+[node name="GregLypiros" type="AudioStreamPlayer" parent="music/secondreg" unique_id=1177615787]
+stream = ExtResource("14_2qadb")
+bus = &"music"
+
+[node name="GregStenagmose" type="AudioStreamPlayer" parent="music/secondreg" unique_id=1635433112]
+stream = ExtResource("15_qe8cd")
 bus = &"music"
 
 [node name="scrap" type="Node" parent="music" unique_id=2123494453]

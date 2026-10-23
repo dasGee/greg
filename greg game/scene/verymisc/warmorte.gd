@@ -23,14 +23,15 @@ func _on_close_requested() -> void:
 
 func _on_about_to_popup() -> void:
 	ehhhhh = 0
-	lala = config.get_value("things", "unlockeds", ["res://scene/gregtool/hammer.tscn","res://scene/gregtool/box.tscn"])
+	#lala = config.get_value("things", "unlockeds", ["res://scene/gregtool/hammer.tscn"])
+	lala = config.get_section_keys("unlockeds")
 	for a in lala.size():
 		wewe = $ScrollContainer/Control/ColorRect0.duplicate()
 		wewe.name = "wa"+str(a)
 		ehhhhh +=64
 		wewe.position.x +=ehhhhh
-		wewe.texture_normal = load(lala[a]).instantiate().img
-		wewe.stool = load(lala[a])
+		wewe.texture_normal = load("res://scene/gregtool/"+lala.get(a)+".tscn").instantiate().img
+		wewe.stool = load("res://scene/gregtool/"+lala.get(a)+".tscn")
 		$ScrollContainer/Control.add_child(wewe)
 	for a in 4:
 		waw = $Control.find_child("S"+str(a))

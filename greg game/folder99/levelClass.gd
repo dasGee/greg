@@ -47,8 +47,6 @@ var wawaha
 var memeha
 
 func _ready() -> void :
-	Color.from_hsv(0.058, 1.0, 1.0, 1.0)
-	
 	config.set_value("things", "orbs", g.orb)
 	config.save("user://Greg.cfg")
 	if dark == true:

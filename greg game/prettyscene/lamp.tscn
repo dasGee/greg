@@ -15,7 +15,7 @@ shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="Gradient" id="Gradient_j0htg"]
 interpolation_color_space = 1
-offsets = PackedFloat32Array(0.1, 0.9)
+offsets = PackedFloat32Array(0.6, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 
@@ -35,7 +35,7 @@ texture = ExtResource("1_ad7k2")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=36690527]
 position = Vector2(1.5, -68.5)
-scale = Vector2(4, 4)
+scale = Vector2(8, 8)
 blend_mode = 2
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)

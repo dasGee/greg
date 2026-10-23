@@ -223,11 +223,11 @@ position = Vector2(-906, 22)
 saying = "use these boxes to get to places you couldnt before!"
 
 [node name="signer2" parent="." unique_id=751782261 instance=ExtResource("8_5g13b")]
-position = Vector2(341, -978)
+position = Vector2(2327, -777)
 saying = "\"okay so like right now theres nothing here to be done ,,,,,,    im gonna do things here soon porobably\" - dasG"
 
 [node name="signer3" parent="." unique_id=2067267552 instance=ExtResource("8_5g13b")]
-position = Vector2(393, -978)
+position = Vector2(2379, -777)
 saying = "\"i think i'll upload the next build to itch when i finish like,,, the next 2 location, maybe 3... oh right i'd also love to hear your thoughts on \" - dasG"
 
 [node name="signer4" parent="." unique_id=934131634 instance=ExtResource("8_5g13b")]
@@ -338,32 +338,32 @@ texture = ExtResource("13_a8wv0")
 position = Vector2(144, -399)
 
 [node name="pickUp4" parent="." unique_id=855085042 instance=ExtResource("9_ok0kb")]
-position = Vector2(342, -1056)
+position = Vector2(2328, -855)
 item = ExtResource("16_q4q4c")
 img = ExtResource("17_74du3")
 
 [node name="pickUp5" parent="." unique_id=1006865479 instance=ExtResource("9_ok0kb")]
-position = Vector2(366, -1057)
+position = Vector2(2352, -856)
 item = ExtResource("18_acsu0")
 img = ExtResource("19_q7bbd")
 
 [node name="pickUp6" parent="." unique_id=1058362255 instance=ExtResource("9_ok0kb")]
-position = Vector2(393, -1057)
+position = Vector2(2379, -856)
 item = ExtResource("19_xmeb2")
 img = ExtResource("21_0hoq5")
 
 [node name="pickUp7" parent="." unique_id=1864985722 instance=ExtResource("9_ok0kb")]
-position = Vector2(420, -1057)
+position = Vector2(2406, -856)
 item = ExtResource("20_m41it")
 img = ExtResource("23_y1x2t")
 
 [node name="pickUp8" parent="." unique_id=727813462 instance=ExtResource("9_ok0kb")]
-position = Vector2(317, -1056)
+position = Vector2(2303, -855)
 item = ExtResource("21_74du3")
 img = ExtResource("25_bk3i8")
 
 [node name="pickUp9" parent="." unique_id=2050143034 instance=ExtResource("9_ok0kb")]
-position = Vector2(467, -1062)
+position = Vector2(2453, -861)
 item = ExtResource("22_q7bbd")
 img = ExtResource("27_00iwg")
 
@@ -379,3 +379,11 @@ material = SubResource("ShaderMaterial_0hoq5")
 position = Vector2(248, -330)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("30_y1x2t")
+
+[node name="portal9" parent="." unique_id=72410702 instance=ExtResource("5")]
+modulate = Color(1, 0.40392157, 0.21960784, 1)
+position = Vector2(243, -368)
+scene = "res://levle/shroo/shrooHub.tscn"
+textie = "TEMPORARY ENTRANCE TO PINK LAND"
+square = true
+levelis = "0"

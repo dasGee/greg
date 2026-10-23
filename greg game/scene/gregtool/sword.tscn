@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bf82mbaqsgs1g" path="res://asest/sprite/toolwheelsprites/sword.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://bpg3qw50iwjed" path="res://asest/sprite/allelse/sword.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_ts2le"]
+[ext_resource type="AudioStream" uid="uid://nwr2rfaxwyfv" path="res://asest/sound/snap.ogg" id="6_0ajmw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r3ql2"]
 shader = ExtResource("1")
@@ -57,7 +58,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_g2vtq"]
 resource_name = "lunge"
-length = 0.9
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,7 +66,7 @@ tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.9),
+"times": PackedFloat32Array(0, 0.2, 0.8),
 "transitions": PackedFloat32Array(1.8660661, 1, 1),
 "update": 0,
 "values": [-1.3089969389957472, -0.17453292519943295, -1.3089969]
@@ -77,7 +78,7 @@ tracks/1/path = NodePath(".:position")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.43333334, 0.7),
+"times": PackedFloat32Array(0, 0.2, 0.36666667, 0.6),
 "transitions": PackedFloat32Array(1.8660661, 1, 1, 1),
 "update": 0,
 "values": [Vector2(10, 8), Vector2(21, -3.5), Vector2(21, -3.5), Vector2(10, 8)]
@@ -89,7 +90,7 @@ tracks/2/path = NodePath("../Line2D:points")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4333, 0.6333333, 0.8),
+"times": PackedFloat32Array(0, 0.2, 0.36663333, 0.53333336, 0.70000005),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [PackedVector2Array(3, 0, 15, 5.5), PackedVector2Array(3, 0, 17, 1.25), PackedVector2Array(3, 0, 18, 1.75), PackedVector2Array(3, 0, 15, 9), PackedVector2Array(3, 0, 15, 5.5)]
@@ -102,7 +103,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3ql2"]
-size = Vector2(42.5, 20)
+size = Vector2(45, 16)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ajmw"]
 shader = ExtResource("1")
@@ -136,28 +137,21 @@ texture = ExtResource("4")
 centered = false
 metadata/rotate = false
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=185755618]
-position = Vector2(0, 1)
-target_position = Vector2(58, 0)
-collision_mask = 2051
-collide_with_areas = true
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=966656682]
 root_node = NodePath("../shootsprite")
 libraries/ = SubResource("AnimationLibrary_0ajmw")
-speed_scale = 1.7
+speed_scale = 1.85
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=883173241]
 position = Vector2(-27, 0)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=766727211]
 collision_layer = 0
-collision_mask = 2176
+collision_mask = 2177
 input_pickable = false
-monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=183001877]
-position = Vector2(36.25, 1)
+position = Vector2(38.5, 1)
 shape = SubResource("RectangleShape2D_r3ql2")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=912730839]
@@ -171,4 +165,16 @@ texture = ExtResource("5_ts2le")
 texture_mode = 1
 begin_cap_mode = 1
 
+[node name="Timer" type="Timer" parent="." unique_id=1244784605]
+wait_time = 0.05
+one_shot = true
+ignore_time_scale = true
+
+[node name="Snap" type="AudioStreamPlayer" parent="." unique_id=1417500414]
+stream = ExtResource("6_0ajmw")
+volume_db = -5.0
+pitch_scale = 1.25
+bus = &"sfx"
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

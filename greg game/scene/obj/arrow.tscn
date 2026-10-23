@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://r4k0xm02jruh"]
+
+[ext_resource type="Script" uid="uid://dq8g0jyo4ugd1" path="res://scrpt/arrow.gd" id="1_7wghh"]
+[ext_resource type="Texture2D" uid="uid://ctul8vgb5camt" path="res://asest/sprite/allelse/tierrow.png" id="2_7cbi1"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="2_eh3vr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7wghh"]
+rough = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rl05o"]
+shader = ExtResource("2_eh3vr")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0000000475
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="Animation" id="Animation_7wghh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7cbi1"]
+resource_name = "dissapear"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.3333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5254902), Color(1, 1, 1, 0.5254902), Color(0.51718444, 0.5171845, 0.51718444, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.3383335),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eh3vr"]
+_data = {
+&"RESET": SubResource("Animation_7wghh"),
+&"dissapear": SubResource("Animation_7cbi1")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx7w4"]
+size = Vector2(32, 2)
+
+[node name="arrow" type="AnimatableBody2D" unique_id=314139154]
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_7wghh")
+constant_linear_velocity = Vector2(0, -10)
+script = ExtResource("1_7wghh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=690073267]
+material = SubResource("ShaderMaterial_rl05o")
+position = Vector2(0, 5.9604645e-08)
+rotation = 3.1415927
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7cbi1")
+flip_h = true
+flip_v = true
+
+[node name="A" type="AnimationPlayer" parent="Sprite2D" unique_id=834142818]
+libraries/ = SubResource("AnimationLibrary_eh3vr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=951731758]
+shape = SubResource("RectangleShape2D_xx7w4")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=452574539]
+position = Vector2(5, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=2030120307]
+wait_time = 0.4
+one_shot = true
+autostart = true
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1944825310]
+position = Vector2(12, 0)
+target_position = Vector2(8, 0)
+hit_from_inside = true
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1164978608]
+position = Vector2(-16, 0)
+target_position = Vector2(40, 0)
+collision_mask = 2240
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

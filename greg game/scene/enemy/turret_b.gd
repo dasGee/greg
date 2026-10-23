@@ -48,23 +48,25 @@ func _ready():
 		damage = 15
 	if variation == "champ":
 		anothervariableidontreallycareabout = 1.75
-		$Timer.wait_time *= 0.85
+		$Timer.wait_time *= 1.15
 		$AnimatedSprite2D / TurretGun.play("champ")
 		$AnimatedSprite2D / TurretTabke.play("champ")
 		CurColor = Color("FFB600")
 		rang = 1
+		health = 6
 	elif variation == "minigun":
-		burstwait = 0.175
+		health = 4
+		burstwait = 0.225
 		anothervariableidontreallycareabout = 1.5
-		$Timer.wait_time *= 1.5
-		burst = 12
+		$Timer.wait_time *= 2.5
+		burst = 9
 		damage = 2
 		$AnimatedSprite2D / TurretGun.play("minigun")
 		CurColor = Color("FFE900")
-		rang = 17
+		rang = 12
 	elif variation == "alpha":
-		anothervariableidontreallycareabout = 1.75
-		$Timer.wait_time *= 1.5
+		anothervariableidontreallycareabout = 1.4
+		$Timer.wait_time *= 0.85
 		burst = 1
 		damage = 2
 		$AnimatedSprite2D / TurretGun.play("alpha")
@@ -89,7 +91,7 @@ func _damaged():
 func _shoot():
 	bulleta = bullet.instantiate()
 	bulleta.modulate = CurColor
-	$AnimatedSprite2D / TurretGun / Marker2D2.position.y = rng.randf_range( - rang, rang)
+	$AnimatedSprite2D / TurretGun / Marker2D2.position.y = rng.randf_range( - rang, rang)+2
 	bulleta.damage = damage
 	bulleta.global_position = $AnimatedSprite2D / TurretGun / Marker2D.global_position
 	dist = $AnimatedSprite2D / TurretGun / Marker2D2.global_position - $AnimatedSprite2D/TurretGun.global_position
@@ -98,7 +100,7 @@ func _shoot():
 		bulleta.global_position = $AnimatedSprite2D / TurretGun / Marker2D.global_position
 		bulleta.variant = "dirt"
 	if wa != 99:
-		$AnimatedSprite2D / TurretGun / Marker2D2.position.y = rng.randf_range( - rang, rang)
+		$AnimatedSprite2D / TurretGun / Marker2D2.position.y = rng.randf_range( - rang, rang)+2
 		dist = $AnimatedSprite2D / TurretGun / Marker2D2.global_position - $AnimatedSprite2D/TurretGun.global_position
 		bulleta.linear_velocity = dist.normalized() * 100 * anothervariableidontreallycareabout
 		bulleta.gravity_scale = wa

@@ -38,7 +38,7 @@ func _ready():
 	#config.set_value("things", "orbs", g.orb)
 
 	$RichTextLabel.text = m + "score: " + str(one)
-	$RichTextLabel2.text = m + "...of which is from enemies: " + str(two)
+	#$RichTextLabel2.text = m + "...of which is from enemies: " + str(two)
 	$RichTextLabel3.text = m + "beat in " + str(three) + " seconds"
 	$RichTextLabel4.text = m + "time bonus: +" + str(four) + " score"
 	$RichTextLabel5.text = m + "health penalty: *" + str(five)
