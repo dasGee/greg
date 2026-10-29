@@ -42,8 +42,8 @@ var tempscore
 
 var popos: Vector2 = Vector2(0, 0)
 
-var maxwater = 1000
-var water = 1000
+var maxwater = 1000.0
+var water = 1000.0
 var inwater = false
 
 var switcheroo = false:
@@ -107,6 +107,7 @@ func _physics_process(_delta: float):
 	if maxhealth < health:
 		health = maxhealth
 	if health <= 0:
+		water = 1000
 		canHealth = true
 		health = 100
 		lock = false
@@ -116,13 +117,12 @@ func _physics_process(_delta: float):
 	if inwater == true:
 		g.inwater = false
 		water -= 2
-	else:
-		if water < 1000:
-			water += 1
+	elif water < 1000:
+		water += 1.75
 	if water <= 0:
-		canHealth = true
-		health = 0
-		water = 1000
+		water = 1
+		health -= 1
+
 
 
 func _on_score_dec_timeout() -> void :

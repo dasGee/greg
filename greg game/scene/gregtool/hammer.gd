@@ -16,7 +16,6 @@ func _dobe():
 			if unlockman is enemyman:
 				unlockman._damagin(damage)
 				$".." / "..".velocity += Vector2($".." / ".." / "marker".position.x * -10, $".." / ".." / "marker".position.y * -10)
-				await get_tree().create_timer(0.4).timeout
 				g.score += scoreDam
 			elif unlockman.get("friend") == false:
 				$shootsprite.modulate = Color(1.825, 1.825, 0.0, 1.0)
@@ -36,7 +35,7 @@ func _dobe():
 			elif unlockman.name=="rocketre":
 				unlockman._repair()
 	else:
-		$".." / "..".velocity += Vector2($".." / ".." / "marker".position.x * 10, $".." / ".." / "marker".position.y * 9.5)
+		$".." / "..".velocity += Vector2($".." / ".." / "marker".position.x * 10, $".." / ".." / "marker".position.y * 9.5)  #dear god
 
 func _physics_process(_delta):
 	$".." / ".." / "marker".global_position = $Marker2D.global_position

@@ -8,7 +8,7 @@ var la = 0
 
 func _physics_process(delta: float) -> void:
 	if $RayCast2D2.is_colliding():
-		if not $RayCast2D2.get_collider().get_parent():
+		if $RayCast2D2.get_collider().get_parent()==null:
 			return
 		if $RayCast2D2.get_collider().get_parent().has_method("_damagin"):
 			g.score+=10
@@ -36,7 +36,10 @@ func _physics_process(delta: float) -> void:
 				
 				queue_free()
 	if wa == true:
-
+		if $watercheck.is_colliding():
+			godown -= 0.01
+		if godown <= -0.1:
+			godown = -0.1
 		newone=lastone-global_position
 		global_position = $Marker2D.global_position + get_gravity()*delta*godown
 		godown += 0.002

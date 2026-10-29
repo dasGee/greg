@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://8rkos3evsxwr"]
+
+[ext_resource type="Texture2D" uid="uid://camtq5oyfpfqs" path="res://asest/sprite/allelse/SPRINGWALL.png" id="1_58gm6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx7w4"]
+size = Vector2(10, 34)
+
+[node name="springywall" type="StaticBody2D" unique_id=706411469]
+collision_layer = 8388608
+collision_mask = 8388608
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=602703020]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_xx7w4")
+
+[node name="Springwall" type="Sprite2D" parent="." unique_id=574829012]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_58gm6")

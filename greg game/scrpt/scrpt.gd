@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var maxhealth: int
 @onready var spr: AnimatedSprite2D = $AnimatedSprite2D
 
+var getdown = 1
 var rng = RandomNumberGenerator.new()
 const SPEED = 150.0
 var JUMP_VELOCITY = -450.0
@@ -65,7 +66,7 @@ func _jump():
 	JUMP_VELOCITY = -350 - abs(velocity.x * 0.45)
 	velocity.y = JUMP_VELOCITY
 	canjump = false
-	if velocity.x > 0: velocity.x += 25
+	if velocity.x > 0: velocity.x += 25 #what is this for i forgot
 	elif velocity.x < 0: velocity.x -= 25
 
 func _physics_process(delta: float) -> void :
@@ -78,8 +79,8 @@ func _physics_process(delta: float) -> void :
 	if Input.is_action_just_pressed("tool_four"):
 		_changetool(4)
 
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if not is_on_floor() and get_tree().paused == false:
+		velocity += get_gravity() * delta * getdown
 
 	if is_on_floor() and canjump == false:
 		canjump = true
@@ -109,6 +110,9 @@ func _physics_process(delta: float) -> void :
 
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.2)
+		
+	if get_tree().current_scene.water == true:
+		g.inwater = true
 
 
 	move_and_slide()

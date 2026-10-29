@@ -7,9 +7,6 @@ func _process(delta: float) -> void :
 			if other_area.get_parent().name == "player" and e == false:
 				e = true
 				g.health -= 10
-			elif other_area.get_parent() is enemyman and e == false:
-				e = true
-				other_area.get_parent().set("health", -2)
 			diff = global_position - other_area.global_position
 			if other_area.get_parent().velocity.y < -350:
 				other_area.get_parent().velocity.y = -350
@@ -20,3 +17,6 @@ func _process(delta: float) -> void :
 			elif other_area.get_parent().velocity.x >= 0 and other_area.get_parent().velocity.x <= 200:
 				other_area.get_parent().velocity.x += 200
 			other_area.get_parent().velocity += - diff.normalized() * delta * 13000.0 * Vector2(0.8, 0.65)
+		if other_area.get_parent() is enemyman and e == false:
+				e=true
+				other_area.get_parent()._damagin(10)

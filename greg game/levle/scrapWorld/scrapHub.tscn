@@ -379,11 +379,3 @@ material = SubResource("ShaderMaterial_0hoq5")
 position = Vector2(248, -330)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("30_y1x2t")
-
-[node name="portal9" parent="." unique_id=72410702 instance=ExtResource("5")]
-modulate = Color(1, 0.40392157, 0.21960784, 1)
-position = Vector2(243, -368)
-scene = "res://levle/shroo/shrooHub.tscn"
-textie = "TEMPORARY ENTRANCE TO PINK LAND"
-square = true
-levelis = "0"

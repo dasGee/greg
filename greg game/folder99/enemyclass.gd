@@ -31,6 +31,7 @@ func _damaged():
 		g.score += score
 		g.enScore += score
 		coll.set_deferred("disabled", true)
+		wewe(area).set_deferred("disabled", true)
 		sprit.flip_v = true
 		modulate = Color(0.078, 0.078, 0.078, 0.553)
 		z_index = 1
@@ -42,3 +43,8 @@ func _damagin(amount):
 func _deleted():
 	queue_free()
 	pass
+
+func wewe(wah):
+	for child in wah.get_children():
+		if child is CollisionShape2D:
+			return child

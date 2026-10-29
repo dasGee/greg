@@ -117,7 +117,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3ql2"]
-size = Vector2(22, 32)
+size = Vector2(28, 32)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0ajmw"]
 shader = ExtResource("1_mr7g4")
@@ -135,6 +135,7 @@ script = ExtResource("2_3vg8f")
 damage = 3
 scoreDam = 10
 img = ExtResource("3_vxb7c")
+scrappable = false
 metadata/_custom_type_script = "uid://ey2ph5nea8kw"
 
 [node name="shootsprite" type="Sprite2D" parent="." unique_id=214385135]
@@ -160,7 +161,7 @@ input_pickable = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=183001877]
-position = Vector2(35, 0)
+position = Vector2(32, 0)
 shape = SubResource("RectangleShape2D_r3ql2")
 
 [node name="Line2D" type="Line2D" parent="." unique_id=912730839]

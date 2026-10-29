@@ -1,0 +1,182 @@
+[gd_scene format=3 uid="uid://bd2nwxu51knye"]
+
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_gggci"]
+[ext_resource type="Script" uid="uid://t2uw160xrc83" path="res://scene/gregtool/dagger.gd" id="2_gggci"]
+[ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="3_8wbf0"]
+[ext_resource type="Texture2D" uid="uid://b73tk25mvr8se" path="res://asest/sprite/allelse/knife.png" id="3_bxo4w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fboev"]
+shader = ExtResource("1_gggci")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 1
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02omb"]
+size = Vector2(110, 28.571415)
+
+[sub_resource type="Animation" id="Animation_1svln"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shootsprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(17, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shootsprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.2217305]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Line2D:points")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [PackedVector2Array(3, 0, 15, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3j8nr"]
+resource_name = "lunge"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("shootsprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666665, 0.37, 0.6333333),
+"transitions": PackedFloat32Array(0.81225246, 2.639016, 1.3660405, 1.4640851, 1.7411007),
+"update": 0,
+"values": [Vector2(17, 1), Vector2(16, 0), Vector2(30, 0), Vector2(30, 0), Vector2(17, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("shootsprite:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.26666665, 0.37, 0.6333333),
+"transitions": PackedFloat32Array(0.81225246, 2.639016, 1.3660405, 1.4640851, 1.7411007),
+"update": 0,
+"values": [-1.2217305, -0.31044108, 0.0, 0.0, -1.2217305]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_dobe"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Line2D:points")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0033333302, 0.29, 0.56666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [PackedVector2Array(3, 0, 13, 0), PackedVector2Array(3, 0, 23, 0), PackedVector2Array(3, 0, 13, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ltmmy"]
+_data = {
+&"RESET": SubResource("Animation_1svln"),
+&"lunge": SubResource("Animation_3j8nr")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ajmw"]
+shader = ExtResource("1_gggci")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="dagger" type="Node2D" unique_id=314326441]
+material = SubResource("ShaderMaterial_fboev")
+script = ExtResource("2_gggci")
+img = ExtResource("3_bxo4w")
+scrappable = false
+metadata/_custom_type_script = "uid://ey2ph5nea8kw"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=766727211]
+scale = Vector2(0.35, 0.35)
+collision_layer = 0
+collision_mask = 2176
+input_pickable = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=183001877]
+position = Vector2(116.428535, 0)
+scale = Vector2(1.0000005, 1.0000005)
+shape = SubResource("RectangleShape2D_02omb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1441234673]
+libraries/ = SubResource("AnimationLibrary_ltmmy")
+
+[node name="shootsprite" type="Sprite2D" parent="." unique_id=214385135]
+use_parent_material = true
+position = Vector2(17, 1)
+rotation = -1.2217305
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("3_bxo4w")
+centered = false
+offset = Vector2(-8.8888855, -8.888889)
+metadata/rotate = false
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=883173241]
+position = Vector2(30, 0)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=912730839]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0ajmw")
+points = PackedVector2Array(3, 0, 15, 0)
+width = 1.0
+default_color = Color(0.31764707, 0.31764707, 0.31764707, 1)
+texture = ExtResource("3_8wbf0")
+texture_mode = 1
+begin_cap_mode = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=392269229]
+wait_time = 0.05
+one_shot = true
+ignore_time_scale = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://b5etnhn3yts54"]
+
+[ext_resource type="Script" uid="uid://dcpoim2l10lpd" path="res://scene/obj/cmine.gd" id="1_vc4h8"]
+[ext_resource type="Texture2D" uid="uid://btc4pytm60lbk" path="res://asest/sprite/allelse/chain.png" id="2_0hnab"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="3_rjjtb"]
+[ext_resource type="Texture2D" uid="uid://1ghcpht1aka2" path="res://asest/sprite/allelse/mine.png" id="4_gu5ub"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q3xtl"]
+shader = ExtResource("3_rjjtb")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0000000475
+shader_parameter/pattern = 1
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xx7w4"]
+radius = 30.265491
+
+[node name="cmine" type="Node2D" unique_id=1967981]
+script = ExtResource("1_vc4h8")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=748097967]
+texture_repeat = 3
+points = PackedVector2Array(0, 0, 0, 155)
+texture = ExtResource("2_0hnab")
+texture_mode = 1
+
+[node name="Mine" type="Sprite2D" parent="." unique_id=772186699]
+material = SubResource("ShaderMaterial_q3xtl")
+texture = ExtResource("4_gu5ub")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1855574408]
+target_position = Vector2(0, 256)
+hit_from_inside = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=649523659]
+collision_layer = 540675
+collision_mask = 540675
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1678562502]
+shape = SubResource("CircleShape2D_xx7w4")
+
+[node name="Timer" type="Timer" parent="." unique_id=2031594650]
+autostart = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="timeout"]

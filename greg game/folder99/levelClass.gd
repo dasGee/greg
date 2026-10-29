@@ -9,8 +9,11 @@ class_name level extends Node2D
 @export var startPos: Marker2D
 @export var dark: bool = false
 @export var isHub: bool = false
+@export var gravity:float=1505.128
+@export var water:bool = false
 @export var music: String = "default"
 @export var misColor = Color()
+@export var waterColors = Color(0.494, 0.867, 0.949, 0.506)
 @export_subgroup("man")
 @export var manPos: Marker2D
 @export var manStartSpeed: int
@@ -29,9 +32,6 @@ class_name level extends Node2D
 @export_subgroup("fun")
 @export var wide: bool = false
 @export var long: bool = false
-@export_subgroup("grav")
-@export var changeGrav: bool = false
-@export var grav: int
 
 var config = ConfigFile.new()
 var err = config.load("user://Greg.cfg")
@@ -47,6 +47,7 @@ var wawaha
 var memeha
 
 func _ready() -> void :
+	PhysicsServer2D.area_set_param(get_viewport().find_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY, gravity) #thank you godot docs <3
 	config.set_value("things", "orbs", g.orb)
 	config.save("user://Greg.cfg")
 	if dark == true:
@@ -65,6 +66,7 @@ func _ready() -> void :
 	wawah = load(config.get_value("player", "character", "res://scene/player.tscn"))
 	wawaha = wawah.instantiate()
 	wawaha.position = startPos.position
+
 	if wide == true:
 		wawaha.scale += Vector2(2, 0)
 	if long == true:

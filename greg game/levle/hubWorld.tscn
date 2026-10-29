@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://7ihknxmerpnk" path="res://scene/warmorte.tscn" id="13_vxhfm"]
 [ext_resource type="Texture2D" uid="uid://b71mxy0uwgbux" path="res://asest/sprite/allelse/hammersign.png" id="14_gdgqo"]
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="14_sao81"]
+[ext_resource type="PackedScene" uid="uid://n65lmwqguqj7" path="res://prettyscene/greg_fan.tscn" id="16_08r2k"]
 
 [sub_resource type="GDScript" id="GDScript_sao81"]
 script/source = "extends TileMapLayer
@@ -283,3 +284,6 @@ position = Vector2(-321, -351)
 rotation = 0.16211519
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("14_gdgqo")
+
+[node name="gregFan" parent="." unique_id=600319713 instance=ExtResource("16_08r2k")]
+position = Vector2(785, -800)

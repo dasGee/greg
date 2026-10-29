@@ -6,6 +6,7 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_7wghh"]
 rough = true
+bounce = 9.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rl05o"]
 shader = ExtResource("2_eh3vr")
@@ -71,10 +72,12 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx7w4"]
 size = Vector2(32, 2)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xx7w4"]
+radius = 5.0990195
+
 [node name="arrow" type="AnimatableBody2D" unique_id=314139154]
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_7wghh")
-constant_linear_velocity = Vector2(0, -10)
 script = ExtResource("1_7wghh")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=690073267]
@@ -103,7 +106,16 @@ autostart = true
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1944825310]
 position = Vector2(12, 0)
 target_position = Vector2(8, 0)
+collision_mask = 8388609
 hit_from_inside = true
+
+[node name="watercheck" type="RayCast2D" parent="." unique_id=428056803]
+position = Vector2(12, 0)
+target_position = Vector2(8, 0)
+collision_mask = 134217728
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
 
 [node name="RayCast2D2" type="RayCast2D" parent="." unique_id=1164978608]
 position = Vector2(-16, 0)
@@ -112,5 +124,11 @@ collision_mask = 2240
 hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=233540254]
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1209331019]
+shape = SubResource("CircleShape2D_xx7w4")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

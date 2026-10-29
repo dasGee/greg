@@ -8,7 +8,10 @@
 [ext_resource type="AudioStream" uid="uid://bhyk60piwwhmg" path="res://asest/sound/music/regular/gregPeace.mp3" id="6"]
 [ext_resource type="AudioStream" uid="uid://w3mdj0tolt8n" path="res://asest/sound/music/regular/gregWeird.mp3" id="7"]
 [ext_resource type="AudioStream" uid="uid://cuma73wb6j8oy" path="res://asest/sound/music/garden/gregGarden.mp3" id="8"]
+[ext_resource type="AudioStream" uid="uid://c1afatk5pvoff" path="res://asest/sound/music/lab3/gregFlow.ogg" id="8_pt6r7"]
 [ext_resource type="AudioStream" uid="uid://lihdqoq0ep7i" path="res://asest/sound/music/garden/gregTurning.mp3" id="9"]
+[ext_resource type="AudioStream" uid="uid://bmgwx3ialgpau" path="res://asest/sound/music/lab3/gregSure.ogg" id="9_y6ju0"]
+[ext_resource type="AudioStream" uid="uid://dxp5f848hu78f" path="res://asest/sound/music/lab3/gregLigh.ogg" id="10_y6ju0"]
 [ext_resource type="AudioStream" uid="uid://io6o7jmb7q3r" path="res://asest/sound/music/garden/gregWhEreAtOEnY.mp3" id="11"]
 [ext_resource type="AudioStream" uid="uid://de0yyqkirwqcx" path="res://asest/sound/music/scrap/gregNo.ogg" id="11_aqnmw"]
 [ext_resource type="AudioStream" uid="uid://du862iscr5n6h" path="res://asest/sound/music/gardenB/gregGardenSuide.ogg" id="11_lnlp6"]
@@ -245,6 +248,20 @@ bus = &"music"
 
 [node name="GregWeird" type="AudioStreamPlayer" parent="music/default" unique_id=883270881]
 stream = ExtResource("7")
+bus = &"music"
+
+[node name="lab3" type="Node" parent="music" unique_id=1095553502]
+
+[node name="GregSure" type="AudioStreamPlayer" parent="music/lab3" unique_id=1672244619]
+stream = ExtResource("9_y6ju0")
+bus = &"music"
+
+[node name="GregFlow" type="AudioStreamPlayer" parent="music/lab3" unique_id=895460073]
+stream = ExtResource("8_pt6r7")
+bus = &"music"
+
+[node name="GregLigh" type="AudioStreamPlayer" parent="music/lab3" unique_id=2027338614]
+stream = ExtResource("10_y6ju0")
 bus = &"music"
 
 [node name="garden" type="Node" parent="music" unique_id=1554556931]

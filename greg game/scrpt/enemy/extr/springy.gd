@@ -1,6 +1,7 @@
 extends enemyman
 
 var direct = -150
+var height = 1.0
 
 @onready var seeleft: RayCast2D = $seeleft
 @onready var seeright: RayCast2D = $seeright
@@ -23,6 +24,14 @@ func _ready():
 		minm = 1.5
 		maxm = 2.25
 		prite.play("ghost")
+	if variation == "longie":
+		health =8
+		damage = 6
+		minm = 1.5
+		maxm = 3
+		height = rng.randf_range(1.6,1.85)
+		score = 100
+		prite.play("longie")
 	if rng.randi_range(1, 100) == 100:
 		minm = 1
 		maxm = 2
@@ -43,7 +52,7 @@ func _on_timer_timeout() -> void :
 				#g.health -= floori(damage * 0.5)
 			prite.flip_h = true
 			direct = rng.randf_range(-210, -140)
-		_velocii(direct, rng.randf_range(220, 280))
+		_velocii(direct, rng.randf_range(220, 280)*height)
 		prite.play(variation)
 		timer.wait_time = rng.randf_range(minm, maxm)
 

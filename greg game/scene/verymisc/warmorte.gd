@@ -22,6 +22,7 @@ func _on_close_requested() -> void:
 	g.toolr.emit()
 
 func _on_about_to_popup() -> void:
+	err = config.load("user://Greg.cfg")
 	ehhhhh = 0
 	#lala = config.get_value("things", "unlockeds", ["res://scene/gregtool/hammer.tscn"])
 	lala = config.get_section_keys("unlockeds")

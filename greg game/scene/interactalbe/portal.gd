@@ -73,7 +73,11 @@ func _physics_process(_delta: float):
 			g.scrap = 0
 			g.enScore -= g.score
 			g.health = g.maxhealth
-			g.tools = g.DefaultTools
+			for a in 4:
+				if g.DefaultTools.get(a+1) is not String:
+					g.tools.set(a+1,g.DefaultTools.get(a+1))
+				else:
+					g.tools.set(a+1,load("res://scene/gregtool/openHand.tscn"))
 		if islevel == true:
 			g.set("score", 0)
 			g.levelExit=global_position

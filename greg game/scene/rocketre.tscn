@@ -9,6 +9,25 @@
 [ext_resource type="Texture2D" uid="uid://cswucpbtm3faw" path="res://asest/sprite/allelse/rocketre.png" id="7_evdhj"]
 [ext_resource type="Texture2D" uid="uid://vyn2ucbda3na" path="res://asest/sprite/allelse/rocketreopen.png" id="8_gs5ka"]
 [ext_resource type="AudioStream" uid="uid://cfquntpl84ju2" path="res://asest/sound/ping.ogg" id="8_i2fmx"]
+[ext_resource type="Script" uid="uid://dbynqqs5ka2i4" path="res://scene/verymisc/rocketpass.gd" id="10_ncphu"]
+[ext_resource type="Texture2D" uid="uid://d3obdswea61a0" path="res://asest/sprite/allelse/passwordpaper.png" id="10_ri8og"]
+[ext_resource type="Texture2D" uid="uid://bwfu27i2kuaom" path="res://asest/sprite/allelse/button.png" id="11_ewb50"]
+[ext_resource type="Texture2D" uid="uid://bchhtr4tpydy0" path="res://asest/sprite/allelse/handcursor.png" id="12_3tevi"]
+[ext_resource type="Texture2D" uid="uid://co8jbrpxup3gj" path="res://asest/sprite/allelse/1.png" id="12_qvh1b"]
+[ext_resource type="Texture2D" uid="uid://ccxlnwt6eg0it" path="res://asest/sprite/allelse/2.png" id="13_thutu"]
+[ext_resource type="Texture2D" uid="uid://qej6u8sf5yxy" path="res://asest/sprite/allelse/3.png" id="14_6wdww"]
+[ext_resource type="Texture2D" uid="uid://ctguwi8bhkt2s" path="res://asest/sprite/allelse/4.png" id="15_amhnj"]
+[ext_resource type="Texture2D" uid="uid://wvef8pqj577m" path="res://asest/sprite/allelse/5.png" id="16_ui47b"]
+[ext_resource type="Texture2D" uid="uid://dijsenc07vdya" path="res://asest/sprite/allelse/6.png" id="17_b37wp"]
+[ext_resource type="Texture2D" uid="uid://k7vtyhiv1ir1" path="res://asest/sprite/allelse/7.png" id="18_kjfsa"]
+[ext_resource type="Texture2D" uid="uid://bhrliik4y8oww" path="res://asest/sprite/allelse/8.png" id="19_77lwf"]
+[ext_resource type="Texture2D" uid="uid://ctiwik4kjdhfg" path="res://asest/sprite/allelse/9.png" id="20_pkqtg"]
+[ext_resource type="Texture2D" uid="uid://yi4skhec456e" path="res://asest/sprite/allelse/0.png" id="21_7bxdl"]
+[ext_resource type="Texture2D" uid="uid://v7wojfaxg5bd" path="res://asest/sprite/allelse/+.png" id="22_ui47b"]
+[ext_resource type="Texture2D" uid="uid://b8pd0x7neiut2" path="res://asest/sprite/allelse/-.png" id="23_b37wp"]
+[ext_resource type="AudioStream" uid="uid://pquno44reml6" path="res://asest/sound/Random (3).wav" id="24_qvh1b"]
+[ext_resource type="AudioStream" uid="uid://byng0h5lmrgce" path="res://asest/sound/nana.wav" id="27_kjfsa"]
+[ext_resource type="AudioStream" uid="uid://nuatkdfju33j" path="res://asest/sound/yaya.wav" id="28_77lwf"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_esw3w"]
 shader = ExtResource("2_gs5ka")
@@ -171,6 +190,20 @@ _data = {
 &"talkRepaired": SubResource("Animation_gs5ka")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_loydq"]
+texture = ExtResource("11_ewb50")
+texture_margin_left = 21.0
+texture_margin_top = 21.0
+texture_margin_right = 21.0
+texture_margin_bottom = 21.0
+expand_margin_left = 11.0
+expand_margin_top = 11.0
+expand_margin_right = 11.0
+expand_margin_bottom = 11.0
+
+[sub_resource type="Theme" id="Theme_xx7w4"]
+Panel/styles/panel = SubResource("StyleBoxTexture_loydq")
+
 [node name="rocketre" type="Node2D" unique_id=1504346300]
 script = ExtResource("1_7cs7i")
 
@@ -222,5 +255,238 @@ parameters/looping = true
 root_node = NodePath("../RichTextLabel")
 libraries/ = SubResource("AnimationLibrary_dx1gn")
 
+[node name="Pass" type="Window" parent="." unique_id=596637256]
+process_mode = 3
+disable_3d = true
+oversampling_override = 1.0
+title = "rocketre"
+initial_position = 2
+size = Vector2i(500, 300)
+visible = false
+sharp_corners = true
+minimize_disabled = true
+maximize_disabled = true
+script = ExtResource("10_ncphu")
+
+[node name="ColorRect" type="ColorRect" parent="Pass" unique_id=14317508]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.82, 0.82, 0.82, 1)
+
+[node name="ColorRect3" type="Panel" parent="Pass" unique_id=1665558219]
+self_modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 231.0
+offset_top = 35.0
+offset_right = -44.0
+offset_bottom = -197.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_xx7w4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Pass/ColorRect3" unique_id=2088945260]
+layout_mode = 0
+offset_right = 225.0
+offset_bottom = 68.0
+bbcode_enabled = true
+text = "[font=res://asest/rocketre.ttf][font_size=16][color=\"0f0\"]"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect2" type="Panel" parent="Pass" unique_id=123711114]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.030000001
+anchor_top = 0.044000003
+anchor_right = 0.030000001
+anchor_bottom = 0.044000003
+offset_top = 0.09999943
+offset_right = 190.0
+offset_bottom = 250.09999
+theme = SubResource("Theme_xx7w4")
+
+[node name="enter" type="Control" parent="Pass/ColorRect2" unique_id=2053289025]
+anchors_preset = 0
+offset_left = 4.999999
+offset_top = 5.0
+offset_right = 185.0
+offset_bottom = 185.0
+
+[node name="1" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=1536122483]
+texture_filter = 1
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+texture_normal = ExtResource("12_qvh1b")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="2" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=480581003]
+texture_filter = 1
+layout_mode = 0
+offset_left = 60.0
+offset_right = 120.0
+offset_bottom = 60.0
+texture_normal = ExtResource("13_thutu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="3" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=525733771]
+texture_filter = 1
+layout_mode = 0
+offset_left = 120.0
+offset_right = 180.0
+offset_bottom = 60.0
+texture_normal = ExtResource("14_6wdww")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="4" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=1735765614]
+texture_filter = 1
+layout_mode = 0
+offset_top = 60.0
+offset_right = 60.0
+offset_bottom = 120.0
+texture_normal = ExtResource("15_amhnj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="5" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=683823228]
+texture_filter = 1
+layout_mode = 0
+offset_left = 60.0
+offset_top = 60.0
+offset_right = 120.0
+offset_bottom = 120.0
+texture_normal = ExtResource("16_ui47b")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="6" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=855337833]
+texture_filter = 1
+layout_mode = 0
+offset_left = 120.0
+offset_top = 60.0
+offset_right = 180.0
+offset_bottom = 120.0
+texture_normal = ExtResource("17_b37wp")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="7" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=1518524175]
+texture_filter = 1
+layout_mode = 0
+offset_top = 120.0
+offset_right = 60.0
+offset_bottom = 180.0
+texture_normal = ExtResource("18_kjfsa")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="8" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=1356294648]
+texture_filter = 1
+layout_mode = 0
+offset_left = 60.0
+offset_top = 120.0
+offset_right = 120.0
+offset_bottom = 180.0
+texture_normal = ExtResource("19_77lwf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="9" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=1816411872]
+texture_filter = 1
+layout_mode = 0
+offset_left = 120.0
+offset_top = 120.0
+offset_right = 180.0
+offset_bottom = 180.0
+texture_normal = ExtResource("20_pkqtg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="0" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=1454115924]
+texture_filter = 1
+layout_mode = 0
+offset_left = 60.0
+offset_top = 180.0
+offset_right = 120.0
+offset_bottom = 240.0
+texture_normal = ExtResource("21_7bxdl")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="+" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=429298260]
+texture_filter = 1
+layout_mode = 0
+offset_left = 120.0
+offset_top = 179.70001
+offset_right = 180.0
+offset_bottom = 239.70001
+texture_normal = ExtResource("22_ui47b")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="-" type="TextureButton" parent="Pass/ColorRect2/enter" unique_id=2130991526]
+texture_filter = 1
+layout_mode = 0
+offset_top = 179.70001
+offset_right = 60.0
+offset_bottom = 239.70001
+texture_normal = ExtResource("23_b37wp")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureRect" type="TextureRect" parent="Pass" unique_id=1875856828]
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.39800003
+anchor_top = 0.044000003
+anchor_right = 0.79800004
+anchor_bottom = 0.5
+offset_left = 7.9999847
+offset_top = 75.8
+offset_right = 7.9999695
+offset_bottom = 73.20001
+texture = ExtResource("10_ri8og")
+stretch_mode = 5
+
+[node name="Handcursor" type="Sprite2D" parent="Pass" unique_id=1738189044]
+visible = false
+texture_filter = 1
+position = Vector2(524.00006, -7.999996)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("12_3tevi")
+offset = Vector2(75, 110)
+
+[node name="ling" type="AudioStreamPlayer" parent="Pass" unique_id=1459462031]
+stream = ExtResource("24_qvh1b")
+pitch_scale = 5.0
+max_polyphony = 3
+bus = &"sfx"
+
+[node name="Nana" type="AudioStreamPlayer" parent="Pass" unique_id=2137752336]
+stream = ExtResource("27_kjfsa")
+volume_db = 2.0
+max_polyphony = 3
+bus = &"sfx"
+
+[node name="Yaya" type="AudioStreamPlayer" parent="Pass" unique_id=1136830437]
+stream = ExtResource("28_77lwf")
+volume_db = 2.0
+max_polyphony = 3
+bus = &"sfx"
+
 [connection signal="animation_finished" from="Rocketre" to="." method="_on_rocketre_animation_finished"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="close_requested" from="Pass" to="Pass" method="_clo"]
+[connection signal="mouse_entered" from="Pass" to="Pass" method="_fee"]
+[connection signal="mouse_exited" from="Pass" to="Pass" method="_bee"]

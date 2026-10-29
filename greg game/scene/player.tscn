@@ -8,8 +8,8 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g2vtq"]
 shader = ExtResource("1")
 shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 1.50000007125
-shader_parameter/pattern = 0
+shader_parameter/width = 1.0000000475
+shader_parameter/pattern = 1
 shader_parameter/modulate_affects_color = true
 shader_parameter/inside = false
 shader_parameter/add_margins = false
@@ -144,14 +144,14 @@ _data = {
 &"gothit": SubResource("Animation_s4jxa")
 }
 
-[sub_resource type="Gradient" id="Gradient_j0htg"]
+[sub_resource type="Gradient" id="Gradient_ct4mp"]
 interpolation_color_space = 1
 offsets = PackedFloat32Array(0.3, 1)
 colors = PackedColorArray(1, 1, 1, 0.78431374, 1, 1, 1, 0)
 metadata/_snap_enabled = true
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ct4mp"]
-gradient = SubResource("Gradient_j0htg")
+gradient = SubResource("Gradient_ct4mp")
 fill = 2
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 1)
@@ -162,8 +162,8 @@ material = SubResource("ShaderMaterial_g2vtq")
 disable_mode = 2
 collision_layer = 262179
 collision_mask = 262177
-floor_constant_speed = true
-floor_block_on_wall = false
+floor_max_angle = 1.0471976
+floor_snap_length = 4.0
 platform_floor_layers = 4294967057
 script = ExtResource("2")
 maxhealth = 100
@@ -173,8 +173,7 @@ use_parent_material = true
 position = Vector2(0, 2)
 scale = Vector2(0.45833334, 0.45833334)
 sprite_frames = SubResource("SpriteFrames_bpy1u")
-animation = &"gethit"
-frame_progress = 0.68972605
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2000779627]
 position = Vector2(0, 4)
@@ -219,3 +218,5 @@ blend_mode = 2
 shadow_enabled = true
 shadow_color = Color(0, 0, 0, 1)
 texture = SubResource("GradientTexture2D_ct4mp")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="." unique_id=452043673]

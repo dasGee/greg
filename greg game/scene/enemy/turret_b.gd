@@ -20,6 +20,7 @@ var wa = 99
 
 func thingie():
 	if health <= 0 and bingbing == false and beee == true:
+		g.scrap+=5
 		beee = false
 		boo = boom.instantiate()
 		boo.global_position = global_position

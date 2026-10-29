@@ -182,6 +182,8 @@ pointing/emulate_touch_from_mouse=true
 2d_physics/layer_20="sunroarcol"
 2d_physics/layer_21="funny"
 2d_physics/layer_22="fellawalki"
+2d_physics/layer_24="springyWall"
+2d_physics/layer_28="water"
 
 [physics]
 

@@ -5,6 +5,7 @@ var config = ConfigFile.new()
 var err = config.load("user://Greg.cfg")
 
 var we = false
+
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	if fixe == true:
 		return
@@ -46,3 +47,8 @@ func _on_rocketre_animation_finished() -> void:
 		$RichTextLabel.text = ''
 		config.set_value("things", "rocketre", true)
 		config.save("user://Greg.cfg")
+
+func _physics_process(_delta: float):
+	if Input.is_action_just_pressed("interact") and $Area2D.has_overlapping_areas():
+		get_tree().paused=true
+		$Pass.popup()
