@@ -3,7 +3,8 @@ extends CharacterBody2D
 @export var maxhealth: int
 @onready var spr: AnimatedSprite2D = $AnimatedSprite2D
 
-var getdown = 1
+var getdown = 1.0
+var speedmuilt =1.0
 var rng = RandomNumberGenerator.new()
 const SPEED = 150.0
 var JUMP_VELOCITY = -450.0
@@ -30,7 +31,7 @@ func _wobble():
 	_changetool(g.current)
 
 func _gothit(_meh):
-	if get_tree():
+	if get_tree()!=null:
 		JUMP_VELOCITY = -200
 		velocity.y = JUMP_VELOCITY
 		spr.play("gethit")
@@ -91,9 +92,13 @@ func _physics_process(delta: float) -> void :
 	var direction: = Input.get_axis("left", "right")
 
 	if direction > 0:
+		$toolsies/Anchortool.rotation_degrees=-60
+		$toolsies/Anchortool.scale = Vector2(-0.5,0.5)
 		spr.flip_h = true
 	if direction < 0:
 		spr.flip_h = false
+		$toolsies/Anchortool.rotation_degrees=60
+		$toolsies/Anchortool.scale = Vector2(0.5,0.5)
 	if g.canHealth == true:
 		if is_on_floor():
 			if direction == 0:
@@ -103,17 +108,13 @@ func _physics_process(delta: float) -> void :
 		else:
 			spr.play("jump")
 
-
 	if direction and g.canHealth == true:
-
-		velocity.x = lerp(velocity.x, SPEED * direction, 0.2)
-
+		velocity.x = lerp(velocity.x, SPEED * direction * speedmuilt, 0.2)
 	else:
 		velocity.x = lerp(velocity.x, 0.0, 0.2)
 		
 	if get_tree().current_scene.water == true:
 		g.inwater = true
-
 
 	move_and_slide()
 

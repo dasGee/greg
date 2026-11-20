@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://bpnrwgd0m87f3" path="res://global.gd" id="1"]
 [ext_resource type="AudioStream" uid="uid://pquno44reml6" path="res://asest/sound/Random (3).wav" id="2"]
 [ext_resource type="Script" uid="uid://cx78fwkvvpsyj" path="res://music.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://nuatkdfju33j" path="res://asest/sound/yaya.wav" id="3_poeja"]
 [ext_resource type="AudioStream" uid="uid://bju4rldu41kxr" path="res://asest/sound/music/regular/gregHappy.mp3" id="4"]
+[ext_resource type="AudioStream" uid="uid://byng0h5lmrgce" path="res://asest/sound/nana.wav" id="4_v1skj"]
 [ext_resource type="AudioStream" uid="uid://dcf42dg6jfs6" path="res://asest/sound/music/regular/gregMoving.mp3" id="5"]
 [ext_resource type="AudioStream" uid="uid://bhyk60piwwhmg" path="res://asest/sound/music/regular/gregPeace.mp3" id="6"]
 [ext_resource type="AudioStream" uid="uid://w3mdj0tolt8n" path="res://asest/sound/music/regular/gregWeird.mp3" id="7"]
@@ -15,7 +17,9 @@
 [ext_resource type="AudioStream" uid="uid://io6o7jmb7q3r" path="res://asest/sound/music/garden/gregWhEreAtOEnY.mp3" id="11"]
 [ext_resource type="AudioStream" uid="uid://de0yyqkirwqcx" path="res://asest/sound/music/scrap/gregNo.ogg" id="11_aqnmw"]
 [ext_resource type="AudioStream" uid="uid://du862iscr5n6h" path="res://asest/sound/music/gardenB/gregGardenSuide.ogg" id="11_lnlp6"]
+[ext_resource type="AudioStream" uid="uid://bwyiotxebyb83" path="res://asest/sound/music/lab3/gregC.ogg" id="11_wpvk4"]
 [ext_resource type="Script" uid="uid://h0w8qdplj6dn" path="res://scene/verymisc/textthing.gd" id="12"]
+[ext_resource type="AudioStream" uid="uid://cjj3f4nd4onu5" path="res://asest/sound/music/foil/FoilLook.ogg" id="12_ijhgm"]
 [ext_resource type="AudioStream" uid="uid://b7auhv2edlqwh" path="res://asest/sound/music/gardenB/gregTwoone.ogg" id="12_nb8v8"]
 [ext_resource type="AudioStream" uid="uid://f8mhbvw8syst" path="res://asest/sound/music/scrap/gregScrapped.ogg" id="12_qmp0v"]
 [ext_resource type="Script" uid="uid://bp4b0sfts5mug" path="res://scrpt/hehe/closeWindow.gd" id="13"]
@@ -227,6 +231,18 @@ volume_db = -20.0
 pitch_scale = 0.3
 bus = &"sfx"
 
+[node name="yes" type="AudioStreamPlayer" parent="." unique_id=1761491254]
+stream = ExtResource("3_poeja")
+volume_db = 5.0
+stream_paused = true
+bus = &"sfx"
+
+[node name="no" type="AudioStreamPlayer" parent="." unique_id=445673371]
+stream = ExtResource("4_v1skj")
+volume_db = 5.0
+stream_paused = true
+bus = &"sfx"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1263678113]
 
 [node name="music" type="Node" parent="." unique_id=730722003]
@@ -262,6 +278,16 @@ bus = &"music"
 
 [node name="GregLigh" type="AudioStreamPlayer" parent="music/lab3" unique_id=2027338614]
 stream = ExtResource("10_y6ju0")
+bus = &"music"
+
+[node name="GregC" type="AudioStreamPlayer" parent="music/lab3" unique_id=1844837385]
+stream = ExtResource("11_wpvk4")
+bus = &"music"
+
+[node name="foil" type="Node" parent="music" unique_id=628078647]
+
+[node name="FoilLook" type="AudioStreamPlayer" parent="music/foil" unique_id=1201174629]
+stream = ExtResource("12_ijhgm")
 bus = &"music"
 
 [node name="garden" type="Node" parent="music" unique_id=1554556931]

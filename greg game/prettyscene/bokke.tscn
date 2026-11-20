@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dv7gx7kdmxv3h"]
+
+[ext_resource type="Texture2D" uid="uid://r2f7t3n0p525" path="res://asest/sprite/allelse/bokkewalk.png" id="1_01sid"]
+[ext_resource type="Texture2D" uid="uid://bnohrcpfbfwc5" path="res://asest/sprite/allelse/bokke.png" id="2_fy2o5"]
+[ext_resource type="Texture2D" uid="uid://bia206qpegnry" path="res://asest/sprite/allelse/circul.png" id="3_fy2o5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3eup"]
+atlas = ExtResource("1_01sid")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eokc"]
+atlas = ExtResource("2_fy2o5")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgq7l"]
+atlas = ExtResource("1_01sid")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c10b0"]
+atlas = ExtResource("1_01sid")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xx7w4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3eup")
+}],
+"loop": 1,
+"name": &"standgay",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1eokc")
+}],
+"loop": 1,
+"name": &"standstraight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_mgq7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3eup")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_c10b0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n3eup")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n3eup"]
+texture = ExtResource("3_fy2o5")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+
+[sub_resource type="Theme" id="Theme_xx7w4"]
+Panel/styles/panel = SubResource("StyleBoxTexture_n3eup")
+
+[node name="bokke" type="Node2D" unique_id=936008135]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1809323951]
+sprite_frames = SubResource("SpriteFrames_xx7w4")
+animation = &"standstraight"
+autoplay = "walk"
+
+[node name="Panel" type="Panel" parent="." unique_id=60259193]
+offset_left = 39.0
+offset_top = -47.0
+offset_right = 139.0
+offset_bottom = -8.0
+theme = SubResource("Theme_xx7w4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=2098396894]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[font=res://asest/TIMES.TTF][font_size=16][color=\"000\"]wawa"
+scroll_active = false
+autowrap_mode = 0
+autowrap_trim_flags = 0
+tab_size = 0
+shortcut_keys_enabled = false
+horizontal_alignment = 1
+vertical_alignment = 1

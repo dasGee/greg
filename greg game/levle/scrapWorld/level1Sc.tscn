@@ -10,7 +10,6 @@
 [ext_resource type="TileSet" uid="uid://bny5ywy2bfsjq" path="res://asest/othr/sceneset.tres" id="8_3wgng"]
 [ext_resource type="PackedScene" uid="uid://b6v37a4iqaemq" path="res://scene/interactalbe/mekey.tscn" id="9_vtu2b"]
 [ext_resource type="PackedScene" uid="uid://dnr2ar4whfijd" path="res://scene/interactalbe/portal.tscn" id="10_5bobr"]
-[ext_resource type="PackedScene" uid="uid://rtx4krhtlv60" path="res://prettyscene/signer.tscn" id="11_i77fg"]
 [ext_resource type="PackedScene" uid="uid://b3hpomoh5hi0c" path="res://scene/obj/switch.tscn" id="12_c20av"]
 [ext_resource type="PackedScene" uid="uid://dbu8vo0abx4kp" path="res://scene/obj/manSwitch.tscn" id="13_rihyg"]
 
@@ -113,10 +112,6 @@ square = true
 esc = true
 closed = true
 ohmymeohmy = true
-
-[node name="signer2" parent="." unique_id=1209788011 instance=ExtResource("11_i77fg")]
-position = Vector2(557, 265)
-saying = "spikes will deal 10 damage and go away for a while"
 
 [node name="switch" parent="." unique_id=408961367 instance=ExtResource("12_c20av")]
 position = Vector2(897, -702)

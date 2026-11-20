@@ -27,10 +27,12 @@ func _ready():
 	if variation == "longie":
 		health =8
 		damage = 6
-		minm = 1.5
-		maxm = 3
-		height = rng.randf_range(1.6,1.85)
+		minm = 1.25
+		maxm = 2.5
+		height = rng.randf_range(1.45,1.75)
 		score = 100
+		$seeleft.target_position*=2
+		$seeright.target_position*=2
 		prite.play("longie")
 	if rng.randi_range(1, 100) == 100:
 		minm = 1

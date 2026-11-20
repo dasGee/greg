@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://sc0jxqf5je1j" path="res://scrpt/scrpt.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://c2e0m0ojfj3ox" path="res://asest/sprite/allelse/guywalk.png" id="3"]
 [ext_resource type="Script" uid="uid://dq0wdbgogi6ba" path="res://scrpt/anchor.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://byvcrxicxfd8e" path="res://asest/sprite/allelse/anchortool.png" id="4_s4jxa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g2vtq"]
 shader = ExtResource("1")
@@ -14,6 +15,16 @@ shader_parameter/modulate_affects_color = true
 shader_parameter/inside = false
 shader_parameter/add_margins = false
 shader_parameter/number_of_images = Vector2(3, 3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s4jxa"]
+shader = ExtResource("1")
+shader_parameter/color = Color(0, 0, 1, 1)
+shader_parameter/width = 1.0000000475
+shader_parameter/pattern = 1
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ct4mp"]
 atlas = ExtResource("3")
@@ -35,21 +46,21 @@ region = Rect2(96, 0, 48, 48)
 atlas = ExtResource("3")
 region = Rect2(144, 0, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ml7e8"]
-atlas = ExtResource("3")
-region = Rect2(0, 48, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ihjo1"]
-atlas = ExtResource("3")
-region = Rect2(96, 96, 48, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dk1vr"]
 atlas = ExtResource("3")
 region = Rect2(48, 96, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml7e8"]
+atlas = ExtResource("3")
+region = Rect2(0, 48, 48, 48)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_34jf3"]
 atlas = ExtResource("3")
 region = Rect2(96, 48, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihjo1"]
+atlas = ExtResource("3")
+region = Rect2(96, 96, 48, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bpy1u"]
 animations = [{
@@ -84,17 +95,17 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.75,
-"texture": SubResource("AtlasTexture_ml7e8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ihjo1")
-}, {
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_dk1vr")
 }, {
-"duration": 1.0,
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_ml7e8")
+}, {
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_34jf3")
+}, {
+"duration": 0.75,
+"texture": SubResource("AtlasTexture_ihjo1")
 }],
 "loop": 1,
 "name": &"walk",
@@ -144,6 +155,67 @@ _data = {
 &"gothit": SubResource("Animation_s4jxa")
 }
 
+[sub_resource type="Animation" id="Animation_oh5ij"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("toolsies/Anchortool:scale:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("toolsies/Anchortool:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_hp4bs"]
+resource_name = "anchor"
+length = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("toolsies/Anchortool:scale:y")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.01, 0.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("toolsies/Anchortool:modulate:a")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g2vtq"]
+_data = {
+&"RESET": SubResource("Animation_oh5ij"),
+&"anchor": SubResource("Animation_hp4bs")
+}
+
 [sub_resource type="Gradient" id="Gradient_ct4mp"]
 interpolation_color_space = 1
 offsets = PackedFloat32Array(0.3, 1)
@@ -162,18 +234,30 @@ material = SubResource("ShaderMaterial_g2vtq")
 disable_mode = 2
 collision_layer = 262179
 collision_mask = 262177
+floor_block_on_wall = false
 floor_max_angle = 1.0471976
 floor_snap_length = 4.0
 platform_floor_layers = 4294967057
 script = ExtResource("2")
 maxhealth = 100
 
+[node name="toolsies" type="Node2D" parent="." unique_id=1717239043]
+
+[node name="Anchortool" type="Sprite2D" parent="toolsies" unique_id=616605560]
+visible = false
+material = SubResource("ShaderMaterial_s4jxa")
+rotation = 1.0471976
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_s4jxa")
+offset = Vector2(11, -11)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=316611057]
 use_parent_material = true
 position = Vector2(0, 2)
 scale = Vector2(0.45833334, 0.45833334)
 sprite_frames = SubResource("SpriteFrames_bpy1u")
-animation = &"idle"
+animation = &"walk"
+frame_progress = 0.9721304
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2000779627]
 position = Vector2(0, 4)
@@ -198,6 +282,10 @@ shape = SubResource("RectangleShape2D_oh5ij")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=29334556]
 libraries/ = SubResource("AnimationLibrary_oh5ij")
+
+[node name="toolsiesanim" type="AnimationPlayer" parent="." unique_id=276841613]
+libraries/ = SubResource("AnimationLibrary_g2vtq")
+autoplay = &"anchor"
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1304957110]
 position = Vector2(0, 13)

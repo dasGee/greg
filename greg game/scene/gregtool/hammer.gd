@@ -25,7 +25,7 @@ func _dobe():
 				Engine.time_scale = 0.01
 				unlockman.friend = true
 				unlockman.damage *= 2
-				unlockman.linear_velocity = Vector2($".." / ".." / "marker".position.x * 15, $".." / ".." / "marker".position.y * 15)
+				unlockman.linear_velocity = Vector2($".." / ".." / "marker".position.x * 15, $".." / ".." / "marker".position.y * 13)
 				$".." / "..".velocity += Vector2($".." / ".." / "marker".position.x * -10, $".." / ".." / "marker".position.y * -10)
 				$Timer.start()
 				g.score+=60
@@ -35,7 +35,7 @@ func _dobe():
 			elif unlockman.name=="rocketre":
 				unlockman._repair()
 	else:
-		$".." / "..".velocity += Vector2($".." / ".." / "marker".position.x * 10, $".." / ".." / "marker".position.y * 9.5)  #dear god
+		$".." / "..".velocity += Vector2($".." / ".." / "marker".position.x * 10, $".." / ".." / "marker".position.y * 9.5)
 
 func _physics_process(_delta):
 	$".." / ".." / "marker".global_position = $Marker2D.global_position

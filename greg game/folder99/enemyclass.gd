@@ -1,7 +1,7 @@
 @icon("res://asest/sprite/allelse/enemy.png")
 class_name enemyman extends RigidBody2D
 @export var health: int
-@export var damage: int
+@export var damage: float
 @export var variation: String
 @export var score: int
 @export_subgroup("nodethings")
@@ -31,7 +31,8 @@ func _damaged():
 		g.score += score
 		g.enScore += score
 		coll.set_deferred("disabled", true)
-		wewe(area).set_deferred("disabled", true)
+		if area != null:
+			wewe(area).set_deferred("disabled", true)
 		sprit.flip_v = true
 		modulate = Color(0.078, 0.078, 0.078, 0.553)
 		z_index = 1

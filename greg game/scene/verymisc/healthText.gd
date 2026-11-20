@@ -27,7 +27,7 @@ func _process(_delta: float) -> void :
 		$"../Square2".visible = true
 	else:
 		$"../Square2".visible = false
-	$RichTextLabel.text = waveT + "[font=res://asest/greg.ttf][font_size=40][outline_size=5]health " + str(g.health)
+	$RichTextLabel.text = waveT + "[font=res://asest/greg.ttf][font_size=40][outline_size=5]health " + str(ceilf(g.health)).trim_suffix(".0")
 	$RichTextLabel2.text = waveT + "[font=res://asest/greg.ttf][font_size=40][outline_size=5]scrap " + str(g.scrap)
 	$TextureProgressBar.value = g.water
 	$TextureProgressBar.modulate = Color(1.0, 1.0, 1.0, clampf(absf((g.water/1000.0)-1.0),0.0,0.5))

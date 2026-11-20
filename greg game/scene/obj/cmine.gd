@@ -9,8 +9,9 @@ func _ready() -> void:
 	$Mine.scale.x = randf_range(0.95,1.2)
 	$Mine.scale.y = $Mine.scale.x
 func timeout() -> void:#i dont care
-	$Timer.wait_time=30
 	$Line2D.set_point_position(1,to_local($RayCast2D.get_collision_point()))
+	$RayCast2D.queue_free()
+	$Timer.queue_free()
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	if cancan == true:

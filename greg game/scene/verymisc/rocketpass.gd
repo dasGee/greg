@@ -1,9 +1,10 @@
 extends Window
 
 var thingima:String=''
-#yes
+
+#im sorry im so sorrry sorry im sorry
 var places:Dictionary = {
-"1389":"res://levle/scrapWorld/scrapHub.tscn",
+"1389":"res://levle/scrapWorld/rocketrePlace.tscn",
 "3994":"res://levle/shroo/shrooHub.tscn",
 "4193":"res://levle/lab3/lab3hub.tscn",
 }
@@ -14,18 +15,18 @@ func _ready() -> void:
 func boop(N,waw):
 	waw.modulate=Color(0.252, 0.252, 0.252, 1.0)
 	if N=="-":
-		$Nana.play()
+		g.find_child("no").play()
 		thingima=''
 		await get_tree().create_timer(0.25).timeout
 		waw.modulate=Color(1.0, 1.0, 1.0, 1.0)
 		return
 	if N=="+":
 		if places.has(thingima):
-			$Yaya.play()
+			g.find_child("yes").play()
 			get_tree().change_scene_to_file.call_deferred(places.get(thingima))
 			get_tree().paused=false
 			return
-		$Yaya.play()
+		g.find_child("yes").play()
 		thingima=''
 		await get_tree().create_timer(0.25).timeout
 		waw.modulate=Color(1.0, 1.0, 1.0, 1.0)

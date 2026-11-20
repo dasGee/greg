@@ -6,9 +6,12 @@ var speed = randf_range(0.25,0.75)
 
 func _ready() -> void:
 	if randf() > 0.65:
-		varia = str(randi_range(1,3))
+		#varia = str(randi_range(1,3))
 		$AnimatedSprite2D.play("walk"+varia)
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("interact") and $Area2D.has_overlapping_bodies():
+		state = "stand"
+		$AnimatedSprite2D.play("smile")
 	if state == "walking":
 		position += Vector2(speed*dire,0)
 		if $AnimatedSprite2D/RayCast2D.is_colliding() or $AnimatedSprite2D/RayCast2D2.is_colliding() == false:

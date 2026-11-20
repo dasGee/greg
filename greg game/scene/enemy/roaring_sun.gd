@@ -4,7 +4,14 @@ var dist
 var ragedspeed = 185
 var rage = 0
 var rara
+var s = 1
+var sw = 0
 func _ready():
+	if get_tree().current_scene.water == true:
+		material.set_shader_parameter("color",Color.CYAN)
+		$AnimatedSprite2D.play("yarr")
+		for a in $Node2D.get_child_count():
+			$Node2D.get_child(a).texture = $Sunanchor.texture
 	rara = speed
 	speed = 0
 func _process(_delta: float):
@@ -12,10 +19,13 @@ func _process(_delta: float):
 		$AnimatedSprite2D.position = Vector2(randf_range(rage*0.5,-rage*0.5),randf_range(rage*0.5,-rage*0.5))
 		$Node2D.position= Vector2(randf_range(rage*0.5,-rage*0.5),randf_range(rage*0.5,-rage*0.5)+1)
 func _physics_process(_delta: float) -> void :
+	if get_tree().current_scene.water == true:
+		sw+=1
+		s=abs(sin(deg_to_rad(sw)))
 	if $enemy.has_overlapping_areas():
 		g.health -= 1
 	dist = get_tree().current_scene.find_child("player").global_position - global_position
-	linear_velocity = dist.normalized() * speed
+	linear_velocity = dist.normalized() * speed * s
 
 func _damagin(amount):
 	rage += 1

@@ -5,9 +5,11 @@
 [ext_resource type="Script" uid="uid://081f31vvvw3w" path="res://scrpt/pausemenu/opensetting.gd" id="3"]
 [ext_resource type="Script" uid="uid://cnfa3kd1daejy" path="res://scene/verymisc/setting.gd" id="4"]
 [ext_resource type="Script" uid="uid://ctyxcraks6kyk" path="res://scene/verymisc/warmorte.gd" id="4_38tn7"]
+[ext_resource type="FontFile" uid="uid://bjsaq1ixg1iqd" path="res://asest/rocketre.ttf" id="4_pikjh"]
 [ext_resource type="Texture2D" uid="uid://crf5bntq1t3e2" path="res://asest/sprite/toolwheelsprites/hand.png" id="4_ydcr2"]
 [ext_resource type="Texture2D" uid="uid://dk0pfn8f517lv" path="res://asest/sprite/allelse/bobbe.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://cv643igxi0dvo" path="res://asest/sprite/off.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bpjckphv82evr" path="res://asest/sprite/allelse/tile.png" id="6_0iivy"]
 [ext_resource type="Texture2D" uid="uid://y0wunppqthuj" path="res://asest/sprite/allelse/check.png" id="6_v5cmb"]
 [ext_resource type="Texture2D" uid="uid://b3xb4b6frp4kl" path="res://asest/sprite/on.png" id="7"]
 [ext_resource type="Script" uid="uid://575m4ngplmv1" path="res://scene/verymisc/warmorteslotbutton.gd" id="7_6li55"]
@@ -93,6 +95,23 @@ CheckButton/styles/hover_pressed = SubResource("StyleBoxEmpty_gq4wf")
 CheckButton/styles/normal = SubResource("StyleBoxEmpty_qm2h5")
 CheckButton/styles/pressed = SubResource("StyleBoxEmpty_fp5k8")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6ok0"]
+texture = ExtResource("6_0iivy")
+expand_margin_left = 25.0
+expand_margin_top = 50.0
+expand_margin_right = 25.0
+expand_margin_bottom = 25.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+modulate_color = Color(0.72156864, 0.5176471, 0.32941177, 1)
+
+[sub_resource type="Theme" id="Theme_6li55"]
+Window/constants/title_outline_size = 6
+Window/fonts/title_font = ExtResource("4_pikjh")
+Window/icons/close = ExtResource("5")
+Window/icons/close_pressed = ExtResource("5")
+Window/styles/embedded_border = SubResource("StyleBoxTexture_o6ok0")
+
 [sub_resource type="ButtonGroup" id="ButtonGroup_v5cmb"]
 allow_unpress = true
 
@@ -117,6 +136,29 @@ HScrollBar/styles/scroll = SubResource("StyleBoxFlat_hr8m6")
 HScrollBar/styles/scroll_focus = SubResource("StyleBoxFlat_hr8m6")
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_loydq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_emow3"]
+texture = ExtResource("16_n2dgi")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+expand_margin_left = 10.0
+expand_margin_top = 55.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 64, 64)
+modulate_color = Color(1, 0.76862746, 0.12156863, 1)
+
+[sub_resource type="Theme" id="Theme_02lep"]
+Window/colors/title_color = Color(1, 1, 1, 1)
+Window/constants/title_outline_size = 5
+Window/font_sizes/title_font_size = 24
+Window/fonts/title_font = ExtResource("8")
+Window/icons/close = ExtResource("5")
+Window/icons/close_pressed = ExtResource("5")
+Window/styles/embedded_border = SubResource("StyleBoxTexture_emow3")
+Window/styles/embedded_unfocused_border = null
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_ygddx"]
 color = Color(1, 1, 1, 1)
@@ -261,6 +303,7 @@ transparent = true
 sharp_corners = true
 minimize_disabled = true
 maximize_disabled = true
+theme = SubResource("Theme_6li55")
 script = ExtResource("4_38tn7")
 
 [node name="ColorRect4" type="ColorRect" parent="warmorte" unique_id=1836157680]
@@ -470,6 +513,7 @@ unresizable = true
 sharp_corners = true
 minimize_disabled = true
 maximize_disabled = true
+theme = SubResource("Theme_02lep")
 script = ExtResource("4")
 
 [node name="ColorRect2" type="ColorRect" parent="setting" unique_id=1540894512]
@@ -477,6 +521,8 @@ z_index = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(1, 0.76862746, 0.12156863, 1)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="setting" unique_id=912525156]

@@ -57,7 +57,7 @@ script = ExtResource("1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1318808685]
 visible = false
-collision_layer = 134217729
+collision_layer = 134217728
 collision_mask = 134217729
 monitoring = false
 monitorable = false
@@ -70,7 +70,7 @@ audio_bus_name = &"music"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1980454027]
 shape = SubResource("RectangleShape2D_lrgrf")
 
-[node name="player" type="Area2D" parent="." unique_id=2117746062]
+[node name="playeee" type="Area2D" parent="." unique_id=2117746062]
 visible = false
 collision_layer = 32768
 collision_mask = 32768
@@ -79,7 +79,7 @@ gravity = 650.0
 linear_damp = 5.0
 audio_bus_name = &"music"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player" unique_id=108948253]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="playeee" unique_id=108948253]
 shape = SubResource("RectangleShape2D_lrgrf")
 
 [node name="Square" type="Sprite2D" parent="." unique_id=734112681]
@@ -89,7 +89,7 @@ z_index = 4
 texture = SubResource("GradientTexture2D_emow3")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=794515022]
-modulate = Color(1, 1, 1, 0.23529412)
+modulate = Color(1, 1, 1, 0.078431375)
 anchors_preset = -1
 offset_right = 4.0
 offset_bottom = 4.0

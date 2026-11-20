@@ -3,6 +3,7 @@
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_1eoky"]
 [ext_resource type="Script" uid="uid://do8et4wrkw6gk" path="res://prettyscene/person.gd" id="1_r52sy"]
 [ext_resource type="Texture2D" uid="uid://dhe2rym17mb2k" path="res://asest/sprite/allelse/ant.png" id="2_r52sy"]
+[ext_resource type="Texture2D" uid="uid://bgf1c3p6t2g5d" path="res://asest/sprite/allelse/antsmile.png" id="3_5lqdl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5lqdl"]
 shader = ExtResource("1_1eoky")
@@ -83,6 +84,14 @@ region = Rect2(128, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xx7w4"]
 animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("3_5lqdl")
+}],
+"loop": 1,
+"name": &"smile",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j6yhp")
@@ -172,6 +181,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx7w4"]
+size = Vector2(23, 28)
+
 [node name="antpeople" type="Node2D" unique_id=206411540]
 script = ExtResource("1_r52sy")
 
@@ -179,9 +191,9 @@ script = ExtResource("1_r52sy")
 material = SubResource("ShaderMaterial_5lqdl")
 scale = Vector2(-0.55, 0.55)
 sprite_frames = SubResource("SpriteFrames_xx7w4")
-animation = &"stand0"
+animation = &"smile"
 autoplay = "walk0"
-frame_progress = 0.5256405
+frame_progress = 0.24821162
 offset = Vector2(0, -2)
 
 [node name="RayCast2D" type="RayCast2D" parent="AnimatedSprite2D" unique_id=1195922016]
@@ -198,5 +210,12 @@ collision_mask = 2097152
 process_callback = 0
 wait_time = 0.055
 autostart = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2022343383]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=724927507]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_xx7w4")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,421 @@
+[gd_scene format=3 uid="uid://dmjvwq55ntbcn"]
+
+[ext_resource type="Script" uid="uid://cj0iiqs41pu7u" path="res://scene/enemy/shooter.gd" id="1_6qak3"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="2_fqxlh"]
+[ext_resource type="Texture2D" uid="uid://cuayv2g8l2bui" path="res://asest/sprite/allelse/robotShoo.png" id="2_jrcjx"]
+[ext_resource type="Texture2D" uid="uid://daw2chjtrfice" path="res://asest/sprite/allelse/robotShooCannon.png" id="3_6qak3"]
+[ext_resource type="Texture2D" uid="uid://de725afjh5875" path="res://asest/sprite/allelse/robotShooCyan.png" id="4_cjo8h"]
+[ext_resource type="AudioStream" uid="uid://cskjggmqwcp48" path="res://asest/sound/wawaw.ogg" id="4_fqxlh"]
+[ext_resource type="AudioStream" uid="uid://btcx1gspoeb42" path="res://asest/sound/Kerplunk.ogg" id="5_br7ry"]
+[ext_resource type="Texture2D" uid="uid://cxpwboqob48fy" path="res://asest/sprite/allelse/robotShooCannoncyan.png" id="6_tucrc"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_t0mhi"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx7w4"]
+custom_solver_bias = 1.0
+size = Vector2(18, 37.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t0mhi"]
+shader = ExtResource("2_fqxlh")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(3, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_br7ry"]
+atlas = ExtResource("2_jrcjx")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orf3o"]
+atlas = ExtResource("4_cjo8h")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0mhi"]
+atlas = ExtResource("2_jrcjx")
+region = Rect2(128, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjo8h"]
+atlas = ExtResource("2_jrcjx")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tucrc"]
+atlas = ExtResource("2_jrcjx")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58j0h"]
+atlas = ExtResource("4_cjo8h")
+region = Rect2(128, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj3sa"]
+atlas = ExtResource("4_cjo8h")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cjo8h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_br7ry")
+}],
+"loop": 1,
+"name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orf3o")
+}],
+"loop": 1,
+"name": &"standcyan",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_t0mhi")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_cjo8h")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_tucrc")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_cjo8h")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_58j0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orf3o")
+}, {
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_cj3sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orf3o")
+}],
+"loop": 1,
+"name": &"walkcyan",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_loydq"]
+size = Vector2(20, 39)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cjo8h"]
+shader = ExtResource("2_fqxlh")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xx7w4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6qak3")
+}],
+"loop": 1,
+"name": &"cannon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_tucrc")
+}],
+"loop": 1,
+"name": &"cannoncyan",
+"speed": 5.0
+}]
+
+[sub_resource type="Curve" id="Curve_6qak3"]
+_limits = [0.0, 7.0, 0.0, 1.0]
+_data = [Vector2(0, 7), 0.0, -3.5000002, 0, 1, Vector2(1, 3.5), -3.5000002, 0.0, 1, 0]
+point_count = 2
+metadata/_snap_enabled = true
+metadata/_snap_count = 2
+
+[sub_resource type="Animation" id="Animation_fqxlh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:canrot")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:isattt")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.8]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:bahbe")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Line2D:default_color:a8")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_br7ry"]
+resource_name = "new_animation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.4000001, 0.6333333, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:canrot")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8333335, 1.0000001, 4.16, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:isattt")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.4000002, 1.6666666, 3.9666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D:pitch_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5333334, 1.6333333, 3.5, 4.2333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.8, 1.5, 1.5, 0.1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:bahbe")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4.766667, 4.9666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Line2D:default_color:a8")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.76666665, 1.6666666, 3.9666667, 4.3),
+"transitions": PackedFloat32Array(3.48, 1, 0.23, 1),
+"update": 0,
+"values": [0, 255, 255, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t0mhi"]
+_data = {
+&"RESET": SubResource("Animation_fqxlh"),
+&"new_animation": SubResource("Animation_br7ry")
+}
+
+[node name="enemyman" type="RigidBody2D" unique_id=1826118882 node_paths=PackedStringArray("coll", "area", "sprit")]
+z_index = 1
+collision_layer = 0
+collision_mask = 2097152
+mass = 2.0
+physics_material_override = SubResource("PhysicsMaterial_t0mhi")
+lock_rotation = true
+script = ExtResource("1_6qak3")
+playerange = 75
+speed = 75
+health = 9
+damage = 0.25
+score = 150
+coll = NodePath("CollisionShape2D")
+area = NodePath("Area2D")
+sprit = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://dlfwjqgaclqnq"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1287510028]
+position = Vector2(0, 2.75)
+shape = SubResource("RectangleShape2D_xx7w4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=31221384]
+material = SubResource("ShaderMaterial_t0mhi")
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_cjo8h")
+animation = &"stand"
+autoplay = "stand"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1169368092]
+collision_layer = 16578
+collision_mask = 16578
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=278277133]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_loydq")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1657767424]
+points = PackedVector2Array(34, 0, 24, 0)
+width = 5.0
+default_color = Color(1, 0.13333333, 0, 0)
+end_cap_mode = 1
+sharp_limit = 0.0
+round_precision = 1
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1981379944]
+
+[node name="RobotShooCannon" type="AnimatedSprite2D" parent="Node2D" unique_id=1069919106]
+z_index = 1
+material = SubResource("ShaderMaterial_cjo8h")
+position = Vector2(-1.9073486e-06, 0)
+scale = Vector2(0.45, 0.45)
+sprite_frames = SubResource("SpriteFrames_xx7w4")
+animation = &"cannon"
+autoplay = "cannon"
+offset = Vector2(80, 0)
+
+[node name="Line2D2" type="Line2D" parent="Node2D" unique_id=1522173194]
+z_index = -1
+position = Vector2(25, 0)
+points = PackedVector2Array(-25, 0, 4, 0)
+width = 1.0
+width_curve = SubResource("Curve_6qak3")
+default_color = Color(0.46666667, 0.05882353, 0, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="Node2D" unique_id=207310898]
+position = Vector2(27, 0)
+target_position = Vector2(500, 0)
+hit_from_inside = true
+
+[node name="s2" type="Marker2D" parent="Node2D" unique_id=1747249226]
+position = Vector2(27, 0)
+
+[node name="emer" type="Marker2D" parent="Node2D" unique_id=1347031116]
+position = Vector2(700, 2)
+
+[node name="s" type="Marker2D" parent="." unique_id=376702293]
+
+[node name="e" type="Marker2D" parent="." unique_id=50486515]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=976154373]
+stream = ExtResource("4_fqxlh")
+pitch_scale = 0.8
+max_distance = 500.0
+bus = &"sfx"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=580982666]
+stream = ExtResource("5_br7ry")
+pitch_scale = 0.5
+max_distance = 500.0
+bus = &"sfx"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1063467210]
+libraries/ = SubResource("AnimationLibrary_t0mhi")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1196924708]
+position = Vector2(0, 15)
+target_position = Vector2(12, 0)
+collision_mask = 2097152
+
+[node name="RayCast2D2" type="RayCast2D" parent="." unique_id=144678132]
+position = Vector2(0, 15)
+target_position = Vector2(-12, 0)
+collision_mask = 2097152
+
+[node name="f1" type="RayCast2D" parent="." unique_id=561234465]
+position = Vector2(12, 20)
+target_position = Vector2(0, 8)
+collision_mask = 2097152
+hit_from_inside = true
+
+[node name="f2" type="RayCast2D" parent="." unique_id=572524511]
+position = Vector2(-12, 20)
+target_position = Vector2(0, 8)
+collision_mask = 2097152
+hit_from_inside = true

@@ -19,8 +19,8 @@ var mantex: bool = false
 var levelExit: Vector2
 
 var canHealth: bool = true
-var maxhealth: int = 100
-var health: int = 100:
+var maxhealth: float = 100
+var health: float = 100:
 	set(val):
 		if canHealth == true and not val - health > 0:
 			if val - health < -2:
@@ -56,7 +56,7 @@ var currentLevel: String
 var timeC: float
 var timeN: float
 var timeSp: float
-var finalhealth: int
+var finalhealth: float
 
 var got: int
 var score: int = 0:

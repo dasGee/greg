@@ -4,7 +4,9 @@
 [ext_resource type="Script" uid="uid://lgrvkuffottw" path="res://scene/enemy/roaring_sun.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://vvn1ectgyf31" path="res://asest/sprite/allelse/weirdman.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://b4d4lvjhu8g3t" path="res://asest/sprite/allelse/dagger.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://detebrydjve0o" path="res://asest/sprite/allelse/pirateredsun.png" id="4_hff02"]
 [ext_resource type="AudioStream" uid="uid://c5hcc344cpfc2" path="res://asest/sound/rage.mp3" id="5"]
+[ext_resource type="Texture2D" uid="uid://boejcn37iy7tb" path="res://asest/sprite/allelse/sunanchor.png" id="7_v8y0q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gi7ao"]
 shader = ExtResource("1")
@@ -24,6 +26,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hff02")
+}],
+"loop": 1,
+"name": &"yarr",
 "speed": 5.0
 }]
 
@@ -241,6 +251,10 @@ max_polyphony = 2
 process_callback = 0
 wait_time = 0.5
 autostart = true
+
+[node name="Sunanchor" type="Sprite2D" parent="." unique_id=1516454104]
+visible = false
+texture = ExtResource("7_v8y0q")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

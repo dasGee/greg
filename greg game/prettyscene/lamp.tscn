@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d0phpgxwaeonr"]
 
 [ext_resource type="Texture2D" uid="uid://cwofo1mp5lwgo" path="res://asest/sprite/allelse/lamp.png" id="1_ad7k2"]
+[ext_resource type="Script" uid="uid://bobhghvsi7fw" path="res://prettyscene/lamp.gd" id="1_dv31n"]
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_gkvwv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dv31n"]
@@ -27,6 +28,7 @@ fill_to = Vector2(0, 1)
 
 [node name="Node2D" type="Node2D" unique_id=113149480]
 scale = Vector2(0.5, 0.5)
+script = ExtResource("1_dv31n")
 
 [node name="Lamp" type="Sprite2D" parent="." unique_id=2111380882]
 material = SubResource("ShaderMaterial_dv31n")
