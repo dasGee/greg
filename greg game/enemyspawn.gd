@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var waittime=0.25
+
 var heh = 0
 var enemy
 var en
@@ -21,5 +23,5 @@ func spawn():
 			enemy.variation = a.variant
 			enemy.global_position = a.global_position
 			get_tree().current_scene.call_deferred("add_child", enemy)
-			await get_tree().create_timer(0.25).timeout
+			await get_tree().create_timer(waittime).timeout
 	queue_free()

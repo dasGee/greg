@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dbu8vo0abx4kp" path="res://scene/obj/manSwitch.tscn" id="9_cxada"]
 [ext_resource type="PackedScene" uid="uid://b3hpomoh5hi0c" path="res://scene/obj/switch.tscn" id="9_k6nil"]
 [ext_resource type="PackedScene" uid="uid://b6v37a4iqaemq" path="res://scene/interactalbe/mekey.tscn" id="10_eginm"]
+[ext_resource type="PackedScene" uid="uid://rtx4krhtlv60" path="res://prettyscene/signer.tscn" id="10_oa0h2"]
 [ext_resource type="PackedScene" uid="uid://dnr2ar4whfijd" path="res://scene/interactalbe/portal.tscn" id="11_slbg1"]
 
 [sub_resource type="GDScript" id="GDScript_k5w64"]
@@ -22,13 +23,17 @@ func _process(_delta: float) -> void:
 [node name="level" type="Node2D" unique_id=1386900977 node_paths=PackedStringArray("camear", "startPos", "manPos")]
 script = ExtResource("1_gc2ms")
 timeBonus = 160
-speedrunTime = 30
+speedrunTime = 50
 camear = NodePath("Camera2D")
 startPos = NodePath("Marker2D")
 music = "garladen"
 misColor = Color(0.70980394, 0.6392157, 0.39215687, 1)
 manPos = NodePath("Marker2D2")
-manStartSpeed = 132
+manStartSpeed = 125
+cangreen = true
+frMa = 0.125
+frSaMi = 0.4
+frSaMa = 0.6
 metadata/_custom_type_script = "uid://0g17egfxex6q"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=173780363]
@@ -101,7 +106,7 @@ script = SubResource("GDScript_k5w64")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="tiles" unique_id=1825879206]
 z_index = 1
-tile_map_data = PackedByteArray("AAAMAPv/AAAAAAAAFgAYAPf/AAAAAAAAFgAUAPj/AAAAAAAAFgAOAPL/AAAAAAAAFgAZAPL/AAAAAAAAFgAAAPP/AAAAAAAAFgA=")
+tile_map_data = PackedByteArray("AAAMAPv/AAAAAAAAFgAYAPf/AAAAAAAAFgAUAPj/AAAAAAAAFgAOAPL/AAAAAAAAFgAZAPL/AAAAAAAAFgAAAPP/AAAAAAAAFgAFAP3/AAAAAAAADAAGAP3/AAAAAAAADAAKAPv/AAAAAAAADAACAP7/AAAAAAAADAADAP7/AAAAAAAADAAEAP7/AAAAAAAADAAVAPj/AAAAAAAADAASAPj/AAAAAAAADAATAPj/AAAAAAAADAAWAPf/AAAAAAAADAAXAPf/AAAAAAAADAAZAPf/AAAAAAAADAAaAPf/AAAAAAAADAAbAPf/AAAAAAAADAAeAPX/AAAAAAAADAAdAPX/AAAAAAAADAAXAPL/AAAAAAAADAAYAPL/AAAAAAAADAAQAPH/AAAAAAAADAARAPH/AAAAAAAADAALAPL/AAAAAAAADAAMAPL/AAAAAAAADAD9//P/AAAAAAAADAD+//P/AAAAAAAADAD9/+3/AAAAAAAADAD+/+3/AAAAAAAADAAGAP//AAAAAAAACwAJAP3/AAAAAAAACwATAPr/AAAAAAAACwAeAPf/AAAAAAAACwAhAPL/AAAAAAAACwANAPT/AAAAAAAACwD9//X/AAAAAAAACwDy/+//AAAAAAAACwD3//H/AAAAAAAADAA=")
 tile_set = ExtResource("8_66mim")
 
 [node name="grass" type="TileMapLayer" parent="tiles" unique_id=921204696]
@@ -157,3 +162,7 @@ position = Vector2(1168, -528)
 
 [node name="Node2D3" parent="." unique_id=896501096 instance=ExtResource("9_cxada")]
 position = Vector2(1168, -496)
+
+[node name="signer" parent="." unique_id=981136828 instance=ExtResource("10_oa0h2")]
+position = Vector2(289, -170)
+saying = "you dont always have to defeat enemies."

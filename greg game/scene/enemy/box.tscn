@@ -65,6 +65,7 @@ physics_material_override = SubResource("PhysicsMaterial_ood02")
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_y5r1i")
+scrap = 0
 coll = NodePath("CollisionShape2D")
 area = NodePath("enemy")
 sprit = NodePath("AnimatedSprite2D")

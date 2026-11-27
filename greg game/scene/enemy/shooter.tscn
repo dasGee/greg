@@ -316,6 +316,7 @@ speed = 75
 health = 9
 damage = 0.25
 score = 150
+scrap = 4
 coll = NodePath("CollisionShape2D")
 area = NodePath("Area2D")
 sprit = NodePath("AnimatedSprite2D")

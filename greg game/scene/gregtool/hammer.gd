@@ -44,6 +44,7 @@ func _physics_process(_delta):
 			g.lock = true
 			#anc.yes = false
 			$AnimationPlayer.play("lunge")
+			$Slash.pitch_scale=randf_range(0.35,0.55)
 
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	anc.yes = true

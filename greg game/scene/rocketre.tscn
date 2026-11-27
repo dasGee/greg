@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cswucpbtm3faw" path="res://asest/sprite/allelse/rocketre.png" id="7_evdhj"]
 [ext_resource type="Texture2D" uid="uid://vyn2ucbda3na" path="res://asest/sprite/allelse/rocketreopen.png" id="8_gs5ka"]
 [ext_resource type="AudioStream" uid="uid://cfquntpl84ju2" path="res://asest/sound/ping.ogg" id="8_i2fmx"]
+[ext_resource type="FontFile" uid="uid://bjsaq1ixg1iqd" path="res://asest/rocketre.ttf" id="10_b37wp"]
 [ext_resource type="Script" uid="uid://dbynqqs5ka2i4" path="res://scene/verymisc/rocketpass.gd" id="10_ncphu"]
 [ext_resource type="Texture2D" uid="uid://d3obdswea61a0" path="res://asest/sprite/allelse/passwordpaper.png" id="10_ri8og"]
 [ext_resource type="Texture2D" uid="uid://bwfu27i2kuaom" path="res://asest/sprite/allelse/button.png" id="11_ewb50"]
@@ -190,6 +191,23 @@ _data = {
 &"talkRepaired": SubResource("Animation_gs5ka")
 }
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_00c1j"]
+texture = ExtResource("7_evdhj")
+texture_margin_left = 33.0
+texture_margin_top = 33.0
+texture_margin_right = 33.0
+texture_margin_bottom = 33.0
+expand_margin_left = 77.0
+expand_margin_top = 77.0
+expand_margin_right = 77.0
+expand_margin_bottom = 50.0
+
+[sub_resource type="Theme" id="Theme_8h8ep"]
+Window/colors/title_color = Color(0.827451, 0.4117647, 0.4117647, 1)
+Window/font_sizes/title_font_size = 30
+Window/fonts/title_font = ExtResource("10_b37wp")
+Window/styles/embedded_border = SubResource("StyleBoxTexture_00c1j")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_loydq"]
 texture = ExtResource("11_ewb50")
 texture_margin_left = 21.0
@@ -266,6 +284,7 @@ visible = false
 sharp_corners = true
 minimize_disabled = true
 maximize_disabled = true
+theme = SubResource("Theme_8h8ep")
 script = ExtResource("10_ncphu")
 
 [node name="ColorRect" type="ColorRect" parent="Pass" unique_id=14317508]

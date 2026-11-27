@@ -10,7 +10,14 @@ var canwalk = true
 
 func _ready():
 	super()
-	
+	if variation=="champ":
+		health=15
+		damage=17
+		speed=118
+		playerange=200
+		$AnimatedSprite2D.speed_scale=1.6
+		speedAttack=0.19
+		speedUnAttack=0.4
 
 func _physics_process(_delta: float) -> void:
 	playered = get_tree().current_scene.find_child("player")

@@ -29,7 +29,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jlnun")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 5.0
 }]
@@ -61,6 +61,7 @@ collision_layer = 0
 collision_mask = 0
 gravity_scale = 0.2
 script = ExtResource("1")
+scrap = 0
 coll = NodePath("CollisionShape2D")
 sprit = NodePath("AnimatedSprite2D")
 metadata/_custom_type_script = "uid://dlfwjqgaclqnq"

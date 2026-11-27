@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://d1ov7sqbk4aye"]
+
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_wgtrr"]
+[ext_resource type="Script" uid="uid://5wuxknnlqyqr" path="res://scene/gregtool/net.gd" id="2_glh6h"]
+[ext_resource type="Texture2D" uid="uid://d345ockud8p6e" path="res://asest/sprite/toolwheelsprites/net.png" id="3_glh6h"]
+[ext_resource type="Texture2D" uid="uid://ddunmxolov022" path="res://asest/sprite/allelse/netall.png" id="3_hjru3"]
+[ext_resource type="Texture2D" uid="uid://yape4h2fiekg" path="res://asest/sprite/allelse/netfall.png" id="4_igs6r"]
+[ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_08j1k"]
+[ext_resource type="AudioStream" uid="uid://clwrtxe7c8av8" path="res://asest/sound/slash.mp3" id="6_wgtrr"]
+[ext_resource type="AudioStream" uid="uid://ck1nwxvrs3hgn" path="res://asest/sound/netspawn.wav" id="8_hjru3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3ql2"]
+shader = ExtResource("1_wgtrr")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 2.000000095
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xx7w4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hjru3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_igs6r")
+}],
+"loop": 1,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_hp4bs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.3089969]
+}
+
+[sub_resource type="Animation" id="Animation_g2vtq"]
+resource_name = "lunge"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.65),
+"transitions": PackedFloat32Array(0.8408966, 1),
+"update": 0,
+"values": [-1.3089969, 4.974188368183839]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../WoodenNetSpin")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ajmw"]
+_data = {
+&"RESET": SubResource("Animation_hp4bs"),
+&"lunge": SubResource("Animation_g2vtq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3ql2"]
+size = Vector2(45, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0ajmw"]
+shader = ExtResource("1_wgtrr")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="Curve" id="Curve_wgtrr"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_wgtrr"]
+interpolation_color_space = 2
+colors = PackedColorArray(1, 1, 0, 0, 1, 1, 1, 1)
+
+[node name="net" type="Node2D" unique_id=314326441]
+material = SubResource("ShaderMaterial_r3ql2")
+script = ExtResource("2_glh6h")
+img = ExtResource("3_glh6h")
+metadata/_custom_type_script = "uid://ey2ph5nea8kw"
+
+[node name="shootsprite" type="AnimatedSprite2D" parent="." unique_id=1289234139]
+use_parent_material = true
+position = Vector2(22.61401, -0.018194035)
+rotation = -1.3089969
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_xx7w4")
+animation = &"new_animation"
+autoplay = "new_animation"
+centered = false
+offset = Vector2(-32, -42.784)
+metadata/rotate = false
+
+[node name="Marker2D" type="Marker2D" parent="shootsprite" unique_id=1921028985]
+position = Vector2(35.95436, -0.8703556)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=966656682]
+root_node = NodePath("../shootsprite")
+libraries/ = SubResource("AnimationLibrary_0ajmw")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=883173241]
+position = Vector2(-27, 0)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=766727211]
+collision_layer = 0
+collision_mask = 2177
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=183001877]
+position = Vector2(38.5, 1)
+shape = SubResource("RectangleShape2D_r3ql2")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=912730839]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_0ajmw")
+points = PackedVector2Array(3, 0, 19, 0)
+width = 1.0
+default_color = Color(0.31764707, 0.31764707, 0.31764707, 1)
+texture = ExtResource("5_08j1k")
+texture_mode = 1
+begin_cap_mode = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=1244784605]
+process_callback = 0
+wait_time = 0.15
+
+[node name="WoodenNetSpin" type="AudioStreamPlayer" parent="." unique_id=1464420424]
+stream = ExtResource("6_wgtrr")
+volume_db = -15.0
+pitch_scale = 0.5
+bus = &"sfx"
+
+[node name="Node" type="Node2D" parent="." unique_id=933106539]
+
+[node name="Line2D2" type="Line2D" parent="Node" unique_id=2021406436]
+top_level = true
+points = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+width = 20.0
+width_curve = SubResource("Curve_wgtrr")
+gradient = SubResource("Gradient_wgtrr")
+
+[node name="Netspawn" type="AudioStreamPlayer" parent="." unique_id=1604167789]
+stream = ExtResource("8_hjru3")
+bus = &"sfx"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="finished" from="WoodenNetSpin" to="." method="_on_wooden_net_spin_finished"]

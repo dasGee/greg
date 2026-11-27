@@ -47,6 +47,7 @@ var wawaha
 var memeha
 
 func _ready() -> void :
+	g.lock=false
 	PhysicsServer2D.area_set_param(get_viewport().find_world_2d().space, PhysicsServer2D.AREA_PARAM_GRAVITY, gravity) #thank you godot docs <3
 	config.set_value("things", "orbs", g.orb)
 	config.save("user://Greg.cfg")

@@ -155,6 +155,7 @@ script = ExtResource("1")
 health = 6
 damage = 5
 score = 80
+scrap = 4
 coll = NodePath("CollisionShape2D")
 area = NodePath("Area2D")
 sprit = NodePath("AnimatedSprite2D")

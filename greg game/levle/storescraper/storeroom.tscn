@@ -7,18 +7,16 @@
 [ext_resource type="PackedScene" uid="uid://dnr2ar4whfijd" path="res://scene/interactalbe/portal.tscn" id="5_una2t"]
 [ext_resource type="PackedScene" uid="uid://cocnh0q1sysrd" path="res://scene/gregtool/pick_up.tscn" id="6_1n8wn"]
 [ext_resource type="PackedScene" uid="uid://8hpreull6qe5" path="res://scene/gregtool/lightbox.tscn" id="7_1n8wn"]
-[ext_resource type="PackedScene" uid="uid://bpspv63j5urbs" path="res://scene/gregtool/flashlight.tscn" id="7_4vmj2"]
-[ext_resource type="Texture2D" uid="uid://b8ruhe5y1upct" path="res://asest/sprite/allelse/flashlight.png" id="8_qjafg"]
-[ext_resource type="Texture2D" uid="uid://dra1omjnivk38" path="res://asest/sprite/allelse/light.png" id="9_0fgty"]
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="9_7twyw"]
 [ext_resource type="Texture2D" uid="uid://dh7w03rp63mon" path="res://asest/sprite/allelse/lightboxes.png" id="10_bm3xs"]
 [ext_resource type="PackedScene" uid="uid://dw7acsuxy726m" path="res://scene/obj/shelf.tscn" id="13_0fgty"]
 [ext_resource type="Texture2D" uid="uid://ckc3i77jt86nm" path="res://asest/sprite/allelse/square.png" id="14_3m3h4"]
 [ext_resource type="Script" uid="uid://d2u2by42khqw0" path="res://scrpt/hehe/platformColShape.gd" id="15_moe5y"]
 [ext_resource type="Texture2D" uid="uid://bwfu27i2kuaom" path="res://asest/sprite/allelse/button.png" id="18_cwf75"]
-[ext_resource type="PackedScene" uid="uid://b5n03fugwc1kl" path="res://scene/unlockman.tscn" id="18_pbwyt"]
 [ext_resource type="Texture2D" uid="uid://dsht52kani3ah" path="res://asest/sprite/fella.png" id="19_cwf75"]
 [ext_resource type="PackedScene" uid="uid://2uajr5mv6qpy" path="res://scene/hammerpickup.tscn" id="19_fpiii"]
+[ext_resource type="Shader" uid="uid://dpk6sl3ucs14x" path="res://asest/shader/d.gdshader" id="19_iccyp"]
+[ext_resource type="Texture2D" uid="uid://c62uwptt62v1m" path="res://asest/sprite/allelse/troll.png" id="20_fpiii"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5lvch"]
 light_mode = 2
@@ -70,6 +68,17 @@ expand_margin_top = 12.0
 expand_margin_right = 12.0
 expand_margin_bottom = 12.0
 modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v4sgw"]
+shader = ExtResource("19_iccyp")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/radius = 0.5
+shader_parameter/rotation_speed_x = 1.0
+shader_parameter/rotation_speed_y = 1.0
+shader_parameter/rotation_speed_z = 1.0
+shader_parameter/rotation_offset_x = 0.0
+shader_parameter/rotation_offset_y = 0.0
+shader_parameter/rotation_offset_z = 0.0
 
 [node name="HubWorld" type="Node2D" unique_id=973282311 node_paths=PackedStringArray("camear", "startPos")]
 process_mode = 1
@@ -129,7 +138,7 @@ tile_set = ExtResource("3_aq8kd")
 script = SubResource("GDScript_sao81")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="tiles" unique_id=57468897]
-tile_map_data = PackedByteArray("AAD3/+3/AAAAAAAAEhD6//j/AAAAAAAAEgDr/+T/AAAAAAAAEgDy//D/AAAAAAAACQANAM//AAAAAAAAEgA=")
+tile_map_data = PackedByteArray("AAD3/+3/AAAAAAAAEhD6//j/AAAAAAAAEgDr/+T/AAAAAAAAEgDy//D/AAAAAAAACQANAM//AAAAAAAAEgDi/9f/AAAAAAAAAwDi/9b/AAAAAAAAAwDh/9b/AAAAAAAAAwDh/9f/AAAAAAAAAwA=")
 tile_set = ExtResource("4_2bt6g")
 
 [node name="markers" type="Node" parent="." unique_id=251812691]
@@ -145,31 +154,10 @@ pos = Vector2(706, -368)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=630320759]
 visible = false
-color = Color(0.015686275, 0.015686275, 0.03137255, 1)
+color = Color(0.09433938, 0.0943547, 0.14407092, 1)
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=422625016]
 position = Vector2(-911, -80)
-
-[node name="pickUp2" parent="." unique_id=1145565217 node_paths=PackedStringArray("destroyee") instance=ExtResource("6_1n8wn")]
-position = Vector2(-680, -69)
-item = ExtResource("7_4vmj2")
-destroy = true
-destroyee = NodePath(".")
-
-[node name="Flashlight" type="Sprite2D" parent="pickUp2" unique_id=82902295]
-position = Vector2(-6.1035156e-05, 3.9999924)
-rotation = -3.0285988
-scale = Vector2(0.275, 0.275)
-texture = ExtResource("8_qjafg")
-
-[node name="PointLight2D" type="PointLight2D" parent="pickUp2/Flashlight" unique_id=378081556]
-position = Vector2(20.436115, 2.7130318)
-rotation = 0.10710202
-scale = Vector2(1.5, 1.5)
-blend_mode = 2
-shadow_enabled = true
-texture = ExtResource("9_0fgty")
-offset = Vector2(250, 0)
 
 [node name="pickUp" parent="." unique_id=1438643035 node_paths=PackedStringArray("destroyee") instance=ExtResource("6_1n8wn")]
 position = Vector2(-403, -73)
@@ -270,57 +258,6 @@ shape = SubResource("RectangleShape2D_xx7w4")
 one_way_collision = true
 script = ExtResource("15_moe5y")
 
-[node name="unlockman" parent="." unique_id=763011869 instance=ExtResource("18_pbwyt")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(-752, -240)
-lev = "storage_hall"
-
-[node name="unlockman3" parent="." unique_id=1583562951 instance=ExtResource("18_pbwyt")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(-848, -528)
-lev = "storage_hall"
-
-[node name="unlockman4" parent="." unique_id=951912985 instance=ExtResource("18_pbwyt")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(-1072, -688)
-lev = "storage_hall"
-
-[node name="unlockman5" parent="." unique_id=948779504 instance=ExtResource("18_pbwyt")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(-1072, -912)
-lev = "storage_hall"
-
-[node name="unlockman6" parent="." unique_id=1991364258 instance=ExtResource("18_pbwyt")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(-656, -976)
-lev = "storage_hall"
-
-[node name="unlockman7" parent="." unique_id=1812879034 instance=ExtResource("18_pbwyt")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(-400, -976)
-lev = "storage_hall"
-
-[node name="unlockman2" parent="." unique_id=1608532371 instance=ExtResource("18_pbwyt")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(176, -912)
-lev = "storage_hall"
-
-[node name="portal8" parent="." unique_id=1669005114 instance=ExtResource("5_una2t")]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(-576, -496)
-scene = "res://levle/storescraper/hall.tscn"
-textie = "storage - halls"
-islevel = true
-levelis = "storage_hall"
-
-[node name="portal9" parent="." unique_id=51098186 instance=ExtResource("5_una2t")]
-modulate = Color(0.5673288, 0.7338796, 1, 1)
-position = Vector2(-318, -752)
-scene = "res://levle/storescraper/storange.tscn"
-textie = "storage - storange"
-islevel = true
-levelis = "storage_storange"
-
 [node name="Fella" type="Sprite2D" parent="." unique_id=1054931623]
 material = SubResource("CanvasItemMaterial_cwf75")
 position = Vector2(-1091.0001, -1323)
@@ -330,10 +267,10 @@ texture = ExtResource("19_cwf75")
 [node name="Panel" type="Panel" parent="." unique_id=1545939503]
 z_index = -1
 material = SubResource("CanvasItemMaterial_2lxnb")
-offset_left = -998.0
-offset_top = -1429.0
-offset_right = -885.0
-offset_bottom = -1315.0
+offset_left = 300.0
+offset_top = -1591.0
+offset_right = 413.0
+offset_bottom = -1556.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_xx7w4")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1740803085]
@@ -347,23 +284,19 @@ offset_right = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[font=res://asest/rocketre.ttf][font_size=6][color=green]
-hello. rocketre 
-
-(you saw me
-outside of here)
-
-here. find a
-hammer and
-repair me with it.
-thanks.
-i might help you
-back by letting
-you travel if 
-you need that"
+text = "[font=res://asest/rocketre.ttf][font_size=6][color=green]hello. get that 
+hammer and fix
+the rocket!!!
+please --rocketre"
 fit_content = true
 scroll_active = false
 autowrap_mode = 0
 
 [node name="hammerpickup" parent="." unique_id=2085509818 instance=ExtResource("19_fpiii")]
 position = Vector2(430, -1540)
+
+[node name="Mann" type="Sprite2D" parent="." unique_id=1134071093]
+material = SubResource("ShaderMaterial_v4sgw")
+position = Vector2(-960, -1312)
+scale = Vector2(0.5, 1)
+texture = ExtResource("20_fpiii")

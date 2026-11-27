@@ -4,6 +4,7 @@ class_name enemyman extends RigidBody2D
 @export var damage: float
 @export var variation: String
 @export var score: int
+@export var scrap:int = 1
 @export_subgroup("nodethings")
 @export var coll: CollisionShape2D
 @export var area: Area2D
@@ -26,6 +27,11 @@ func _velocii(x, y):
 	linear_velocity.y -= y
 func _damaged():
 	if health <= 0 and bingbing == false:
+		if scrap != 0:
+			var lage = load("res://scene/scrap.tscn").instantiate()
+			lage.global_position=global_position
+			lage.gain=scrap
+			get_tree().current_scene.call_deferred("add_child",lage)
 		damage = 0
 		bingbing = true
 		g.score += score

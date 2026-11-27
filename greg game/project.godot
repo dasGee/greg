@@ -14,8 +14,8 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="greg game"
-config/version="greg ultra deluxe edition"
+config/name="gregcheck"
+config/version="greg super ultra deluxe edition"
 run/main_scene="uid://c038i3c20evv7"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="dasG"

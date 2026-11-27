@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b8y42sssix4xw"]
+
+[ext_resource type="Script" uid="uid://di6yu7jaupkhc" path="res://scene/gregtool/bunny.gd" id="1_jgrh7"]
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="3_fg6d8"]
+[ext_resource type="Texture2D" uid="uid://caccyhsjalnga" path="res://asest/sprite/allelse/sprabbitroll.png" id="3_jhke6"]
+[ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_ys18m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bo47f"]
+shader = ExtResource("3_fg6d8")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2v3n"]
+shader = ExtResource("3_fg6d8")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.250000011875
+shader_parameter/pattern = 0
+shader_parameter/modulate_affects_color = false
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[node name="Node2D" type="Node2D" unique_id=1682027990]
+script = ExtResource("1_jgrh7")
+img = ExtResource("3_jhke6")
+metadata/_custom_type_script = "uid://ey2ph5nea8kw"
+
+[node name="Box" type="Sprite2D" parent="." unique_id=1903188963]
+material = SubResource("ShaderMaterial_bo47f")
+position = Vector2(19, -3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_jhke6")
+offset = Vector2(15, 0)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=450703040]
+position = Vector2(225, 0)
+
+[node name="Line2D" type="Line2D" parent="." unique_id=133269531]
+z_index = -1
+texture_repeat = 2
+material = SubResource("ShaderMaterial_h2v3n")
+points = PackedVector2Array(3, 0, 19, 0)
+width = 1.0
+default_color = Color(0.31764707, 0.31764707, 0.31764707, 1)
+texture = ExtResource("5_ys18m")
+texture_mode = 1
+begin_cap_mode = 1

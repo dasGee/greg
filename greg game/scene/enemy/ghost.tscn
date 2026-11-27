@@ -112,8 +112,8 @@ radius = 12.0
 collision_layer = 0
 script = ExtResource("1")
 speed = 100.0
-health = 4
-damage = 2
+health = 3
+damage = 0.75
 variation = "N"
 score = 2
 coll = NodePath("CollisionShape2D")
@@ -127,15 +127,15 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_wg32f")
 animation = &"N"
 autoplay = "N"
-frame_progress = 0.79810715
+frame_progress = 0.9760124
 flip_h = true
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1921078893]
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_okwry")
 autoplay = "default"
-frame = 3
-frame_progress = 0.434131
+frame = 1
+frame_progress = 0.6110468
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1082352131]
 visible = false

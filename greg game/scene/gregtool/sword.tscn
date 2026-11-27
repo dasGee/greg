@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bpg3qw50iwjed" path="res://asest/sprite/allelse/sword.png" id="4"]
 [ext_resource type="Texture2D" uid="uid://cbnj00bgnc23n" path="res://asest/sprite/allelse/tilepng.png" id="5_ts2le"]
 [ext_resource type="AudioStream" uid="uid://nwr2rfaxwyfv" path="res://asest/sound/snap.ogg" id="6_0ajmw"]
+[ext_resource type="AudioStream" uid="uid://clwrtxe7c8av8" path="res://asest/sound/slash.mp3" id="7_clxk2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_r3ql2"]
 shader = ExtResource("1")
@@ -109,6 +110,20 @@ tracks/3/keys = {
 "method": &"shot"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Slash")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0ajmw"]
 _data = {
@@ -189,6 +204,11 @@ ignore_time_scale = true
 stream = ExtResource("6_0ajmw")
 volume_db = -5.0
 pitch_scale = 1.25
+bus = &"sfx"
+
+[node name="Slash" type="AudioStreamPlayer" parent="." unique_id=1317888720]
+stream = ExtResource("7_clxk2")
+volume_db = -20.0
 bus = &"sfx"
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

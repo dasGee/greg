@@ -2,7 +2,29 @@
 
 [ext_resource type="Script" uid="uid://58bf4tyi838q" path="res://scene/verymisc/died.gd" id="1"]
 [ext_resource type="FontFile" uid="uid://rr1fym2wttn7" path="res://asest/sprite/dasG greg.ttf" id="2"]
+[ext_resource type="FontFile" uid="uid://bjsaq1ixg1iqd" path="res://asest/rocketre.ttf" id="2_dfeva"]
 [ext_resource type="Texture2D" uid="uid://dk0pfn8f517lv" path="res://asest/sprite/allelse/bobbe.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://cn4dx4kago6rs" path="res://asest/sprite/allelse/ghost.png" id="4_vok0w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sfgmk"]
+texture = ExtResource("4_vok0w")
+texture_margin_left = 20.0
+texture_margin_top = 50.0
+texture_margin_right = 30.0
+texture_margin_bottom = 10.0
+expand_margin_left = 10.0
+expand_margin_top = 55.0
+expand_margin_right = 25.0
+expand_margin_bottom = 55.0
+axis_stretch_vertical = 1
+
+[sub_resource type="Theme" id="Theme_my4qu"]
+Window/colors/title_color = Color(0, 0, 0, 1)
+Window/colors/title_outline_modulate = Color(0, 0, 0, 1)
+Window/fonts/title_font = ExtResource("2_dfeva")
+Window/icons/close = ExtResource("3")
+Window/icons/close_pressed = ExtResource("3")
+Window/styles/embedded_border = SubResource("StyleBoxTexture_sfgmk")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sfgmk"]
 bg_color = Color(0.80859375, 0.80859375, 0.80859375, 1)
@@ -60,6 +82,7 @@ popup_window = true
 sharp_corners = true
 minimize_disabled = true
 maximize_disabled = true
+theme = SubResource("Theme_my4qu")
 
 [node name="ColorRect" type="ColorRect" parent="Window" unique_id=1448967705]
 anchors_preset = 15

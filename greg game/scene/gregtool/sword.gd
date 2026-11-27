@@ -13,6 +13,7 @@ func _physics_process(_delta):
 			g.lock = true
 			anc.yes = false
 			$AnimationPlayer.play("lunge")
+			$Slash.pitch_scale=randf_range(0.9,1.15)
 func shot():
 	if $Area2D.has_overlapping_bodies():
 		$".." / "..".velocity += Vector2($".." / ".." / "marker".position.x * 13, $".." / ".." / "marker".position.y * 7.5)

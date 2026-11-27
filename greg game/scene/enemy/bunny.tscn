@@ -1,0 +1,161 @@
+[gd_scene format=3 uid="uid://bceslf0t82v00"]
+
+[ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="1_ob2ks"]
+[ext_resource type="Script" uid="uid://c27hrnyj46ngw" path="res://scene/enemy/bunny.gd" id="2_lfqw0"]
+[ext_resource type="Texture2D" uid="uid://caccyhsjalnga" path="res://asest/sprite/allelse/sprabbitroll.png" id="4_37of0"]
+[ext_resource type="AudioStream" uid="uid://coefbqepa7o7s" path="res://asest/sound/bunny.wav" id="5_37of0"]
+[ext_resource type="AudioStream" uid="uid://c6dk6wlb2agwv" path="res://asest/sound/WoodenNetSpin.wav" id="6_d0hor"]
+[ext_resource type="PackedScene" uid="uid://111j3uwmxbed" path="res://scene/interactalbe/handInteract.tscn" id="7_02bjx"]
+[ext_resource type="Script" uid="uid://bik02s3ggnve1" path="res://scene/gregtool/pick_up.gd" id="8_irowx"]
+[ext_resource type="Texture2D" uid="uid://cr4nf1edvelpy" path="res://asest/sprite/allelse/sprabbit.png" id="8_mb47o"]
+[ext_resource type="PackedScene" uid="uid://b8y42sssix4xw" path="res://scene/gregtool/bunny.tscn" id="9_kmfhw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g77af"]
+shader = ExtResource("1_ob2ks")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0000000475
+shader_parameter/pattern = 1
+shader_parameter/modulate_affects_color = true
+shader_parameter/inside = false
+shader_parameter/add_margins = false
+shader_parameter/number_of_images = Vector2(1, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_iu5ul"]
+rough = true
+bounce = 0.15
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agxus"]
+atlas = ExtResource("8_mb47o")
+region = Rect2(49, 49, 47, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_its1v"]
+atlas = ExtResource("8_mb47o")
+region = Rect2(1, 1, 47, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idu5o"]
+atlas = ExtResource("8_mb47o")
+region = Rect2(49, 1, 47, 47)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptmgg"]
+atlas = ExtResource("8_mb47o")
+region = Rect2(1, 49, 47, 47)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5nhlv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agxus")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_its1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idu5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptmgg")
+}],
+"loop": 0,
+"name": &"rabbit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_37of0")
+}],
+"loop": 1,
+"name": &"roll",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu5ul"]
+size = Vector2(12, 15)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_loydq"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k4te1"]
+radius = 14.008925
+
+[node name="bunny" type="RigidBody2D" unique_id=1697380430 node_paths=PackedStringArray("coll", "area", "sprit")]
+material = SubResource("ShaderMaterial_g77af")
+collision_layer = 16384
+collision_mask = 10485761
+mass = 1.5
+physics_material_override = SubResource("PhysicsMaterial_iu5ul")
+gravity_scale = 0.65
+script = ExtResource("2_lfqw0")
+health = 5
+score = -2
+scrap = 0
+coll = NodePath("square")
+area = NodePath("enemy")
+sprit = NodePath("AnimatedSprite2D")
+metadata/_custom_type_script = "uid://dlfwjqgaclqnq"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1642175202]
+use_parent_material = true
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_5nhlv")
+animation = &"rabbit"
+autoplay = "rabbit"
+flip_h = true
+
+[node name="square" type="CollisionShape2D" parent="." unique_id=153376207]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_iu5ul")
+disabled = true
+
+[node name="circle" type="CollisionShape2D" parent="." unique_id=1882840193]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_loydq")
+disabled = true
+
+[node name="seeleft" type="RayCast2D" parent="." unique_id=2112259595]
+target_position = Vector2(-20, 0)
+collision_mask = 8388609
+collide_with_areas = true
+
+[node name="seeright" type="RayCast2D" parent="." unique_id=760543180]
+target_position = Vector2(20, 0)
+collision_mask = 8388609
+collide_with_areas = true
+
+[node name="enemy" type="Area2D" parent="." unique_id=1717189444]
+collision_layer = 0
+collision_mask = 8964289
+metadata/look = "springy bad... avoid!!!"
+metadata/health = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy" unique_id=1980049690]
+position = Vector2(0, 0.5)
+shape = SubResource("CircleShape2D_k4te1")
+
+[node name="Timer" type="Timer" parent="." unique_id=679230113]
+process_callback = 0
+wait_time = 0.75
+autostart = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1849513973]
+stream = ExtResource("5_37of0")
+max_distance = 250.0
+bus = &"sfx"
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="." unique_id=944286039]
+stream = ExtResource("6_d0hor")
+pitch_scale = 2.5
+max_distance = 250.0
+bus = &"sfx"
+
+[node name="boxbox" parent="." unique_id=642455870 node_paths=PackedStringArray("destroyee") instance=ExtResource("7_02bjx")]
+script = ExtResource("8_irowx")
+item = ExtResource("9_kmfhw")
+img = null
+destroy = true
+destroyee = NodePath("..")
+isUnlock = false
+Unlock = ""
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="enemy" to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

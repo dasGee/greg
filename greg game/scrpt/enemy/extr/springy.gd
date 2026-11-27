@@ -14,6 +14,22 @@ var maxm = 1.2
 
 func _ready():
 	super ()
+	if variation == "rabbit":
+		minm = 1
+		maxm = 1.5
+		prite.play("rabbit")
+		damage = 0
+		var wege = randi_range(0,4)
+		if wege == 0:
+			$AnimatedSprite2D.modulate=Color(0.289, 0.289, 0.289, 1.0)
+		elif wege == 1:
+			$AnimatedSprite2D.modulate=Color(1.0, 0.741, 0.398, 1.0)
+		elif wege == 2:
+			$AnimatedSprite2D.modulate=Color(1.0, 1.0, 1.0, 1.0)
+		elif wege == 3:
+			$AnimatedSprite2D.modulate=Color(1.0, 0.867, 0.529, 1.0)
+		elif wege == 3:
+			$AnimatedSprite2D.modulate=Color(0.822, 0.822, 0.822, 1.0)
 	if variation == "champ":
 		minm = 0.7
 		maxm = 0.9

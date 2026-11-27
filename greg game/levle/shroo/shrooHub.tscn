@@ -102,6 +102,9 @@ minimi = 1.5
 [node name="warmorte" parent="." unique_id=455647942 instance=ExtResource("5_2jdll")]
 position = Vector2(348, -120)
 
+[node name="warmorte2" parent="." unique_id=1814238858 instance=ExtResource("5_2jdll")]
+position = Vector2(-2113, -1752)
+
 [node name="tiles" type="Node2D" parent="." unique_id=554914911]
 
 [node name="ground" type="TileMapLayer" parent="tiles" unique_id=1771584990]

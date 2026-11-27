@@ -7,6 +7,10 @@ var places:Dictionary = {
 "1389":"res://levle/scrapWorld/rocketrePlace.tscn",
 "3994":"res://levle/shroo/shrooHub.tscn",
 "4193":"res://levle/lab3/lab3hub.tscn",
+
+"1234":"res://levle/secrets/99.tscn",
+"07734":"res://levle/secrets/bunnyland.tscn",
+"01134":"res://levle/secrets/bunnyland.tscn",
 }
 
 func _ready() -> void:

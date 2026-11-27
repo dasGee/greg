@@ -8,7 +8,6 @@
 [ext_resource type="Script" uid="uid://6ckphmmqh6fc" path="res://scene/verymisc/healthText.gd" id="6"]
 [ext_resource type="Texture2D" uid="uid://c72sncwad8gq4" path="res://asest/sprite/allelse/waterfill.png" id="7"]
 [ext_resource type="Shader" uid="uid://cojbx6q2k6kuu" path="res://asest/shader/wator.gdshader" id="8_b7get"]
-[ext_resource type="Texture2D" uid="uid://ckc3i77jt86nm" path="res://asest/sprite/allelse/square.png" id="9_6hasa"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f60wf"]
 font_size = 10
@@ -55,6 +54,7 @@ volume_db = -10.0
 bus = &"sfx"
 
 [node name="Node" type="Node2D" parent="." unique_id=691970376]
+z_index = 99
 position = Vector2(43.5, -35.1)
 script = ExtResource("2")
 
@@ -156,7 +156,7 @@ texture = ExtResource("3")
 
 [node name="Bubble" type="Sprite2D" parent="." unique_id=755031766]
 self_modulate = Color(1, 1, 1, 0.32156864)
-z_index = -1
+z_index = 70
 material = SubResource("ShaderMaterial_5xe0w")
 position = Vector2(207.5, 16.900002)
 scale = Vector2(2.45, 2.45)
@@ -164,13 +164,14 @@ texture = ExtResource("5")
 
 [node name="Bubble2" type="Sprite2D" parent="." unique_id=616080339]
 self_modulate = Color(1, 1, 1, 0.32156864)
-z_index = -1
+z_index = 70
 material = SubResource("ShaderMaterial_5xe0w")
 position = Vector2(207.5, 714.9)
 scale = Vector2(2.45, 2.45)
 texture = ExtResource("5")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=374371784]
+z_index = 99
 script = ExtResource("6")
 wave = true
 
@@ -225,10 +226,12 @@ nine_patch_stretch = true
 texture_progress = ExtResource("7")
 texture_progress_offset = Vector2(-64, -64)
 
-[node name="Square2" type="Sprite2D" parent="." unique_id=1309888951]
+[node name="Square2" type="ColorRect" parent="." unique_id=1569302452]
+visible = false
 modulate = Color(0.494, 0.86639994, 0.95, 0.5058824)
-z_index = 1
 material = SubResource("ShaderMaterial_6hasa")
-position = Vector2(640, 359.99997)
-scale = Vector2(1280, 720)
-texture = ExtResource("9_6hasa")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

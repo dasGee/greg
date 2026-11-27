@@ -14,22 +14,22 @@ func _physics_process(delta: float) -> void :
 
 func _ready():
 	super ()
-	if randf() > 0.98:
+	if randf() > 0.995:
 		$AnimatedSprite2D2.visible = false
 		$AnimatedSprite2D.play("rare")
 		$AnimatedSprite2D.scale = Vector2(0.3, 0.3)
 	if randf() > 0.5:
 		$AnimatedSprite2D2.flip_h = true
-	if randf() > 0.95:
+	if randf() > 0.98:
 		$AnimatedSprite2D2.flip_v = true
 	if randf() > 0.15:
 		if get_tree().current_scene.cangreen==true:
-			$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(0, 1), randf_range(0.5, 0.85), randf_range(0.85, 1))
+			$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(get_tree().current_scene.frMi, get_tree().current_scene.frMa), randf_range(get_tree().current_scene.frSaMi, get_tree().current_scene.frSaMa), randf_range(0.85, 1))
 		else:
 			$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(0.5, 1), randf_range(0.5, 0.85), randf_range(0.85, 1))
 	else:
 		if get_tree().current_scene.cangreen==true:
-			$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(0, 1), randf_range(0, 1), randf_range(0, 1))
+			$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(get_tree().current_scene.frMi, get_tree().current_scene.frMa), randf_range(get_tree().current_scene.frSaMi, get_tree().current_scene.frSaMa), randf_range(0.85, 1))
 		else:
 			if randi()%3 >= 1:
 				$AnimatedSprite2D.modulate = Color.from_hsv(randf_range(0.5, 1), randf_range(0, 1), randf_range(0, 1))

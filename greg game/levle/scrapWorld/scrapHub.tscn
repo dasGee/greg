@@ -115,7 +115,6 @@ modulate = Color(1, 0.5058824, 0.45882353, 1)
 position = Vector2(-912, -272)
 scene = "res://levle/scrapWorld/level2Sc.tscn"
 textie = "scrapyard - variation"
-champ = true
 islevel = true
 levelis = "scrap_variations"
 

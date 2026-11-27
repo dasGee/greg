@@ -110,7 +110,7 @@ hue_variation_min = -2.2351742e-08
 hue_variation_max = -2.2351742e-08
 
 [node name="boom" type="Node2D" unique_id=203862310]
-z_index = 2
+z_index = 4
 script = ExtResource("1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1904922197]

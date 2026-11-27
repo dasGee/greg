@@ -20,7 +20,6 @@ var wa = 99
 
 func thingie():
 	if health <= 0 and bingbing == false and beee == true:
-		g.scrap+=5
 		beee = false
 		boo = boom.instantiate()
 		boo.global_position = global_position
@@ -38,9 +37,9 @@ func _ready():
 		burst = randi_range(1,2)
 		$Timer.wait_time *= randf_range(2,4)
 		wa = 99
-		$AnimatedSprite2D / TurretGun / Marker2D.position = Vector2(50,0)
-		$AnimatedSprite2D/TurretGun.slight = Vector2(0,-25)
-		anothervariableidontreallycareabout = 1
+		#$AnimatedSprite2D / TurretGun / Marker2D.position = Vector2(50,0)
+		#$AnimatedSprite2D/TurretGun.slight = Vector2(0,-25)
+		anothervariableidontreallycareabout = 1.5
 		$AnimatedSprite2D / TurretGun.play("dirt")
 		$AnimatedSprite2D / TurretTabke.play("dirt")
 		CurColor = Color("ffffffff")

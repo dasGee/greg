@@ -46,7 +46,6 @@
 [ext_resource type="Texture2D" uid="uid://cpeh7h53h185w" path="res://asest/sprite/allelse/label100orb.png" id="29"]
 [ext_resource type="Texture2D" uid="uid://jgx60jumk2gd" path="res://asest/sprite/toolwheelsprites/rocket.png" id="30"]
 [ext_resource type="Script" uid="uid://dwi86rjvr4lfg" path="res://scrpt/hehe/rich_text_label.gd" id="31"]
-[ext_resource type="Texture2D" uid="uid://crf5bntq1t3e2" path="res://asest/sprite/toolwheelsprites/hand.png" id="32"]
 
 [sub_resource type="Animation" id="Animation_vmid0"]
 length = 0.001
@@ -234,13 +233,11 @@ bus = &"sfx"
 [node name="yes" type="AudioStreamPlayer" parent="." unique_id=1761491254]
 stream = ExtResource("3_poeja")
 volume_db = 5.0
-stream_paused = true
 bus = &"sfx"
 
 [node name="no" type="AudioStreamPlayer" parent="." unique_id=445673371]
 stream = ExtResource("4_v1skj")
 volume_db = 5.0
-stream_paused = true
 bus = &"sfx"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1263678113]
@@ -593,10 +590,6 @@ visible_ratio = 0.4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Window/RichTextLabel2" unique_id=1454499377]
 libraries/ = SubResource("AnimationLibrary_ddhon")
-
-[node name="StatusIndicator" type="StatusIndicator" parent="." unique_id=1614424842]
-tooltip = "YOU ARE CURRENTLY GREGGING"
-icon = ExtResource("32")
 
 [connection signal="timeout" from="scoreDec" to="." method="_on_score_dec_timeout"]
 [connection signal="about_to_popup" from="Window" to="Window" method="_on_about_to_popup"]

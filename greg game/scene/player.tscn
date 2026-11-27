@@ -13,8 +13,8 @@ shader_parameter/width = 1.0000000475
 shader_parameter/pattern = 1
 shader_parameter/modulate_affects_color = true
 shader_parameter/inside = false
-shader_parameter/add_margins = false
-shader_parameter/number_of_images = Vector2(3, 3)
+shader_parameter/add_margins = true
+shader_parameter/number_of_images = Vector2(4, 3)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s4jxa"]
 shader = ExtResource("1")
@@ -257,7 +257,7 @@ position = Vector2(0, 2)
 scale = Vector2(0.45833334, 0.45833334)
 sprite_frames = SubResource("SpriteFrames_bpy1u")
 animation = &"walk"
-frame_progress = 0.9721304
+frame_progress = 0.78812444
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2000779627]
 position = Vector2(0, 4)

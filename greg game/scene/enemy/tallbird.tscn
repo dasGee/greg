@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bjetcoyyklx6a" path="res://scene/enemy/tallbird.gd" id="1_e18i1"]
 [ext_resource type="Shader" uid="uid://dx8kkb63pspox" path="res://asest/shader/outline.gdshader" id="2_xkurb"]
 [ext_resource type="Texture2D" uid="uid://vnthrs3u155c" path="res://asest/sprite/allelse/birds.png" id="3_2cxv6"]
+[ext_resource type="Texture2D" uid="uid://b2dryjyt7wk2t" path="res://asest/sprite/allelse/birdsChamp.png" id="4_xkurb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx7w4"]
 custom_solver_bias = 0.9
@@ -39,12 +40,32 @@ region = Rect2(192, 0, 64, 96)
 atlas = ExtResource("3_2cxv6")
 region = Rect2(128, 96, 64, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cxv6"]
+atlas = ExtResource("4_xkurb")
+region = Rect2(128, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5l5x"]
+atlas = ExtResource("4_xkurb")
+region = Rect2(192, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g606"]
+atlas = ExtResource("4_xkurb")
+region = Rect2(128, 96, 64, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_81tdw"]
 atlas = ExtResource("3_2cxv6")
 region = Rect2(0, 0, 64, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nj5nv"]
 atlas = ExtResource("3_2cxv6")
+region = Rect2(192, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdliy"]
+atlas = ExtResource("4_xkurb")
+region = Rect2(0, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xvw2u"]
+atlas = ExtResource("4_xkurb")
 region = Rect2(192, 96, 64, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7o5cq"]
@@ -57,6 +78,18 @@ region = Rect2(0, 96, 64, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u13mh"]
 atlas = ExtResource("3_2cxv6")
+region = Rect2(64, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rydh5"]
+atlas = ExtResource("4_xkurb")
+region = Rect2(64, 0, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ganrs"]
+atlas = ExtResource("4_xkurb")
+region = Rect2(0, 96, 64, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg7sb"]
+atlas = ExtResource("4_xkurb")
 region = Rect2(64, 96, 64, 96)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xx7w4"]
@@ -82,6 +115,26 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_2cxv6")
+}, {
+"duration": 0.65,
+"texture": SubResource("AtlasTexture_f5l5x")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_0g606")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_f5l5x")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_2cxv6")
+}],
+"loop": 1,
+"name": &"pokechamp",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_81tdw")
 }, {
@@ -90,6 +143,17 @@ animations = [{
 }],
 "loop": 1,
 "name": &"stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_kdliy")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_xvw2u")
+}],
+"loop": 1,
+"name": &"standchamp",
 "speed": 5.0
 }, {
 "frames": [{
@@ -104,6 +168,20 @@ animations = [{
 }],
 "loop": 1,
 "name": &"walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_rydh5")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_ganrs")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_hg7sb")
+}],
+"loop": 1,
+"name": &"walkchamp",
 "speed": 5.0
 }]
 
@@ -157,15 +235,14 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_xx7w4")
 animation = &"stand"
 autoplay = "stand"
-frame_progress = 0.21844828
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1794680426]
-position = Vector2(23, 23)
+position = Vector2(25, 23)
 target_position = Vector2(0, 10)
 collision_mask = 2097153
 
 [node name="RayCast2D2" type="RayCast2D" parent="." unique_id=531138283]
-position = Vector2(-23, 23)
+position = Vector2(-25, 23)
 target_position = Vector2(0, 10)
 collision_mask = 2097153
 
